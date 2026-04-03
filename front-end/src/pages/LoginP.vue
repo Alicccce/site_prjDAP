@@ -30,6 +30,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const showRegister = ref(false)
 const loginEmail = ref('')
@@ -44,11 +47,13 @@ const regErrors = ref({})
 
 const handleLogin = () => {
   if (!validateLogin()) return
-  console.log('Вход:', loginEmail.value)
+  router.push('/start')
+  //console.log('Вход:', loginEmail.value)
 }
 const handleRegister = () => {
   if (!validateRegister()) return
-  console.log('Регистрация:', regName.value, regEmail.value)
+  router.push('/start')
+  //console.log('Регистрация:', regName.value, regEmail.value)
 }
 
 const validateEmail = (email) => {
