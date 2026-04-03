@@ -1,0 +1,15 @@
+Методы (что делаем):
+GET - получить данные
+POST - создать новые данные
+PUT - обновить данные
+DELETE - удалить данные
+
+
+/api/auth/register(POST, регистрация)
+/api/auth/login(POST, вход)
+/api/analyze/by-position(GET, анализ по должности)
+/api/user/skills(POST, cохранить навыки)
+/api/analyze/by-filters(GET, поиск с фильтрами)
+/api/plans/generate(POST, сгенерировать план)
+/api/user/profile(GET, получить профиль)
+/api/user/plans(GET, получить планы)
