@@ -1,5 +1,5 @@
 from services.auth_service import AuthService
-from repositories.user_repository import UserRepository
+from repositories.user_repo import UserRepository
 import pytest
 
 @pytest.fixture
