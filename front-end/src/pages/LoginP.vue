@@ -7,9 +7,11 @@
       <p v-if="loginErrors.email" class="error">{{ loginErrors.email }}</p>
       <input type="password" placeholder="Пароль" v-model="loginPassword" />
       <p v-if="loginErrors.password" class="error">{{ loginErrors.password }}</p>
-    
-      <button @click="handleLogin">Войти</button>
-      <p class="toggle-link" @click="showRegister = true">Зарегистрироваться</p>
+      <button @click="handleLogin" :disabled="loading">
+        {{ loading ? 'Загрузка...' : 'Войти' }}
+      </button>
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+      <p class="toggle-link" @click="toggleToRegister">Зарегистрироваться</p>
     </div>
 
     <!-- Рег (по клику) -->
@@ -21,9 +23,11 @@
       <p v-if="regErrors.email" class="error">{{ regErrors.email }}</p>
       <input type="password" placeholder="Пароль" v-model="regPassword" />
       <p v-if="regErrors.password" class="error">{{ regErrors.password }}</p>
-
-      <button @click="handleRegister">Зарегистрироваться</button>
-      <p class="toggle-link" @click="showRegister = false">Назад ко входу</p>
+      <button @click="handleRegister" :disabled="loading">
+        {{ loading ? 'Загрузка...' : 'Зарегистрироваться' }}
+      </button>
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+      <p class="toggle-link" @click="toggleToLogin">Назад ко входу</p>
     </div>
   </div>
 </template>
@@ -31,6 +35,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '../stores/user'
+import { authApi } from '../api/auth'
 
 const router = useRouter()
 
@@ -45,15 +51,49 @@ const positions = ref([])
 const loginErrors = ref({})
 const regErrors = ref({})
 
-const handleLogin = () => {
+const userStore = useUserStore()
+const loading = ref(false)
+const errorMessage = ref('')
+
+const handleLogin = async () => {
+  errorMessage.value = ''
   if (!validateLogin()) return
-  router.push('/start')
-  //console.log('Вход:', loginEmail.value)
+  loading.value = true
+  try {
+    const response = await authApi.login(loginEmail.value, loginPassword.value)
+    userStore.setUser(response.data)
+    router.push('/start')
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || 'Ошибка входа'
+  } finally {
+    loading.value = false
+  }
 }
-const handleRegister = () => {
+const handleRegister = async () => {
+  errorMessage.value = ''
   if (!validateRegister()) return
-  router.push('/start')
-  //console.log('Регистрация:', regName.value, regEmail.value)
+  loading.value = true
+  try {
+    await authApi.register(regName.value, regEmail.value, regPassword.value)
+    alert('Регистрация успешна! Войдите')
+    showRegister.value = false
+  } catch (err) {
+    errorMessage.value = err.response?.data?.message || 'Ошибка регистрации'
+  } finally {
+    loading.value = false
+  }
+}
+
+const toggleToRegister = () => {
+  errorMessage.value = ''
+  loginErrors.value = {}
+  showRegister.value = true
+}
+
+const toggleToLogin = () => {
+  errorMessage.value = ''
+  regErrors.value = {}
+  showRegister.value = false
 }
 
 const validateEmail = (email) => {
