@@ -1,5 +1,4 @@
-from fastapi import FastAPI
-from fastapi import APIRouter
+from fastapi import FastAPI, APIRouter
 from pydantic import BaseModel
 from services.auth_service import AuthService
 from repositories.user_repo import UserRepository
@@ -13,7 +12,7 @@ router = APIRouter(prefix="/api/auth")
 user_repo = UserRepository()
 auth_service = AuthService(user_repo)
 
-# Pydantic модели для валидации
+# Pydantic модели
 class RegisterRequest(BaseModel):
     email: str
     password: str
@@ -23,14 +22,18 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
-@app.get("/")
-def root():
-    return {"message": "API работает"}
-
-@app.post("/register")
+# Эндпоинты теперь на router
+@router.post("/register")
 def register(data: RegisterRequest):
     return auth_service.register(data.email, data.password, data.name)
 
-@app.post("/login")
+@router.post("/login")
 def login(data: LoginRequest):
     return auth_service.login(data.email, data.password)
+
+# Подключаем router к app
+app.include_router(router)
+
+@app.get("/")
+def root():
+    return {"message": "API работает"}
