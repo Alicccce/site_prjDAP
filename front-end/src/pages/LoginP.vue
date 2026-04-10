@@ -64,7 +64,7 @@ const handleLogin = async () => {
     userStore.setUser(response.data)
     router.push('/start')
   } catch (err) {
-    errorMessage.value = err.response?.data?.message || 'Ошибка входа'
+    errorMessage.value = err.response?.data?.detail || 'Ошибка входа'
   } finally {
     loading.value = false
   }
@@ -78,7 +78,7 @@ const handleRegister = async () => {
     alert('Регистрация успешна! Войдите')
     showRegister.value = false
   } catch (err) {
-    errorMessage.value = err.response?.data?.message || 'Ошибка регистрации'
+    errorMessage.value = err.response?.data?.detail || 'Ошибка регистрации'
   } finally {
     loading.value = false
   }
