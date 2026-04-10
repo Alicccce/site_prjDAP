@@ -3,11 +3,19 @@ from pydantic import BaseModel
 from services.auth_service import AuthService
 from repositories.user_repo import UserRepository
 from DataBase import Base, engine
+from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 router = APIRouter(prefix="/api/auth")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 user_repo = UserRepository()
 auth_service = AuthService(user_repo)
