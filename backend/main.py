@@ -30,7 +30,7 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
-# Эндпоинты теперь на router
+# эндпоинты на router
 @router.post("/register")
 def register(data: RegisterRequest):
     return auth_service.register(data.email, data.password, data.name)
@@ -39,7 +39,7 @@ def register(data: RegisterRequest):
 def login(data: LoginRequest):
     return auth_service.login(data.email, data.password)
 
-# Подключаем router к app
+# подключаем router к app
 app.include_router(router)
 
 @app.get("/")
