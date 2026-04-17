@@ -5,7 +5,7 @@ class SearchService:
     def __init__(self, user_repository):
         self.user_repository = user_repository
 
-    def search(self, position):
+    #def search(self, position):
         #if self.user_repository.find_by_email(position):
         #    raise HTTPException(status_code=409, detail="Неправильный ввод")
 
