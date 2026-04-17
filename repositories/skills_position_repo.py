@@ -6,34 +6,51 @@ from colorama import init, Fore, Style
 init(autoreset=True)
 
 from datetime import datetime
+from typing import List, Dict, Any, Optional, Tuple
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy import func
 from repositories.base_repo import BaseRepository
 from DataBase import SkillsPosition, Session, Position, Skill
 
+
 class SkillsPositionRepository(BaseRepository):
     """
-    repository for position-skill analysis results (skills_position table)
-    ensures uniqueness: (session_id, position_id, skill_id) combination is unique
+    Repository for position-skill analysis results (skills_position table)
+    Ensures uniqueness: (session_id, position_id, skill_id) combination is unique
+    
+    Methods:
+        - create(): save single record with duplicate check
+        - create_batch(): save multiple records efficiently
+        - create_or_update(): create or update existing record
+        - find_by_id(), find_by_session(), find_by_position(), find_by_skill()
+        - find_by_session_with_details(): get session records with names (JOIN)
+        - find_unique(): check if record exists
+        - update(): update existing record
+        - delete(): delete record by id
+        - count_by_session(): get skill count for session
+        - get_importance_stats(): get statistics for important/not_important
+        - get_top_skills_for_position(): get top N skills by frequency
+        - get_skill_ids_by_position(): get list of skill ids
     """
     
-    def create(self, record):
+    
+    def create(self, record: SkillsPosition) -> SkillsPosition:
         """
-        save a new position-skill analysis record
-        checks if record (session_id, position_id, skill_id) already exists
+        Save a single position-skill analysis record
+        Checks if (session_id, position_id, skill_id) already exists
         
-        args:
-            record (SkillsPosition): SkillsPosition object to save
+        Args:
+            record: SkillsPosition object to save
         
-        returns:
-            SkillsPosition: saved object with record_id assigned
+        Returns:
+            Saved object with record_id assigned
         
-        raises:
-            ValueError: if such (session_id, position_id, skill_id) already exists
-            ValueError: if session_id, position_id or skill_id do not exist in db
+        Raises:
+            ValueError: if record already exists or referenced entities don't exist
         """
         session = self.get_session()
         try:
-            # проверяем, существуют ли связанные объекты
+            # check if referenced entities exist
             if not self._session_exists(session, record.session_id):
                 raise ValueError(f"Session with id '{record.session_id}' does not exist")
             
@@ -43,7 +60,7 @@ class SkillsPositionRepository(BaseRepository):
             if not self._skill_exists(session, record.skill_id):
                 raise ValueError(f"Skill with id '{record.skill_id}' does not exist")
             
-            # проверка уникальности (программная)
+            # check uniqueness
             existing = self.find_unique(
                 record.session_id,
                 record.position_id,
@@ -55,16 +72,21 @@ class SkillsPositionRepository(BaseRepository):
                     f"position_id={record.position_id}, skill_id={record.skill_id}"
                 )
             
-            # если analysis_date не указан, ставим текущее время
+            # set analysis_date if not provided
             if not record.analysis_date:
                 record.analysis_date = datetime.now()
             
-            # сохраняем запись
+            # validate frequency range
+            if record.frequency is not None:
+                record.frequency = max(0, min(100, record.frequency))
+            
+            # validate importance value
+            if record.importance not in ['important', 'not_important']:
+                record.importance = 'not_important'
+            
             session.add(record)
             session.commit()
             session.refresh(record)
-            
-            # отсоединяем объект от сессии, чтобы можно было использовать вне
             session.expunge(record)
             return record
             
@@ -74,16 +96,149 @@ class SkillsPositionRepository(BaseRepository):
         finally:
             session.close()
     
-    def find_by_id(self, record_id):
+    def create_batch(self, records: List[SkillsPosition]) -> List[SkillsPosition]:
         """
-        find record by id
+        Save multiple records efficiently in a single transaction
         
-        args:
-            record_id (int): record id
+        Args:
+            records: list of SkillsPosition objects to save
         
-        returns:
-            SkillsPosition or None: found record or None
+        Returns:
+            List of saved objects with record_ids assigned
+        
+        Raises:
+            ValueError: if any record is invalid or duplicate
         """
+        if not records:
+            return []
+        
+        session = self.get_session()
+        created_records = []
+        
+        try:
+            # pre-validate all records
+            for record in records:
+                # set analysis_date if not provided
+                if not record.analysis_date:
+                    record.analysis_date = datetime.now()
+                
+                # validate frequency range
+                if record.frequency is not None:
+                    record.frequency = max(0, min(100, record.frequency))
+                
+                # validate importance value
+                if record.importance not in ['important', 'not_important']:
+                    record.importance = 'not_important'
+                
+                # check if referenced entities exist
+                if not self._session_exists(session, record.session_id):
+                    raise ValueError(f"Session with id '{record.session_id}' does not exist")
+                
+                if not self._position_exists(session, record.position_id):
+                    raise ValueError(f"Position with id '{record.position_id}' does not exist")
+                
+                if not self._skill_exists(session, record.skill_id):
+                    raise ValueError(f"Skill with id '{record.skill_id}' does not exist")
+                
+                # check uniqueness for each record
+                existing = self.find_unique(
+                    record.session_id,
+                    record.position_id,
+                    record.skill_id
+                )
+                if existing:
+                    raise ValueError(
+                        f"Duplicate record: session_id={record.session_id}, "
+                        f"position_id={record.position_id}, skill_id={record.skill_id}"
+                    )
+            
+            # bulk save all records
+            for record in records:
+                session.add(record)
+                session.commit()
+
+            for record in records:
+                session.refresh(record)
+                session.expunge(record)
+                created_records.append(record)
+            
+            return created_records
+            
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()
+    
+    def create_or_update(self, record: SkillsPosition) -> Tuple[SkillsPosition, bool]:
+        """
+        Create new record or update existing one if already exists
+        
+        Args:
+            record: SkillsPosition object to save or update
+        
+        Returns:
+            Tuple (record, created_flag) where created_flag is True if new record was created
+        
+        Raises:
+            ValueError: if referenced entities don't exist
+        """
+        session = self.get_session()
+        try:
+            # check if referenced entities exist
+            if not self._session_exists(session, record.session_id):
+                raise ValueError(f"Session with id '{record.session_id}' does not exist")
+            
+            if not self._position_exists(session, record.position_id):
+                raise ValueError(f"Position with id '{record.position_id}' does not exist")
+            
+            if not self._skill_exists(session, record.skill_id):
+                raise ValueError(f"Skill with id '{record.skill_id}' does not exist")
+            
+            # check if record exists
+            existing = session.query(SkillsPosition).filter(
+                SkillsPosition.session_id == record.session_id,
+                SkillsPosition.position_id == record.position_id,
+                SkillsPosition.skill_id == record.skill_id
+            ).first()
+            
+            if existing:
+                # update existing record
+                existing.frequency = record.frequency
+                existing.importance = record.importance
+                existing.analysis_date = datetime.now()
+                
+                session.commit()
+                session.refresh(existing)
+                session.expunge(existing)
+                return existing, False
+            else:
+                # create new record
+                if not record.analysis_date:
+                    record.analysis_date = datetime.now()
+                
+                # validate values
+                if record.frequency is not None:
+                    record.frequency = max(0, min(100, record.frequency))
+                
+                if record.importance not in ['important', 'not_important']:
+                    record.importance = 'not_important'
+                
+                session.add(record)
+                session.commit()
+                session.refresh(record)
+                session.expunge(record)
+                return record, True
+            
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()
+    
+    
+    def find_by_id(self, record_id: int) -> Optional[SkillsPosition]:
+        """Find record by id"""
         session = self.get_session()
         try:
             record = session.query(SkillsPosition).filter(
@@ -96,43 +251,87 @@ class SkillsPositionRepository(BaseRepository):
         finally:
             session.close()
     
-    def find_by_session(self, session_id):
-        """
-        find all analysis records for a specific session
-        
-        args:
-            session_id (int): session id
-        
-        returns:
-            list[SkillsPosition]: list of records (may be empty)
-        """
+    def find_by_session(self, session_id: int) -> List[SkillsPosition]:
+        """Find all analysis records for a specific session"""
         session = self.get_session()
         try:
             records = session.query(SkillsPosition).filter(
                 SkillsPosition.session_id == session_id
             ).all()
             
-            # отсоединяем все объекты от сессии
             for record in records:
                 session.expunge(record)
             return records
         finally:
             session.close()
     
-    def find_by_position(self, position_id):
+    def find_by_session_with_details(self, session_id: int) -> List[Dict[str, Any]]:
         """
-        find all skills required for a specific position (across all sessions)
+        Find all records for a session with position and skill names (using JOIN)
+        Optimized for display to users
         
-        args:
-            position_id (int): position id
+        Args:
+            session_id: session id
         
-        returns:
-            list[dict]: list of dicts with skill info and analysis details
-            example: [{"skill_id": 1, "skill_name": "Python", "frequency": 85, "importance": "important"}, ...]
+        Returns:
+            List of dicts with full details:
+            [
+                {
+                    "record_id": 1,
+                    "position_id": 1,
+                    "position_name": "Data Scientist",
+                    "skill_id": 1,
+                    "skill_name": "Python",
+                    "frequency": 95,
+                    "importance": "important",
+                    "analysis_date": "2024-01-01 12:00:00"
+                },
+                ...
+            ]
         """
         session = self.get_session()
         try:
-            # join with skills table to get skill name
+            results = session.query(
+                SkillsPosition.record_id,
+                SkillsPosition.session_id,
+                SkillsPosition.position_id,
+                Position.name.label("position_name"),
+                SkillsPosition.skill_id,
+                Skill.name.label("skill_name"),
+                SkillsPosition.frequency,
+                SkillsPosition.importance,
+                SkillsPosition.analysis_date
+            ).join(
+                Position, SkillsPosition.position_id == Position.id
+            ).join(
+                Skill, SkillsPosition.skill_id == Skill.id
+            ).filter(
+                SkillsPosition.session_id == session_id
+            ).order_by(
+                SkillsPosition.frequency.desc()
+            ).all()
+            
+            return [
+                {
+                    "record_id": r.record_id,
+                    "session_id": r.session_id,
+                    "position_id": r.position_id,
+                    "position_name": r.position_name,
+                    "skill_id": r.skill_id,
+                    "skill_name": r.skill_name,
+                    "frequency": r.frequency,
+                    "importance": r.importance,
+                    "analysis_date": r.analysis_date
+                }
+                for r in results
+            ]
+        finally:
+            session.close()
+    
+    def find_by_position(self, position_id: int) -> List[Dict[str, Any]]:
+        """Find all skills required for a specific position (across all sessions)"""
+        session = self.get_session()
+        try:
             results = session.query(
                 Skill.id.label("skill_id"),
                 Skill.name.label("skill_name"),
@@ -145,8 +344,7 @@ class SkillsPositionRepository(BaseRepository):
                 SkillsPosition.position_id == position_id
             ).all()
             
-            # convert to list of dicts for easier use
-            skills_list = [
+            return [
                 {
                     "skill_id": r.skill_id,
                     "skill_name": r.skill_name,
@@ -156,24 +354,51 @@ class SkillsPositionRepository(BaseRepository):
                 }
                 for r in results
             ]
-            return skills_list
         finally:
             session.close()
     
-    def find_by_skill(self, skill_id):
+    def find_by_position_with_frequency(self, position_id: int) -> List[Dict[str, Any]]:
         """
-        find all positions that require a specific skill (across all sessions)
+        Get all skills for a position with frequency data
+        Optimized for generating learning plans
         
-        args:
-            skill_id (int): skill id
+        Args:
+            position_id: position id
         
-        returns:
-            list[dict]: list of dicts with position info and analysis details
-            example: [{"position_id": 1, "position_name": "Data Scientist", "frequency": 85, "importance": "important"}, ...]
+        Returns:
+            List of skills sorted by frequency (highest first)
         """
         session = self.get_session()
         try:
-            # join with position table to get position name
+            results = session.query(
+                Skill.id.label("skill_id"),
+                Skill.name.label("skill_name"),
+                SkillsPosition.frequency,
+                SkillsPosition.importance
+            ).join(
+                SkillsPosition, SkillsPosition.skill_id == Skill.id
+            ).filter(
+                SkillsPosition.position_id == position_id
+            ).order_by(
+                SkillsPosition.frequency.desc()
+            ).all()
+            
+            return [
+                {
+                    "skill_id": r.skill_id,
+                    "skill_name": r.skill_name,
+                    "frequency": r.frequency,
+                    "importance": r.importance
+                }
+                for r in results
+            ]
+        finally:
+            session.close()
+    
+    def find_by_skill(self, skill_id: int) -> List[Dict[str, Any]]:
+        """Find all positions that require a specific skill"""
+        session = self.get_session()
+        try:
             results = session.query(
                 Position.id.label("position_id"),
                 Position.name.label("position_name"),
@@ -186,8 +411,7 @@ class SkillsPositionRepository(BaseRepository):
                 SkillsPosition.skill_id == skill_id
             ).all()
             
-            # convert to list of dicts for easier use
-            positions_list = [
+            return [
                 {
                     "position_id": r.position_id,
                     "position_name": r.position_name,
@@ -197,22 +421,11 @@ class SkillsPositionRepository(BaseRepository):
                 }
                 for r in results
             ]
-            return positions_list
         finally:
             session.close()
     
-    def find_unique(self, session_id, position_id, skill_id):
-        """
-        check if such record already exists
-        
-        args:
-            session_id (int): session id
-            position_id (int): position id
-            skill_id (int): skill id
-        
-        returns:
-            SkillsPosition or None: found record or None
-        """
+    def find_unique(self, session_id: int, position_id: int, skill_id: int) -> Optional[SkillsPosition]:
+        """Check if such record already exists"""
         session = self.get_session()
         try:
             record = session.query(SkillsPosition).filter(
@@ -227,104 +440,62 @@ class SkillsPositionRepository(BaseRepository):
         finally:
             session.close()
     
-    def update(self, record):
+    # методы для аналитики и статистики
+    
+    def count_by_session(self, session_id: int) -> int:
         """
-        update record (e.g., change frequency or importance)
+        Get number of skills found in a session
         
-        args:
-            record (SkillsPosition): SkillsPosition object with updated data
+        Args:
+            session_id: session id
         
-        returns:
-            SkillsPosition: updated object
-        
-        raises:
-            ValueError: if record with such record_id not found
+        Returns:
+            Count of skills for this session
         """
         session = self.get_session()
         try:
-            # проверяем, существует ли запись
-            existing = self.find_by_id(record.record_id)
-            if not existing:
-                raise ValueError(f"SkillsPosition record with id '{record.record_id}' not found")
-            
-            # обновляем запись
-            merged_record = session.merge(record)
-            session.commit()
-            session.refresh(merged_record)
-            session.expunge(merged_record)
-            return merged_record
-            
-        except Exception as e:
-            session.rollback()
-            raise e
+            count = session.query(func.count(SkillsPosition.record_id)).filter(
+                SkillsPosition.session_id == session_id
+            ).scalar()
+            return count or 0
         finally:
             session.close()
     
-    def delete(self, record_id):
+    def get_importance_stats(self, session_id: int) -> Dict[str, int]:
         """
-        delete record by id
+        Get statistics for important/not_important skills in a session
         
-        args:
-            record_id (int): record id
+        Args:
+            session_id: session id
         
-        returns:
-            bool: True if deletion successful
-        
-        raises:
-            ValueError: if record with such id not found
+        Returns:
+            Dict with counts: {"important": 5, "not_important": 3, "total": 8}
         """
         session = self.get_session()
         try:
-            record = self.find_by_id(record_id)
-            if not record:
-                raise ValueError(f"SkillsPosition record with id '{record_id}' not found")
+            results = session.query(
+                SkillsPosition.importance,
+                func.count(SkillsPosition.record_id).label("count")
+            ).filter(
+                SkillsPosition.session_id == session_id
+            ).group_by(
+                SkillsPosition.importance
+            ).all()
             
-            # получаем объект заново в текущей сессии для удаления
-            record_to_delete = session.query(SkillsPosition).filter(
-                SkillsPosition.record_id == record_id
-            ).first()
+            stats = {"important": 0, "not_important": 0, "total": 0}
+            for importance, count in results:
+                if importance == "important":
+                    stats["important"] = count
+                elif importance == "not_important":
+                    stats["not_important"] = count
+                stats["total"] += count
             
-            session.delete(record_to_delete)
-            session.commit()
-            return True
-            
-        except Exception as e:
-            session.rollback()
-            raise e
+            return stats
         finally:
             session.close()
     
-    def get_skill_ids_by_position(self, position_id):
-        """
-        utility method: get list of skill ids for a specific position
-        
-        args:
-            position_id (int): position id
-        
-        returns:
-            list[int]: list of skill ids (no duplicates)
-        """
-        session = self.get_session()
-        try:
-            skill_ids = session.query(SkillsPosition.skill_id).filter(
-                SkillsPosition.position_id == position_id
-            ).distinct().all()
-            
-            return [sid[0] for sid in skill_ids]
-        finally:
-            session.close()
-    
-    def get_top_skills_for_position(self, position_id, limit=10):
-        """
-        get top N skills for a position sorted by frequency (highest first)
-        
-        args:
-            position_id (int): position id
-            limit (int): max number of skills to return (default 10)
-        
-        returns:
-            list[dict]: list of dicts with skill info sorted by frequency desc
-        """
+    def get_top_skills_for_position(self, position_id: int, limit: int = 10) -> List[Dict[str, Any]]:
+        """Get top N skills for a position sorted by frequency (highest first)"""
         session = self.get_session()
         try:
             results = session.query(
@@ -340,7 +511,7 @@ class SkillsPositionRepository(BaseRepository):
                 SkillsPosition.frequency.desc()
             ).limit(limit).all()
             
-            skills_list = [
+            return [
                 {
                     "skill_id": r.skill_id,
                     "skill_name": r.skill_name,
@@ -349,20 +520,101 @@ class SkillsPositionRepository(BaseRepository):
                 }
                 for r in results
             ]
-            return skills_list
+        finally:
+            session.close()
+    
+    def get_skill_ids_by_position(self, position_id: int) -> List[int]:
+        """Utility method: get list of skill ids for a specific position"""
+        session = self.get_session()
+        try:
+            skill_ids = session.query(SkillsPosition.skill_id).filter(
+                SkillsPosition.position_id == position_id
+            ).distinct().all()
+            
+            return [sid[0] for sid in skill_ids]
+        finally:
+            session.close()
+    
+
+            
+            #обновление методов
+    def update(self, record: SkillsPosition) -> SkillsPosition:
+        """Update record (e.g., change frequency or importance)"""
+        session = self.get_session()
+        try:
+            existing = self.find_by_id(record.record_id)
+            if not existing:
+                raise ValueError(f"SkillsPosition record with id '{record.record_id}' not found")
+            
+            merged_record = session.merge(record)
+            session.commit()
+            session.refresh(merged_record)
+            session.expunge(merged_record)
+            return merged_record
+            
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()
+    
+    
+            #удаление методов
+    def delete(self, record_id: int) -> bool:
+        """Delete record by id"""
+        session = self.get_session()
+        try:
+            record = self.find_by_id(record_id)
+            if not record:
+                raise ValueError(f"SkillsPosition record with id '{record_id}' not found")
+            
+            record_to_delete = session.query(SkillsPosition).filter(
+                SkillsPosition.record_id == record_id
+            ).first()
+            
+            session.delete(record_to_delete)
+            session.commit()
+            return True
+            
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()
+    
+    def delete_by_session(self, session_id: int) -> int:
+        """
+        Delete all records for a specific session
+        
+        Args:
+            session_id: session id
+        
+        Returns:
+            Number of deleted records
+        """
+        session = self.get_session()
+        try:
+            deleted_count = session.query(SkillsPosition).filter(
+                SkillsPosition.session_id == session_id
+            ).delete()
+            session.commit()
+            return deleted_count
+        except Exception as e:
+            session.rollback()
+            raise e
         finally:
             session.close()
     
     # вспомогательные методы
     
-    def _session_exists(self, session, session_id):
-        """check if session with such id exists"""
+    def _session_exists(self, session, session_id: int) -> bool:
+        """Check if session with such id exists"""
         return session.query(Session).filter(Session.id == session_id).first() is not None
     
-    def _position_exists(self, session, position_id):
-        """check if position with such id exists"""
+    def _position_exists(self, session, position_id: int) -> bool:
+        """Check if position with such id exists"""
         return session.query(Position).filter(Position.id == position_id).first() is not None
     
-    def _skill_exists(self, session, skill_id):
-        """check if skill with such id exists"""
+    def _skill_exists(self, session, skill_id: int) -> bool:
+        """Check if skill with such id exists"""
         return session.query(Skill).filter(Skill.id == skill_id).first() is not None
