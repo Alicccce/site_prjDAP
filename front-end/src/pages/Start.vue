@@ -1,6 +1,7 @@
 <template>
-  <div class="button-page">
-    <div class="buttons-container">
+  <div class="start_page">
+    <p class="admin-message">{{ adminText2 }}</p>
+    <div class="starts-container">
       <button class="btn btn-left" @click="$router.push('/search')">
         <span class="btn-text">ЗНАЮ ЧЕГО ХОЧУ</span>
       </button>
@@ -15,22 +16,30 @@
 <script setup>
 import { ref } from 'vue'
 
-const adminText = ref('Добро пожаловать! Мы поможем тебе составить план обучения навыков:)\nМного всего тебе расскажем и покажем. Твоя задача следовать инструкциям.')
+const adminText = ref([
+  '💡Нажмите кнопку слева, если знаете должность, на которой хотели бы работать, вам нужно будет ввести конкретное название вакансии.', '',
+  '🔦Нажмите кнопку справа, если слабо представляете, кем хотели бы работать, но у вас есть конкретные запросы и проф. навыки.',
+].join('\n'))
+
+const adminText2 = ref([
+  'Добро пожаловать!',
+  'Мы поможем вам составить план обучения навыкам:)', 
+  'Но для начала нужно определиться с вашими запросами.', 
+].join('\n'))
 
 </script>
 
 <style scoped>
-.button-page {
-  min-height: 60vh;
+.start_page {
+  min-height: 70vh;
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
 }
 
-.buttons-container {
+.starts-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,9 +86,9 @@ const adminText = ref('Добро пожаловать! Мы поможем те
   text-align: center;
   font-size: 20px;
   color: #000000;
-  padding: 12px 24px;
-  max-width: 52%;
-  line-height: 0,5;
+  padding: 70px 2px;
+  max-width: 720px;
+  white-space: pre-line;
   -webkit-text-stroke: 0,8px #7a4e30;
 }
 </style>

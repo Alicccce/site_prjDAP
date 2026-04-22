@@ -5,7 +5,12 @@
       <h3>Вход</h3>
       <input type="email" placeholder="Email" v-model="loginEmail" />
       <p v-if="loginErrors.email" class="error">{{ loginErrors.email }}</p>
-      <input type="password" placeholder="Пароль" v-model="loginPassword" />
+      <div style="position: relative;">
+        <input :type="showPassword ? 'text' : 'password'" placeholder="Пароль" v-model="loginPassword" />
+        <span @click="showPassword = !showPassword" style="position: absolute; right: 10px; top: 50%; 
+        transform: translateY(-50%); cursor: pointer;"> 👁️
+        </span>
+      </div>
       <p v-if="loginErrors.password" class="error">{{ loginErrors.password }}</p>
       <button @click="handleLogin" :disabled="loading">
         {{ loading ? 'Загрузка...' : 'Войти' }}
@@ -21,7 +26,12 @@
       <p v-if="regErrors.name" class="error">{{ regErrors.name }}</p>
       <input type="email" placeholder="Email" v-model="regEmail" />
       <p v-if="regErrors.email" class="error">{{ regErrors.email }}</p>
-      <input type="password" placeholder="Пароль" v-model="regPassword" />
+      <div style="position: relative;">
+        <input :type="showPassword ? 'text' : 'password'" placeholder="Пароль" v-model="regPassword" />
+        <span @click="showPassword = !showPassword" style="position: absolute; right: 10px; top: 50%; 
+        transform: translateY(-50%); cursor: pointer;"> 👁️
+        </span>
+      </div>
       <p v-if="regErrors.password" class="error">{{ regErrors.password }}</p>
       <button @click="handleRegister" :disabled="loading">
         {{ loading ? 'Загрузка...' : 'Зарегистрироваться' }}
@@ -47,6 +57,9 @@ const regName = ref('')
 const regEmail = ref('')
 const regPassword = ref('')
 const positions = ref([])
+
+const showPassword = ref(false)
+const showRegPassword = ref(false)
 
 const loginErrors = ref({})
 const regErrors = ref({})
@@ -149,6 +162,7 @@ const validateRegister = () => {
   align-items: flex-start;
   min-height: 80vh;
   background-color: #f5f5f5;
+  padding: 60px;
 }
 
 .form-card {

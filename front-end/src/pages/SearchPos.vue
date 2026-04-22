@@ -26,6 +26,7 @@ const store = useSearchStore()
 
 const handleSearch = async () => {
   error.value = ''
+  const letterCount = (query.value.match(/[a-zA-Zа-яА-Я]/g) || []).length
   if (!query.value) {
     error.value = 'Введите запрос'
     return
@@ -33,6 +34,10 @@ const handleSearch = async () => {
   if (query.value.length < 6) {
     error.value = 'Минимум 6 символа'
     return
+  }
+  if (letterCount < 3) {
+      error.value = 'Минимум 3 буквы'
+      return
   }
   store.loading = true
   try {
