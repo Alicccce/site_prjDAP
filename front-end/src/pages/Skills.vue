@@ -1,10 +1,11 @@
 <template>
   <div class="vacancy-page">
     <div class="vacancy-card">
-      <h1 class="vacancy-title">Должность: {{ vacancy.title }}</h1>
+      <h1 class="vacancy-title">Должность: {{ analysisData.jobTitle }}</h1>
+      <button @click="resetSkills" class="reset-btn-small">Сбросить</button>
 
       <!-- Обязательные навыки -->
-      <div class="skills-section">
+      <div v-if="mandatorySkills.length" class="skills-section">
         <h2 class="section-title mandatory">Обязательные навыки:</h2>
         <div class="skills-table">
           <div class="skills-header">
@@ -12,7 +13,7 @@
             <span>Владею</span>
             <span>Не знаю</span>
           </div>
-          <div v-for="(skill, index) in vacancy.mandatory" :key="index" class="skills-row">
+          <div v-for="(skill, index) in mandatorySkills" :key="index" class="skills-row">
             <span class="skill-name">{{ skill }}</span>
             <div class="checkbox-cell">
               <input type="radio" :name="'mandatory-' + index" value="know" v-model="mandatoryStatus[index]" />
@@ -25,7 +26,7 @@
       </div>
 
       <!-- Необязательные навыки -->
-      <div class="skills-section">
+      <div v-if="optionalSkills.length" class="skills-section">
         <h2 class="section-title optional">Необязательные навыки, но полезные в собеседовании:</h2>
         <div class="skills-table">
           <div class="skills-header">
@@ -33,7 +34,7 @@
             <span>Владею</span>
             <span>Не знаю</span>
           </div>
-          <div v-for="(skill, index) in vacancy.optional" :key="index" class="skills-row">
+          <div v-for="(skill, index) in optionalSkills" :key="index" class="skills-row">
             <span class="skill-name">{{ skill }}</span>
             <div class="checkbox-cell">
               <input type="radio" :name="'optional-' + index" value="know" v-model="optionalStatus[index]" />
@@ -47,48 +48,89 @@
 
       <button @click="handleContinue" :disabled="loading">
         {{ loading ? 'Загрузка...' : 'Продолжить' }}
+      
       </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { getAnalysisResult } from '../mocks/skills.js'
+import { skillsApi } from '../api/skills'
 
 const router = useRouter()
 
-const vacancy = ref({
-  title: 'Python-разработчик Junior',
-  mandatory: [
-    'Опыт программирования на Python от 1 года',
-    'Умение работать с библиотеками для анализа данных',
-    'Базовые знания принципов ООП и структур данных'
-  ],
-  optional: [
-    'Опыт работы с API',
-    'Знание основ Linux',
-    'Понимание принципов ETL'
-  ]
-})
+const jobTitle = 'Data Scientist' 
+const analysisData = ref(getAnalysisResult(jobTitle))
 
-// Статусы: null - не выбрано, 'know' - владею, 'dontknow' - не знаю
-const mandatoryStatus = ref(vacancy.value.mandatory.map(() => null))
-const optionalStatus = ref(vacancy.value.optional.map(() => null))
+const mandatorySkills = ref([])
+const optionalSkills = ref([])
+
+const mandatoryStatus = ref([])
+const optionalStatus = ref([])
 const loading = ref(false)
 
+const resetSkills = () => {
+  mandatoryStatus.value = mandatorySkills.value.map(() => null)
+  optionalStatus.value = optionalSkills.value.map(() => null)
+  localStorage.removeItem('user_skills_answers')
+  successMessage.value = ''
+}
+
+const STORAGE_KEY = 'user_skills_answers'
+
+const saveAnswers = () => {
+  const data = {
+    mandatoryStatus: mandatoryStatus.value,
+    optionalStatus: optionalStatus.value,
+    jobTitle: analysisData.value.jobTitle
+  }
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+}
+
+const loadSavedAnswers = () => {
+  const saved = localStorage.getItem(STORAGE_KEY)
+  if (saved) {
+    const data = JSON.parse(saved)
+    if (data.mandatoryStatus) mandatoryStatus.value = data.mandatoryStatus
+    if (data.optionalStatus) optionalStatus.value = data.optionalStatus
+  }
+}
+
+watch([mandatoryStatus, optionalStatus], () => {
+  saveAnswers()
+}, { deep: true })
+
+onMounted(() => {
+  analysisData.value.skills.forEach(skill => {
+    if (skill.importance === 'mandatory') {
+      mandatorySkills.value.push(skill.name)
+    } else if (skill.importance === 'optional') {
+      optionalSkills.value.push(skill.name)
+    }
+  })
+  
+  mandatoryStatus.value = mandatorySkills.value.map(() => null)
+  optionalStatus.value = optionalSkills.value.map(() => null)
+  
+  loadSavedAnswers()  
+})
+
 const handleContinue = () => {
-  // Собираем выбранные ответы
   const mandatoryAnswers = mandatoryStatus.value.map((status, idx) => ({
-    skill: vacancy.value.mandatory[idx],
+    skill: mandatorySkills.value[idx],
     status: status === 'know' ? 'владею' : 'не знаю'
   }))
   
   const optionalAnswers = optionalStatus.value.map((status, idx) => ({
-    skill: vacancy.value.optional[idx],
+    skill: optionalSkills.value[idx],
     status: status === 'know' ? 'владею' : 'не знаю'
   }))
   
+  console.log('Должность:', analysisData.value.jobTitle)
+  console.log('Всего вакансий:', analysisData.value.totalVacancies)
   console.log('Обязательные:', mandatoryAnswers)
   console.log('Необязательные:', optionalAnswers)
   
@@ -119,7 +161,7 @@ const handleContinue = () => {
   font-size: 24px;
   font-weight: 600;
   color: #7a4e30;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   text-align: center;
   -webkit-text-stroke: 0.5px #7a4e30;
 }
@@ -156,7 +198,7 @@ const handleContinue = () => {
 .skills-header {
   display: grid;
   grid-template-columns: 1fr 80px 80px;
-  background-color: #f9f5f0;
+  background-color: #c0950813;
   padding: 12px 16px;
   font-weight: 600;
   color: #7a4e30;
@@ -211,6 +253,24 @@ button:hover {
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.reset-btn-small {
+  background: none;
+  color: #d4c53d;
+  padding: 5px 12px;
+  font-size: 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 0;
+  width: auto;
+  float: right;
+  //border: 1px solid #e74c3c;
+}
+
+.reset-btn-small:hover {
+  background-color: #d4ca3d;
+  color: white;
 }
 
 @media (max-width: 600px) {
