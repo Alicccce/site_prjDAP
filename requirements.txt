@@ -16,7 +16,7 @@ pyasn1==0.6.3
 pydantic==2.12.5
 pydantic_core==2.41.5
 pytest==8.3.0
-python-dotenv==1.0.0C
+python-dotenv==1.0.0
 python-jose==3.5.0
 requests==2.32.0
 rsa==4.9.1
