@@ -1,0 +1,80 @@
+{
+  "total_vacancies": 20,
+  "skills": [
+    {
+      "name": "Python",
+      "frequency": 100.0,
+      "count": 20
+    },
+    {
+      "name": "Go",
+      "frequency": 35.0,
+      "count": 7
+    },
+    {
+      "name": "Django",
+      "frequency": 30.0,
+      "count": 6
+    },
+    {
+      "name": "FastAPI",
+      "frequency": 25.0,
+      "count": 5
+    },
+    {
+      "name": "Docker",
+      "frequency": 10.0,
+      "count": 2
+    },
+    {
+      "name": "Git",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "Bash",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "Celery",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "unittest",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "Flask",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "SQL",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "Apache",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "GraphQL",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "gRPC",
+      "frequency": 5.0,
+      "count": 1
+    },
+    {
+      "name": "Java",
+      "frequency": 5.0,
+      "count": 1
+    }
+  ]
+}
