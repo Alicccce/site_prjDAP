@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://site-prjdapdep.onrender.com', 
+  baseURL: 'https://site-prjdapdep.onrender.com/api', 
   })
 
 // Перехватчик для добавления токена
