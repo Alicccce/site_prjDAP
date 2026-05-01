@@ -335,7 +335,7 @@ onMounted(() => {
 
 .reset-btn-small:hover {
   background-color: #d4ca3d;
-  color: white;Я
+  color: white;
 }
 
 .error {

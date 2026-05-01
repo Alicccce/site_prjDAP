@@ -19,6 +19,7 @@ import { useSearchStore } from '../stores/search'
 const router = useRouter()
 
 const position = ref('')
+const loading = ref(false)
 
 const query = ref('')
 const error = ref('')
@@ -42,7 +43,7 @@ const handleSearch = async () => {
   store.loading = true
   try {
     const response = await store.search(query.value)
-    router.push('/skills') // переход на страницу с результатами
+    router.push({ path: '/skills', state: { jobTitle: query.value } })
   } catch (err) {
     error.value = 'Ошибка запроса'
   } finally {
