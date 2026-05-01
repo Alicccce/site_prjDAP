@@ -1,12 +1,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api', // URL FastAPI
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-  }
-})
+  baseURL: 'https://site-prjdapdep.onrender.com', 
+  })
 
 // Перехватчик для добавления токена
 api.interceptors.request.use((config) => {
