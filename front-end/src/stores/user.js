@@ -6,12 +6,12 @@ export const useUserStore = defineStore('user', () => {
   const token = ref(localStorage.getItem('token') || null)
 
   const setUser = (userData) => {
-    user.value = userData
-    if (userData.token) {
-      token.value = userData.token
-      localStorage.setItem('token', userData.token)
-    }
+  user.value = userData
+  if (userData.access_token) {    
+    token.value = userData.access_token
+    localStorage.setItem('token', userData.access_token)
   }
+}
 
   const clearUser = () => {
     user.value = null

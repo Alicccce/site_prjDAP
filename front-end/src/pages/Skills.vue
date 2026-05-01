@@ -48,7 +48,7 @@
 
       <button @click="handleContinue" :disabled="loading">
         {{ loading ? 'Загрузка...' : 'Продолжить' }}
-      
+      <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
       </button>
     </div>
   </div>
@@ -71,6 +71,8 @@ const optionalSkills = ref([])
 const mandatoryStatus = ref([])
 const optionalStatus = ref([])
 const loading = ref(false)
+
+const errorMessage = ref('')
 
 const resetSkills = () => {
   mandatoryStatus.value = mandatorySkills.value.map(() => null)
@@ -128,6 +130,13 @@ const handleContinue = () => {
     skill: optionalSkills.value[idx],
     status: status === 'know' ? 'владею' : 'не знаю'
   }))
+
+  const hasUnanswered = [...mandatoryStatus.value, ...optionalStatus.value].some(s => s === null)
+  if (hasUnanswered) {
+    errorMessage.value = 'Отметьте "Владею" или "Не знаю" для всех навыков'
+    return
+  }
+  errorMessage.value = ''
   
   console.log('Должность:', analysisData.value.jobTitle)
   console.log('Всего вакансий:', analysisData.value.totalVacancies)
@@ -271,6 +280,12 @@ button:disabled {
 .reset-btn-small:hover {
   background-color: #d4ca3d;
   color: white;
+}
+
+.error {
+  color: #e74c3c;
+  margin-top: 10px;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
