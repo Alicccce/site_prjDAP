@@ -4,6 +4,7 @@ import colorama
 from colorama import init, Fore, Style
 # Инициализация colorama (автоматически настраивает кодировку)
 init(autoreset=True)
+from typing import List, Dict, Any
 from datetime import datetime
 from sqlalchemy.exc import IntegrityError
 from repositories.base_repo import BaseRepository
@@ -272,6 +273,102 @@ class SkillsUserRepository(BaseRepository):
         finally:
             session.close()
     
+
+
+    def delete_by_user_and_session(self, user_id: int, session_id: int) -> int:
+        """
+        Delete all user skill records for a specific session
+        
+        Args:
+            user_id: user id
+            session_id: session id
+        
+        Returns:
+            Number of deleted records
+        """
+        session = self.get_session()
+        try:
+            deleted_count = session.query(SkillsUser).filter(
+                SkillsUser.user_id == user_id,
+                SkillsUser.session_id == session_id
+            ).delete()
+            session.commit()
+            return deleted_count
+        except Exception as e:
+            session.rollback()
+            raise e
+        finally:
+            session.close()
+    
+    def find_by_user_and_session_with_details(self, user_id: int, session_id: int) -> List[Dict[str, Any]]:
+        """
+        Find all skills that user selected in a specific session (with skill names)
+        
+        Args:
+            user_id: user id
+            session_id: session id
+        
+        Returns:
+            List of dicts with skill details:
+            [
+                {
+                    "record_id": 1,
+                    "skill_id": 1,
+                    "skill_name": "Python",
+                    "specified_date": "2024-01-01 12:00:00"
+                },
+                ...
+            ]
+        """
+        session = self.get_session()
+        try:
+            results = session.query(
+                SkillsUser.record_id,
+                SkillsUser.skill_id,
+                Skill.name.label("skill_name"),
+                SkillsUser.specified_date
+            ).join(
+                Skill, SkillsUser.skill_id == Skill.id
+            ).filter(
+                SkillsUser.user_id == user_id,
+                SkillsUser.session_id == session_id
+            ).all()
+            
+            return [
+                {
+                    "record_id": r.record_id,
+                    "skill_id": r.skill_id,
+                    "skill_name": r.skill_name,
+                    "specified_date": r.specified_date
+                }
+                for r in results
+            ]
+        finally:
+            session.close()
+    
+    def get_skill_ids_by_user_and_session(self, user_id: int, session_id: int) -> List[int]:
+        """
+        Get just the skill ids (without details)
+        
+        Args:
+            user_id: user id
+            session_id: session id
+        
+        Returns:
+            List of skill ids
+        """
+        session = self.get_session()
+        try:
+            results = session.query(SkillsUser.skill_id).filter(
+                SkillsUser.user_id == user_id,
+                SkillsUser.session_id == session_id
+            ).all()
+            
+            return [r[0] for r in results]
+        finally:
+            session.close()
+
+
     # вспомогательные методы
     
     def _user_exists(self, session, user_id):
