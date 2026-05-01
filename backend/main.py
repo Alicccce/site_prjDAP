@@ -14,7 +14,8 @@ user_router = APIRouter(prefix="/api/user")  # ← новый роутер дл�
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["https://site-prjdap-front.onrender.com"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
