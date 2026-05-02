@@ -10,7 +10,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 router = APIRouter(prefix="/api/auth")
-user_router = APIRouter(prefix="/api/user")  # ← новый роутер для пользователя
+user_router = APIRouter(prefix="/api/user") 
 
 app.add_middleware(
     CORSMiddleware,
