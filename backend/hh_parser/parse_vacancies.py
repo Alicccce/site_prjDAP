@@ -2,7 +2,6 @@ import requests
 import json
 from typing import Dict, List, Optional, Any
 
-# Константы
 TOKEN_FILE = 'token.txt'
 DEFAULT_USER_AGENT = "MyParser/1.0"
 
