@@ -1,11 +1,29 @@
 ﻿# -*- coding: utf-8 -*-
+import colorama
+from colorama import init, Fore, Style
+# Инициализация colorama (автоматически настраивает кодировку)
+init(autoreset=True)
+import os
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, Date, Text, JSON, ForeignKey, CheckConstraint, Index
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from datetime import datetime
+from dotenv import load_dotenv
 
-# Подключение к БД
-engine = create_engine('sqlite:///database.db', echo=False)
+# загружаем переменные окружения из файла .env (если есть)
+load_dotenv()
+
+# получаем URL базы данных из переменной окружения или используем SQLite по умолчанию
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///database.db")
+
+# для PostgreSQL нужно настроить совместимость
+connect_args = {}
+if DATABASE_URL.startswith("sqlite"):
+    connect_args = {"check_same_thread": False}
+
+# создаём engine
+engine = create_engine(DATABASE_URL, echo=False, connect_args=connect_args)
 Base = declarative_base()
+
 
 # Объявление классов с индексами
 
@@ -23,6 +41,7 @@ class User(Base):
     __table_args__ = (
         Index('idx_users_email', 'email'),
     )
+
 
 # 2. Session
 class Session(Base):
@@ -43,6 +62,7 @@ class Session(Base):
         Index('idx_session_branch_type', 'branch_type'),
     )
 
+
 # 3. Position
 class Position(Base):
     __tablename__ = 'position'
@@ -54,6 +74,7 @@ class Position(Base):
         Index('idx_position_name', 'name'),
     )
 
+
 # 4. Skills
 class Skill(Base):
     __tablename__ = 'skills'
@@ -64,6 +85,7 @@ class Skill(Base):
     __table_args__ = (
         Index('idx_skills_name', 'name'),
     )
+
 
 # 5. Skills_User
 class SkillsUser(Base):
@@ -82,6 +104,7 @@ class SkillsUser(Base):
         Index('idx_skills_user_session_id', 'session_id'),
         Index('idx_skills_user_specified_date', 'specified_date'),
     )
+
 
 # 6. Skills_Position
 class SkillsPosition(Base):
@@ -105,6 +128,7 @@ class SkillsPosition(Base):
         Index('idx_skills_position_analysis_date', 'analysis_date'),
     )
 
+
 # 7. Plan
 class Plan(Base):
     __tablename__ = 'plan'
@@ -126,6 +150,7 @@ class Plan(Base):
         Index('idx_plan_ending_date', 'ending_date'),
     )
 
+
 # 8. Plan_Steps
 class PlanStep(Base):
     __tablename__ = 'plan_steps'
@@ -144,6 +169,7 @@ class PlanStep(Base):
         Index('idx_plan_steps_skill_id', 'skill_id'),
         Index('idx_plan_steps_step_number', 'step_number'),
     )
+
 
 # Настройка связей после всех классов
 
@@ -185,33 +211,34 @@ Plan.steps = relationship('PlanStep', back_populates='plan', cascade='all, delet
 PlanStep.plan = relationship('Plan', back_populates='steps')
 PlanStep.skill = relationship('Skill', back_populates='plan_steps')
 
-# Создание базы данных
+
+# Создание базы данных (только при прямом запуске)
 if __name__ == '__main__':
-    # Создаем все таблицы
     Base.metadata.create_all(engine)
-    print("Database database.db successfully created")
+    print(f"Database successfully created using: {DATABASE_URL}")
     print("\nCreated tables:")
     for table in Base.metadata.tables.keys():
         print(f"  - {table}")
     
-    # Проверка через сессию
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    
-    # Проверяем, существует ли пользователь
-    existing_user = session.query(User).filter_by(email="test2@example.com").first()
-    
-    if not existing_user:
-        test_user = User(
-            email="test2@example.com",
-            name="Тестовый пользователь",
-            password_hash="hash1234",
-            registration_date=datetime.now()
-        )
-        session.add(test_user)
-        session.commit()
-        print(f"\nTest user added (id: {test_user.id})")
-    else:
-        print(f"\nTest user already exists (id: {existing_user.id})")
-    
-    session.close()
+    # Проверка через сессию (только для SQLite)
+    if DATABASE_URL.startswith("sqlite"):
+        SessionLocal = sessionmaker(bind=engine)
+        session = SessionLocal()
+        
+        # Проверяем, существует ли пользователь
+        existing_user = session.query(User).filter_by(email="test2@example.com").first()
+        
+        if not existing_user:
+            test_user = User(
+                email="test2@example.com",
+                name="Test User",
+                password_hash="hash1234",
+                registration_date=datetime.now()
+            )
+            session.add(test_user)
+            session.commit()
+            print(f"\nTest user added (id: {test_user.id})")
+        else:
+            print(f"\nTest user already exists (id: {existing_user.id})")
+        
+        session.close()
