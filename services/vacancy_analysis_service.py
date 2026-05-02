@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 # services/vacancy_analysis_service.py
-import colorama
-from colorama import init, Fore, Style
-# Инициализация colorama (автоматически настраивает кодировку)
-init(autoreset=True)
+
 from datetime import datetime
 from typing import List, Dict, Any
 from DataBase import Session as DBSession, SkillsPosition

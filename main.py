@@ -1,14 +1,26 @@
 # -*- coding: utf-8 -*-
 # main.py
-import colorama
-from colorama import init, Fore, Style
-# Инициализация colorama (автоматически настраивает кодировку)
-init(autoreset=True)
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
+from fastapi.middleware.cors import CORSMiddleware
+
+# сервисы
+from services.auth_service import AuthService
 from services.user_skill_service import UserSkillService
 from services.vacancy_analysis_service import VacancyAnalysisService
+from repositories.user_repo import UserRepository
+from DataBase import Base, engine
+
+# создание таблиц
+Base.metadata.create_all(bind=engine)
+
+# инициализация сервисов
+user_repo = UserRepository()
+auth_service = AuthService(user_repo)
+user_skill_service = UserSkillService()
+analysis_service = VacancyAnalysisService()
 
 # создаём приложение FastAPI
 app = FastAPI(
@@ -17,58 +29,126 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# инициализируем сервисы
-user_skill_service = UserSkillService()
-analysis_service = VacancyAnalysisService()
+# CORS настройки
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
-# модели запроса/ответа 
+# Модели для авторизации
+class RegisterRequest(BaseModel):
+    email: str
+    password: str
+    name: str
 
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+
+# Модели для блока вопросов (от одногруппницы)
+class UserPreferences(BaseModel):
+    level: str 
+    period: str
+    timePerDay: str
+    paymentType: str 
+
+class SkillAnswer(BaseModel):
+    skill: str
+    status: str
+
+class UserSkillsRequest(BaseModel):
+    jobTitle: str
+    totalVacancies: int
+    mandatory: List[SkillAnswer]
+    optional: List[SkillAnswer]
+
+# Модели для работы с сессиями навыков
 class SaveUserSkillsRequest(BaseModel):
-    """Request model for POST /api/user/skills/session"""
     session_id: int
     skill_ids: List[int]
 
-
 class SaveUserSkillsResponse(BaseModel):
-    """Response model for POST /api/user/skills/session"""
     success: bool
     message: str
     deleted_count: int
     saved_skills: List[dict]
 
-
-class SkillResponse(BaseModel):
-    """Skill info response"""
-    record_id: int
-    skill_id: int
-    skill_name: str
-    specified_date: str
-
-
 class AnalyzeByPositionRequest(BaseModel):
-    """Request model for POST /api/analyze/by-position"""
     query: str
 
-
 class AnalyzeByPositionResponse(BaseModel):
-    """Response model for POST /api/analyze/by-position"""
     skills: List[dict]
     message: str
 
 
-# апи эндпоинты
+#  API эндпоинты
 
+# авторизация
+@app.post("/api/auth/register")
+def register(data: RegisterRequest):
+    """Register a new user"""
+    return auth_service.register(data.email, data.password, data.name)
+
+@app.post("/api/auth/login")
+def login(data: LoginRequest):
+    """Login user"""
+    return auth_service.login(data.email, data.password)
+
+
+# выборы пользователя
+@app.post("/api/user/preferences")
+def save_preferences(prefs: UserPreferences):
+    """Save user preferences"""
+    # TODO: сохранить в БД для текущего пользователя
+    print(f"Получены предпочтения: {prefs}")
+    return {"success": True, "message": "Предпочтения сохранены"}
+
+@app.get("/api/user/preferences")
+def get_preferences():
+    """Get user preferences"""
+    # TODO: загрузить из БД
+    return {
+        "level": "middle",
+        "period": "6 месяцев",
+        "timePerDay": "60",
+        "paymentType": "mixed"
+    }
+
+
+# навыки пользователя - фронт
+@app.post("/api/user/skills")
+def save_skills(skills: UserSkillsRequest):
+    """Save user skills from frontend questionnaire"""
+    # TODO: сохранить в БД для текущего пользователя
+    print(f"Получены навыки для {skills.jobTitle}:")
+    print(f"  Обязательные: {skills.mandatory}")
+    print(f"  Необязательные: {skills.optional}")
+    return {"success": True, "message": "Навыки сохранены"}
+
+@app.get("/api/user/skills")
+def get_skills():
+    """Get user skills"""
+    # TODO: загрузить из БД
+    return {
+        "jobTitle": "Data Scientist",
+        "totalVacancies": 150,
+        "mandatory": [
+            {"skill": "Python", "status": "владею"},
+            {"skill": "SQL", "status": "не знаю"}
+        ],
+        "optional": []
+    }
+
+
+# навыки пользователя для сессии
 @app.post("/api/user/skills/session", response_model=SaveUserSkillsResponse)
 async def save_user_skills(request: SaveUserSkillsRequest, user_id: int = 1):
     """
     Save user's selected skills for a specific session.
     Replaces all previous selections for this session.
-    
-    - **session_id**: ID of the search session
-    - **skill_ids**: List of skill IDs that user selected
-    
-    Returns saved skills count and details.
     """
     try:
         result = user_skill_service.save_user_skills_for_session(
@@ -83,16 +163,10 @@ async def save_user_skills(request: SaveUserSkillsRequest, user_id: int = 1):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
-
 @app.get("/api/user/skills/session")
-async def get_user_skills(session_id: int, user_id: int = 1):
+async def get_user_skills_session(session_id: int, user_id: int = 1):
     """
     Get user's selected skills for a specific session.
-    
-    - **session_id**: ID of the search session
-    - **user_id**: ID of the user (default 1 for testing)
-    
-    Returns list of skills with details.
     """
     try:
         skills = user_skill_service.get_user_skills_for_session(
@@ -118,15 +192,11 @@ async def get_user_skills(session_id: int, user_id: int = 1):
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 
+# анализ вакансий
 @app.post("/api/analyze/by-position", response_model=AnalyzeByPositionResponse)
 async def analyze_by_position(request: AnalyzeByPositionRequest, user_id: int = 1):
     """
     Analyze vacancies by position and save results.
-    
-    - **query**: Position name to search for (e.g., "Data Scientist")
-    - **user_id**: ID of the user (default 1 for testing)
-    
-    Returns list of extracted skills.
     """
     try:
         skills = analysis_service.analyzeByPosition(
@@ -153,6 +223,10 @@ async def analyze_by_position(request: AnalyzeByPositionRequest, user_id: int = 
 async def health_check():
     """Health check endpoint"""
     return {"status": "ok", "message": "API is running"}
+
+@app.get("/")
+def root():
+    return {"message": "API работает"}
 
 
 if __name__ == "__main__":

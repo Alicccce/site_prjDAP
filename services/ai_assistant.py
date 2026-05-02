@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 # services/ai_assistant.py
-import colorama
-from colorama import init, Fore, Style
-# Инициализация colorama (автоматически настраивает кодировку)
-init(autoreset=True)
+
 from typing import Dict, Any, List
 from dataclasses import dataclass
 
