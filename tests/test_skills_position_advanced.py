@@ -2,7 +2,6 @@
 # tests/test_skills_position_advanced.py
 import colorama
 from colorama import init, Fore, Style
-# Инициализация colorama (автоматически настраивает кодировку)
 init(autoreset=True)
 
 import sys
