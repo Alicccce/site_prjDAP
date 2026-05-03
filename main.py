@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # main.py
 
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
@@ -37,7 +38,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 # Модели для авторизации
 class RegisterRequest(BaseModel):
     email: str
@@ -48,7 +48,6 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
-# Модели для блока вопросов (от одногруппницы)
 class UserPreferences(BaseModel):
     level: str 
     period: str
@@ -84,9 +83,7 @@ class AnalyzeByPositionResponse(BaseModel):
     message: str
 
 
-#  API эндпоинты
 
-# авторизация
 @app.post("/api/auth/register")
 def register(data: RegisterRequest):
     """Register a new user"""
@@ -98,7 +95,6 @@ def login(data: LoginRequest):
     return auth_service.login(data.email, data.password)
 
 
-# выборы пользователя
 @app.post("/api/user/preferences")
 def save_preferences(prefs: UserPreferences):
     """Save user preferences"""
@@ -118,7 +114,6 @@ def get_preferences():
     }
 
 
-# навыки пользователя - фронт
 @app.post("/api/user/skills")
 def save_skills(skills: UserSkillsRequest):
     """Save user skills from frontend questionnaire"""
@@ -143,7 +138,6 @@ def get_skills():
     }
 
 
-# навыки пользователя для сессии
 @app.post("/api/user/skills/session", response_model=SaveUserSkillsResponse)
 async def save_user_skills(request: SaveUserSkillsRequest, user_id: int = 1):
     """
@@ -192,7 +186,6 @@ async def get_user_skills_session(session_id: int, user_id: int = 1):
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 
-# анализ вакансий
 @app.post("/api/analyze/by-position", response_model=AnalyzeByPositionResponse)
 async def analyze_by_position(request: AnalyzeByPositionRequest, user_id: int = 1):
     """
