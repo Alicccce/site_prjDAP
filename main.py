@@ -1,272 +1,242 @@
-#!/usr/bin/env python3
-"""
-Основное приложение для демонстрации системы анализа вакансий
+# -*- coding: utf-8 -*-
+# main.py
 
-Разработала как курсовую работу по анализу данных
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import List, Optional
+from fastapi.middleware.cors import CORSMiddleware
 
-Usage:
-    python main.py --position "Data Scientist"
-    python main.py --skills "Python,SQL" --positions "Data Scientist,Python Developer"
-    python main.py --test  # Запуск тестов
-"""
+# сервисы
+from services.auth_service import AuthService
+from services.user_skill_service import UserSkillService
+from services.vacancy_analysis_service import VacancyAnalysisService
+from services.qwen_service import generate_learning_plan
+from repositories.user_repo import UserRepository
+from DataBase import Base, engine
 
-import argparse
-import json
-import sys
-from datetime import datetime
-from typing import List
+# создание таблиц
+Base.metadata.create_all(bind=engine)
 
-from models import User, SkillsPosition, JobMatch
-from vacancy_analysis_service import VacancyAnalysisService
-from ai_assistant import AIAssistant
-from test_integration import run_integration_tests
+# инициализация сервисов
+user_repo = UserRepository()
+auth_service = AuthService(user_repo)
+user_skill_service = UserSkillService()
+analysis_service = VacancyAnalysisService()
 
+app = FastAPI(
+    title="Vacancy Analysis API",
+    description="API for analyzing vacancies and managing user skills",
+    version="1.0.0"
+)
 
-class VacancyAnalysisApp:
-    """Основной класс приложения"""
-    
-    def __init__(self):
-        # Инициализируем сервисы с настройками по умолчанию
-        self.vacancy_service = VacancyAnalysisService(cache_duration_hours=1, max_vacancies=50)
-        self.ai_assistant = AIAssistant()
-    
-    def analyze_position(self, position_name: str, area: int = 1) -> SkillsPosition:
-        """Анализ должности и возврат данных о навыках"""
-        print(f"\n[АНАЛИЗ] Анализируем должность: {position_name}")
-        print("-" * 50)
-        
-        try:
-            result = self.vacancy_service.analyze_position(position_name, area)
-            
-            # Показываем результаты
-            print(f"[ГОТОВО] Анализ завершен!")
-            print(f"[СТАТИСТИКА] Проанализировано вакансий: {result.total_vacancies_analyzed}")
-            print(f"[СТАТИСТИКА] Найдено навыков: {len(result.skills)}")
-            
-            if result.skills:
-                print(f"\n[ТОП НАВЫКИ] Топ навыков по частоте:")
-                for i, skill in enumerate(result.skills[:10], 1):
-                    importance_icon = self._get_importance_icon(skill.importance.value)
-                    print(f"  {i:2}. {skill.name:<20} {skill.frequency:5.1f}% {importance_icon}")
-            
-            return result
-            
-        except Exception as e:
-            print(f"[ОШИБКА] Ошибка при анализе должности: {e}")
-            raise
-    
-    def match_user_skills(self, user_skills: List[str], positions: List[str]) -> List[JobMatch]:
-        """Match user skills with job positions"""
-        print(f"\n👤 User skills: {', '.join(user_skills)}")
-        print(f"🎯 Analyzing positions: {', '.join(positions)}")
-        print("-" * 50)
-        
-        # Analyze all positions
-        job_analyses = []
-        for position in positions:
-            try:
-                analysis = self.analyze_position(position)
-                job_analyses.append(analysis)
-            except Exception as e:
-                print(f"⚠️  Could not analyze {position}: {e}")
-                continue
-        
-        if not job_analyses:
-            print("❌ No successful job analyses to match against")
-            return []
-        
-        # Match skills
-        matches = self.ai_assistant.matchUserSkillsWithJobs(user_skills, job_analyses)
-        
-        # Display matches
-        if matches:
-            print(f"\n🎯 Skill matching results ({len(matches)} matches):")
-            print("-" * 50)
-            
-            for i, match in enumerate(matches, 1):
-                match_icon = self._get_match_icon(match.match_percentage)
-                print(f"{i}. {match.job_title:<20} {match.match_percentage:5.1f}% {match_icon}")
-                
-                if match.matched_skills:
-                    print(f"   ✅ Matched: {', '.join(match.matched_skills[:5])}")
-                
-                if match.missing_mandatory:
-                    print(f"   ❌ Missing mandatory: {', '.join(match.missing_mandatory)}")
-                elif match.missing_skills:
-                    missing = match.missing_skills[:3]
-                    print(f"   ⚠️  Missing: {', '.join(missing)}")
-                
-                print()
-        else:
-            print("❌ No matches found")
-        
-        return matches
-    
-    def get_skill_recommendations(self, user_skills: List[str], positions: List[str], limit: int = 10):
-        """Get skill recommendations for improvement"""
-        print(f"\n💡 Getting skill recommendations...")
-        print("-" * 50)
-        
-        # Analyze positions
-        job_analyses = []
-        for position in positions:
-            try:
-                analysis = self.analyze_position(position)
-                job_analyses.append(analysis)
-            except Exception as e:
-                print(f"⚠️  Could not analyze {position}: {e}")
-                continue
-        
-        if not job_analyses:
-            print("❌ No successful job analyses for recommendations")
-            return []
-        
-        # Get recommendations
-        recommendations = self.ai_assistant.getSkillRecommendations(user_skills, job_analyses, limit)
-        
-        if recommendations:
-            print(f"\n💡 Top {len(recommendations)} skill recommendations:")
-            print("-" * 50)
-            
-            for i, rec in enumerate(recommendations, 1):
-                importance_icon = self._get_importance_icon(rec['importance'])
-                print(f"{i}. {rec['name']:<20} {rec['frequency']:5.1f}% {importance_icon}")
-                print(f"   📈 Appears in {rec['job_count']} positions, score: {rec['score']}")
-                print()
-        else:
-            print("✅ You already have all the recommended skills!")
-        
-        return recommendations
-    
-    def show_metrics(self):
-        """Show performance metrics"""
-        metrics = self.vacancy_service.get_metrics()
-        
-        if not metrics:
-            print("📊 No metrics available yet")
-            return
-        
-        print(f"\n📊 Performance Metrics ({len(metrics)} analyses):")
-        print("-" * 50)
-        
-        total_time = sum(m.total_time_ms for m in metrics)
-        avg_time = total_time / len(metrics)
-        
-        print(f"⏱️  Average analysis time: {avg_time:.1f}ms")
-        print(f"🔍 Total vacancies processed: {sum(m.vacancies_analyzed for m in metrics)}")
-        print(f"🎯 Total skills extracted: {sum(m.skills_extracted for m in metrics)}")
-        
-        # Cache stats
-        cache_stats = self.vacancy_service.get_cache_stats()
-        print(f"💾 Cache entries: {cache_stats['active_entries']}/{cache_stats['total_entries']}")
-    
-    def _get_importance_icon(self, importance: str) -> str:
-        """Get icon for skill importance"""
-        icons = {
-            "mandatory": "🔥",
-            "recommended": "⭐", 
-            "optional": "💡"
-        }
-        return icons.get(importance, "❓")
-    
-    def _get_match_icon(self, percentage: float) -> str:
-        """Get icon for match percentage"""
-        if percentage >= 80:
-            return "🎯"
-        elif percentage >= 60:
-            return "✅"
-        elif percentage >= 40:
-            return "⚠️"
-        else:
-            return "❌"
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://site-prjdap-front.onrender.com"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+# ── Модели ──────────────────────────────────────────────────
 
-def main():
-    """Main entry point"""
-    parser = argparse.ArgumentParser(description="AI-Integrated Vacancy Analysis System")
-    parser.add_argument("--position", type=str, help="Job position to analyze")
-    parser.add_argument("--skills", type=str, help="Comma-separated list of user skills")
-    parser.add_argument("--positions", type=str, help="Comma-separated list of positions to match against")
-    parser.add_argument("--area", type=int, default=1, help="Area ID (1=Moscow, 2=St. Petersburg)")
-    parser.add_argument("--recommendations", action="store_true", help="Show skill recommendations")
-    parser.add_argument("--metrics", action="store_true", help="Show performance metrics")
-    parser.add_argument("--test", action="store_true", help="Run integration tests")
-    parser.add_argument("--clear-cache", action="store_true", help="Clear analysis cache")
-    
-    args = parser.parse_args()
-    
-    app = VacancyAnalysisApp()
-    
-    # Handle special commands
-    if args.test:
-        success = run_integration_tests()
-        sys.exit(0 if success else 1)
-    
-    if args.clear_cache:
-        app.vacancy_service.clear_cache()
-        print("✅ Cache cleared")
-        return
-    
-    if args.metrics:
-        app.show_metrics()
-        return
-    
-    # Main functionality
-    if args.position:
-        # Analyze single position
-        try:
-            result = app.analyze_position(args.position, args.area)
-            
-            # Save result to file
-            output_file = f"analysis_{args.position.replace(' ', '_')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-            
-            # Convert to serializable format
-            result_data = {
-                "position_name": result.position_name,
-                "search_query": result.search_query,
-                "total_vacancies_analyzed": result.total_vacancies_analyzed,
-                "created_at": result.created_at.isoformat(),
-                "skills": [
-                    {
-                        "name": skill.name,
-                        "importance": skill.importance.value,
-                        "frequency": skill.frequency
-                    }
-                    for skill in result.skills
-                ]
+class RegisterRequest(BaseModel):
+    email: str
+    password: str
+    name: str
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+
+class UserPreferences(BaseModel):
+    level: str
+    period: str
+    timePerDay: str
+    paymentType: str
+
+class SkillAnswer(BaseModel):
+    skill: str
+    status: str
+
+class UserSkillsRequest(BaseModel):
+    jobTitle: str
+    totalVacancies: int
+    mandatory: List[SkillAnswer]
+    optional: List[SkillAnswer]
+
+class SaveUserSkillsRequest(BaseModel):
+    session_id: int
+    skill_ids: List[int]
+
+class SaveUserSkillsResponse(BaseModel):
+    success: bool
+    message: str
+    deleted_count: int
+    saved_skills: List[dict]
+
+class AnalyzeByPositionRequest(BaseModel):
+    query: str
+
+class AnalyzeByPositionResponse(BaseModel):
+    skills: List[dict]
+    total_vacancies: int
+    message: str
+
+class SkillItem(BaseModel):
+    name: str
+    frequency: int = 0
+    importance: str = "not_important"
+
+class GeneratePlanRequest(BaseModel):
+    jobTitle: str
+    deficitSkills: List[SkillItem]
+    level: str
+    period: str
+    timePerDay: str
+    paymentType: str
+
+# ── Auth ────────────────────────────────────────────────────
+
+@app.post("/api/auth/register")
+def register(data: RegisterRequest):
+    return auth_service.register(data.email, data.password, data.name)
+
+@app.post("/api/auth/login")
+def login(data: LoginRequest):
+    return auth_service.login(data.email, data.password)
+
+# ── User preferences ────────────────────────────────────────
+
+@app.post("/api/user/preferences")
+def save_preferences(prefs: UserPreferences):
+    print(f"Preferences received: {prefs}")
+    return {"success": True, "message": "Предпочтения сохранены"}
+
+@app.get("/api/user/preferences")
+def get_preferences():
+    return {
+        "level": "middle",
+        "period": "6 месяцев",
+        "timePerDay": "60",
+        "paymentType": "mixed"
+    }
+
+# ── User skills ─────────────────────────────────────────────
+
+@app.post("/api/user/skills")
+def save_skills(skills: UserSkillsRequest):
+    print(f"Skills received for {skills.jobTitle}")
+    return {"success": True, "message": "Навыки сохранены"}
+
+@app.get("/api/user/skills")
+def get_skills():
+    return {
+        "jobTitle": "",
+        "totalVacancies": 0,
+        "mandatory": [],
+        "optional": []
+    }
+
+@app.post("/api/user/skills/session", response_model=SaveUserSkillsResponse)
+async def save_user_skills(request: SaveUserSkillsRequest, user_id: int = 1):
+    try:
+        result = user_skill_service.save_user_skills_for_session(
+            user_id=user_id,
+            session_id=request.session_id,
+            skill_ids=request.skill_ids
+        )
+        return SaveUserSkillsResponse(**result)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+@app.get("/api/user/skills/session")
+async def get_user_skills_session(session_id: int, user_id: int = 1):
+    try:
+        skills = user_skill_service.get_user_skills_for_session(
+            user_id=user_id,
+            session_id=session_id
+        )
+        for skill in skills:
+            if 'specified_date' in skill and skill['specified_date']:
+                skill['specified_date'] = str(skill['specified_date'])
+        return {"success": True, "session_id": session_id, "skills": skills, "count": len(skills)}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+# ── Analyze ─────────────────────────────────────────────────
+
+@app.post("/api/analyze/by-position", response_model=AnalyzeByPositionResponse)
+async def analyze_by_position(request: AnalyzeByPositionRequest, user_id: int = 1):
+    try:
+        skills, total_vacancies = analysis_service.analyzeByPosition(
+            user_id=user_id,
+            position_query=request.query
+        )
+        return AnalyzeByPositionResponse(
+            skills=skills,
+            total_vacancies=total_vacancies,
+            message=f"Analysis complete. Found {len(skills)} skills."
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except TimeoutError as e:
+        raise HTTPException(status_code=504, detail=f"hh.ru timeout: {str(e)}")
+    except ConnectionError as e:
+        raise HTTPException(status_code=503, detail=f"Connection error: {str(e)}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+# ── Plan generation ─────────────────────────────────────────
+
+@app.post("/api/plan/generate")
+async def generate_plan(request: GeneratePlanRequest):
+    """
+    Генерирует персональный план обучения через Qwen AI.
+    Принимает навыки которые пользователь не знает + ответы на вопросы.
+    """
+    try:
+        deficit_skills = [
+            {
+                "name": s.name,
+                "frequency": s.frequency,
+                "importance": s.importance
             }
-            
-            with open(output_file, 'w', encoding='utf-8') as f:
-                json.dump(result_data, f, ensure_ascii=False, indent=2)
-            
-            print(f"💾 Results saved to: {output_file}")
-            
-        except Exception as e:
-            print(f"❌ Error: {e}")
-            sys.exit(1)
-    
-    elif args.skills and args.positions:
-        # Match user skills with positions
-        user_skills = [skill.strip() for skill in args.skills.split(',')]
-        positions = [pos.strip() for pos in args.positions.split(',')]
-        
-        matches = app.match_user_skills(user_skills, positions)
-        
-        if args.recommendations:
-            app.get_skill_recommendations(user_skills, positions)
-    
-    else:
-        # Show help
-        print("🤖 AI-Integrated Vacancy Analysis System")
-        print("=" * 50)
-        print("\nUsage examples:")
-        print("  python main.py --position 'Data Scientist'")
-        print("  python main.py --skills 'Python,SQL' --positions 'Data Scientist,Python Developer'")
-        print("  python main.py --test")
-        print("  python main.py --metrics")
-        print("  python main.py --clear-cache")
-        print("\nUse --help for more options")
+            for s in request.deficitSkills
+        ]
 
+        plan = generate_learning_plan(
+            job_title=request.jobTitle,
+            deficit_skills=deficit_skills,
+            level=request.level,
+            period=request.period,
+            time_per_day=request.timePerDay,
+            payment_type=request.paymentType
+        )
+        return {"success": True, "plan": plan}
+
+    except RuntimeError as e:
+        raise HTTPException(status_code=503, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Ошибка генерации плана: {str(e)}")
+
+# ── Health ───────────────────────────────────────────────────
+
+@app.get("/api/health")
+async def health_check():
+    return {"status": "ok", "message": "API is running"}
+
+@app.get("/")
+def root():
+    return {"message": "API работает"}
 
 if __name__ == "__main__":
-    main()
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
