@@ -11,6 +11,7 @@ from services.auth_service import AuthService
 from services.user_skill_service import UserSkillService
 from services.vacancy_analysis_service import VacancyAnalysisService
 from services.qwen_service import generate_learning_plan
+from services.position_suggest_service import PositionSuggestService
 from repositories.user_repo import UserRepository
 from DataBase import Base, engine
 
@@ -22,6 +23,7 @@ user_repo = UserRepository()
 auth_service = AuthService(user_repo)
 user_skill_service = UserSkillService()
 analysis_service = VacancyAnalysisService()
+position_suggest_service = PositionSuggestService()
 
 app = FastAPI(
     title="Vacancy Analysis API",
@@ -226,6 +228,45 @@ async def generate_plan(request: GeneratePlanRequest):
         raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Ошибка генерации плана: {str(e)}")
+
+# ── Branch 2: Suggest positions ─────────────────────────────
+
+class FiltersRequest(BaseModel):
+    specialization: Optional[str] = ""
+    industry: Optional[str] = ""
+    education: Optional[str] = ""
+    salaryFrom: Optional[int] = None
+    salaryTo: Optional[int] = None
+    schedule: Optional[List[str]] = []
+
+class SuggestPositionsRequest(BaseModel):
+    filters: FiltersRequest
+    user_skills: List[str] = []
+
+@app.post("/api/analyze/suggest-positions")
+async def suggest_positions(request: SuggestPositionsRequest):
+    try:
+        filters_dict = {
+            "specialization": request.filters.specialization or "",
+            "industry": request.filters.industry or "",
+            "education": request.filters.education or "",
+            "salaryFrom": request.filters.salaryFrom,
+            "salaryTo": request.filters.salaryTo,
+            "schedule": request.filters.schedule or [],
+        }
+        positions = position_suggest_service.suggest_positions(
+            filters=filters_dict,
+            user_skills=request.user_skills,
+        )
+        return {"positions": positions, "message": f"Found {len(positions)} positions"}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except TimeoutError as e:
+        raise HTTPException(status_code=504, detail=f"hh.ru timeout: {str(e)}")
+    except ConnectionError as e:
+        raise HTTPException(status_code=503, detail=f"Connection error: {str(e)}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 # ── Health ───────────────────────────────────────────────────
 

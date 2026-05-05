@@ -232,6 +232,56 @@ class HHClient:
         except Exception:
             return []
     
+    def fetch_vacancies_fast(self, query: str):
+        """
+        Fast fetch without key_skills enrichment.
+        Used for branch 2 (suggest positions) where speed matters.
+        Falls back to cache on failure.
+        """
+        url = f"{self.base_url}?text={query}&per_page={self.per_page}"
+        print(f"  [HHClient] fast fetch for '{query}'...")
+        try:
+            response = requests.get(url, headers=self._get_headers(), timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                if data.get('found', 0) == 0:
+                    raise ValueError(f"No vacancies found for '{query}'")
+                # No key_skills enrichment — use snippet text only
+                self._save_to_cache(query + "_fast", data)
+                return data
+            elif response.status_code == 403:
+                new_token = refresh_token()
+                if new_token:
+                    self.token = new_token
+                    retry = requests.get(url, headers=self._get_headers(), timeout=10)
+                    if retry.status_code == 200:
+                        data = retry.json()
+                        self._save_to_cache(query + "_fast", data)
+                        return data
+                cached = self._load_from_cache(query + "_fast") or self._load_from_cache(query)
+                if cached:
+                    return cached
+                raise ConnectionError(f"hh.ru blocked and no cache for '{query}'")
+            else:
+                raise ConnectionError(f"hh.ru status {response.status_code}")
+        except (requests.exceptions.Timeout, TimeoutError):
+            cached = self._load_from_cache(query + "_fast") or self._load_from_cache(query)
+            if cached:
+                return cached
+            raise TimeoutError("hh.ru timeout and no cache")
+        except requests.exceptions.ConnectionError:
+            cached = self._load_from_cache(query + "_fast") or self._load_from_cache(query)
+            if cached:
+                return cached
+            raise ConnectionError("No connection to hh.ru and no cache")
+        except ValueError:
+            raise
+        except Exception as e:
+            cached = self._load_from_cache(query + "_fast") or self._load_from_cache(query)
+            if cached:
+                return cached
+            raise
+
     def save_to_file(self, data: Dict[str, Any], filename: str = "vacancies.json") -> None:
         """
         Save vacancies data to JSON file

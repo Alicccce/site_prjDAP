@@ -2,9 +2,9 @@
   <div class="filters-page">
     <div class="filters-card">
       <h1 class="filters-title">Фильтры поиска</h1>
+      <p class="filters-subtitle">Укажите предпочтения — мы подберём подходящие должности</p>
 
       <div class="filters-form">
-        <!-- Специализация -->
         <div class="filter-group">
           <label class="filter-label">Специализация</label>
           <select v-model="filters.specialization" class="filter-select">
@@ -20,7 +20,6 @@
           </select>
         </div>
 
-        <!-- Отрасль деятельности -->
         <div class="filter-group">
           <label class="filter-label">Отрасль деятельности</label>
           <select v-model="filters.industry" class="filter-select">
@@ -35,255 +34,102 @@
           </select>
         </div>
 
-        <!-- Образование -->
         <div class="filter-group">
           <label class="filter-label">Образование</label>
           <div class="radio-group">
-            <label class="radio-label">
-              <input type="radio" value="" v-model="filters.education" /> Не важно
-            </label>
-            <label class="radio-label">
-              <input type="radio" value="higher" v-model="filters.education" /> Высшее
-            </label>
-            <label class="radio-label">
-              <input type="radio" value="incomplete_higher" v-model="filters.education" /> Неполное высшее
-            </label>
-            <label class="radio-label">
-              <input type="radio" value="secondary" v-model="filters.education" /> Среднее специальное
-            </label>
+            <label class="radio-label"><input type="radio" value="" v-model="filters.education" /> Не важно</label>
+            <label class="radio-label"><input type="radio" value="higher" v-model="filters.education" /> Высшее</label>
+            <label class="radio-label"><input type="radio" value="incomplete_higher" v-model="filters.education" /> Неполное высшее</label>
+            <label class="radio-label"><input type="radio" value="secondary" v-model="filters.education" /> Среднее специальное</label>
           </div>
         </div>
 
-        <!-- Зарплата -->
         <div class="filter-group">
-          <label class="filter-label">Зарплата</label>
+          <label class="filter-label">Желаемая зарплата (₽)</label>
           <div class="salary-inputs">
-            <input 
-              type="number" 
-              v-model="filters.salaryFrom" 
-              placeholder="от"
-              class="salary-input"
-            />
+            <input type="number" v-model="filters.salaryFrom" placeholder="от" class="salary-input" min="0" />
             <span class="salary-separator">—</span>
-            <input 
-              type="number" 
-              v-model="filters.salaryTo" 
-              placeholder="до"
-              class="salary-input"
-            />
+            <input type="number" v-model="filters.salaryTo" placeholder="до" class="salary-input" min="0" />
           </div>
         </div>
 
-        <!-- График работы -->
         <div class="filter-group">
           <label class="filter-label">График работы</label>
           <div class="checkbox-group">
-            <label class="checkbox-label">
-              <input type="checkbox" value="full_day" v-model="filters.schedule" /> Полный день
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" value="remote" v-model="filters.schedule" /> Удалённая работа
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" value="flexible" v-model="filters.schedule" /> Гибкий график
-            </label>
+            <label class="checkbox-label"><input type="checkbox" value="full_day" v-model="filters.schedule" /> Полный день</label>
+            <label class="checkbox-label"><input type="checkbox" value="remote" v-model="filters.schedule" /> Удалённая работа</label>
+            <label class="checkbox-label"><input type="checkbox" value="flexible" v-model="filters.schedule" /> Гибкий график</label>
+            <label class="checkbox-label"><input type="checkbox" value="shift" v-model="filters.schedule" /> Сменный график</label>
           </div>
         </div>
 
-        <!-- Кнопки -->
         <div class="filter-actions">
-          <button @click="applyFilters" class="btn-primary">Применить фильтры</button>
-          <button @click="resetFilters" class="btn-secondary">Сбросить все</button>
+          <button @click="applyFilters" class="btn-primary">Далее — расскажите о навыках →</button>
+          <button @click="resetFilters" class="btn-secondary">Сбросить</button>
         </div>
       </div>
     </div>
+
+    <SkillsDialog
+      v-if="showDialog"
+      @close="showDialog = false"
+      @done="onDialogDone"
+    />
   </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useBranch2Store } from '../stores/branch2'
+import SkillsDialog from '../components/SkillsDialog.vue'
+
+const router = useRouter()
+const branch2Store = useBranch2Store()
+const showDialog = ref(false)
 
 const filters = reactive({
-  specialization: '',
-  industry: '',
-  education: '',
-  salaryFrom: '',
-  salaryTo: '',
-  schedule: []
+  specialization: '', industry: '', education: '',
+  salaryFrom: '', salaryTo: '', schedule: []
 })
 
 const applyFilters = () => {
-  console.log('Применены фильтры:', filters)
-  // Здесь будет вызов API с фильтрами
+  branch2Store.setFilters({ ...filters })
+  showDialog.value = true
 }
 
 const resetFilters = () => {
-  filters.specialization = ''
-  filters.industry = ''
-  filters.education = ''
-  filters.salaryFrom = ''
-  filters.salaryTo = ''
-  filters.schedule = []
+  filters.specialization = ''; filters.industry = ''; filters.education = ''
+  filters.salaryFrom = ''; filters.salaryTo = ''; filters.schedule = []
+}
+
+const onDialogDone = (skills) => {
+  showDialog.value = false
+  branch2Store.setSkills(skills)
+  router.push('/suggest')
 }
 </script>
 
 <style scoped>
-.filters-page {
-  min-height: 80vh;
-  background-color: #f5f5f5;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.filters-card {
-  max-width: 700px;
-  width: 100%;
-  background: white;
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.filters-title {
-  font-size: 28px;
-  font-weight: 600;
-  color: #7a4e30;
-  margin-bottom: 30px;
-  text-align: center;
-  -webkit-text-stroke: 0.5px #7a4e30;
-}
-
-.filter-group {
-  margin-bottom: 25px;
-}
-
-.filter-label {
-  display: block;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.filter-select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  background: white;
-  cursor: pointer;
-}
-
-.filter-select:focus {
-  outline: none;
-  border-color: #7a4e30;
-}
-
-.radio-group, .checkbox-group {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.radio-label, .checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: #333;
-  cursor: pointer;
-}
-
-.radio-label input, .checkbox-label input {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  accent-color: #7a4e30;
-}
-
-.salary-inputs {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.salary-input {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.salary-input:focus {
-  outline: none;
-  border-color: #7a4e30;
-}
-
-.salary-separator {
-  color: #999;
-}
-
-.filter-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.btn-primary {
-  flex: 1;
-  padding: 14px;
-  background-color: #3de0cd;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  transition: background 0.3s;
-}
-
-.btn-primary:hover {
-  background-color: #2abbaa;
-}
-
-.btn-secondary {
-  flex: 1;
-  padding: 14px;
-  background-color: #f5f5f5;
-  color: #7a4e30;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  transition: all 0.3s;
-}
-
-.btn-secondary:hover {
-  background-color: #eee;
-  border-color: #7a4e30;
-}
-
-@media (max-width: 600px) {
-  .filters-card {
-    padding: 20px;
-  }
-  
-  .filters-title {
-    font-size: 22px;
-  }
-  
-  .radio-group, .checkbox-group {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .filter-actions {
-    flex-direction: column;
-  }
-}
+.filters-page { min-height: 80vh; background-color: #f5f5f5; padding: 40px 20px; display: flex; justify-content: center; align-items: flex-start; }
+.filters-card { max-width: 700px; width: 100%; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.filters-title { font-size: 28px; font-weight: 600; color: #7a4e30; margin-bottom: 8px; text-align: center; }
+.filters-subtitle { font-size: 14px; color: #888; text-align: center; margin-bottom: 30px; }
+.filter-group { margin-bottom: 25px; }
+.filter-label { display: block; font-size: 16px; font-weight: 500; color: #333; margin-bottom: 10px; }
+.filter-select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: white; cursor: pointer; }
+.filter-select:focus { outline: none; border-color: #7a4e30; }
+.radio-group, .checkbox-group { display: flex; gap: 20px; flex-wrap: wrap; }
+.radio-label, .checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #333; cursor: pointer; }
+.radio-label input, .checkbox-label input { width: 16px; height: 16px; cursor: pointer; accent-color: #7a4e30; }
+.salary-inputs { display: flex; gap: 12px; align-items: center; }
+.salary-input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
+.salary-input:focus { outline: none; border-color: #7a4e30; }
+.salary-separator { color: #999; }
+.filter-actions { display: flex; gap: 15px; margin-top: 30px; }
+.btn-primary { flex: 2; padding: 14px; background-color: #7a4e30; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: background 0.3s; }
+.btn-primary:hover { background-color: #5a3b25; }
+.btn-secondary { flex: 1; padding: 14px; background-color: #f5f5f5; color: #7a4e30; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; }
+.btn-secondary:hover { background-color: #eee; border-color: #7a4e30; }
+@media (max-width: 600px) { .filters-card { padding: 20px; } .radio-group, .checkbox-group { flex-direction: column; gap: 10px; } .filter-actions { flex-direction: column; } }
 </style>
