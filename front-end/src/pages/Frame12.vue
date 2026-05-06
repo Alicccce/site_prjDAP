@@ -13,7 +13,7 @@
         <p class="error-text">{{ error }}</p>
         <div class="error-actions">
           <button @click="loadPositions" class="retry-btn">Попробовать снова</button>
-          <button @click="$router.push('/choice')" class="back-link">← Изменить фильтры</button>
+          <button @click="$router.push('/choice')" class="back-link">Изменить фильтры (вернуться)</button>
         </div>
       </div>
 
@@ -28,20 +28,20 @@
             <div class="card-header">
               <div class="card-title-row">
                 <h2 class="position-title">{{ pos.title }}</h2>
+                <p class="vacancies-count">{{ pos.total_vacancies ? pos.total_vacancies.toLocaleString() + ' вакансий на HH.ru' : '' }}</p>
                 <span class="match-badge" :class="matchClass(pos.match_score)">{{ pos.match_score }}% совпадение</span>
               </div>
-              <p class="vacancies-count">{{ pos.total_vacancies ? pos.total_vacancies.toLocaleString() + ' вакансий на HH.ru' : '' }}</p>
             </div>
 
             <div v-if="pos.match_skills && pos.match_skills.length > 0" class="skills-section">
-              <p class="skills-label">✅ Ваши навыки подходят:</p>
+              <p class="skills-label">Ваши навыки подходят:</p>
               <div class="skills-chips">
                 <span v-for="skill in pos.match_skills" :key="skill" class="skill-chip match">{{ skill }}</span>
               </div>
             </div>
 
             <div v-if="pos.new_skills && pos.new_skills.length > 0" class="skills-section">
-              <p class="skills-label">📚 Нужно изучить (топ {{ pos.new_skills.length }}):</p>
+              <p class="skills-label">Нужно изучить (топ {{ pos.new_skills.length }}):</p>
               <div class="skills-chips">
                 <span v-for="skill in pos.new_skills" :key="skill" class="skill-chip new">{{ skill }}</span>
               </div>
@@ -152,7 +152,7 @@ onMounted(() => { loadPositions() })
 .match-badge.high { background: #d4edda; color: #155724; }
 .match-badge.medium { background: #fff3cd; color: #856404; }
 .match-badge.low { background: #f8d7da; color: #721c24; }
-.vacancies-count { font-size: 13px; color: #999; margin: 0; }
+.vacancies-count { font-size: 13px; color: #999; margin: 0; align-items: left; }
 .skills-section { margin-bottom: 14px; }
 .skills-label { font-size: 13px; font-weight: 500; color: #555; margin-bottom: 8px; }
 .skills-chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -172,4 +172,19 @@ onMounted(() => { loadPositions() })
 .empty-text { font-size: 14px; color: #666; margin-bottom: 20px; }
 .retry-btn { padding: 12px 28px; background: #3de0cd; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; width: auto; margin: 0; }
 .retry-btn:hover { background: #2abbaa; }
+@media (max-width: 600px) {
+  .suggest-card {
+    padding: 20px;
+  }
+  .card-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .position-title {
+    font-size: 18px;
+  }
+  .skills-header, .skills-row {
+    font-size: 12px;
+  }
+}
 </style>

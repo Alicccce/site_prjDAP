@@ -2,6 +2,7 @@
   <div class="filters-page">
     <div class="filters-card">
       <h1 class="filters-title">Фильтры поиска</h1>
+      <button @click="resetFilters" class="btn-secondary">Сбросить ответы</button>
       <p class="filters-subtitle">Укажите предпочтения — мы подберём подходящие должности</p>
 
       <div class="filters-form">
@@ -18,6 +19,7 @@
             <option>Аналитик</option>
             <option>Продуктовый менеджер</option>
           </select>
+          <p v-if="validationErrors.specialization" class="error">{{ validationErrors.specialization }}</p>
         </div>
 
         <div class="filter-group">
@@ -32,6 +34,7 @@
             <option>Медицина</option>
             <option>Производство</option>
           </select>
+          <p v-if="validationErrors.industry" class="error">{{ validationErrors.industry }}</p>
         </div>
 
         <div class="filter-group">
@@ -51,6 +54,7 @@
             <span class="salary-separator">—</span>
             <input type="number" v-model="filters.salaryTo" placeholder="до" class="salary-input" min="0" />
           </div>
+          <p v-if="validationErrors.salary" class="error">{{ validationErrors.salary }}</p>
         </div>
 
         <div class="filter-group">
@@ -61,11 +65,11 @@
             <label class="checkbox-label"><input type="checkbox" value="flexible" v-model="filters.schedule" /> Гибкий график</label>
             <label class="checkbox-label"><input type="checkbox" value="shift" v-model="filters.schedule" /> Сменный график</label>
           </div>
+          <p v-if="validationErrors.schedule" class="error">{{ validationErrors.schedule }}</p>
         </div>
 
         <div class="filter-actions">
-          <button @click="applyFilters" class="btn-primary">Далее — расскажите о навыках →</button>
-          <button @click="resetFilters" class="btn-secondary">Сбросить</button>
+          <button @click="applyFilters" class="btn-primary">Далее - поговорим о навыках</button>
         </div>
       </div>
     </div>
@@ -94,6 +98,7 @@ const filters = reactive({
 })
 
 const applyFilters = () => {
+  if (!validateFilters()) return
   branch2Store.setFilters({ ...filters })
   showDialog.value = true
 }
@@ -101,6 +106,7 @@ const applyFilters = () => {
 const resetFilters = () => {
   filters.specialization = ''; filters.industry = ''; filters.education = ''
   filters.salaryFrom = ''; filters.salaryTo = ''; filters.schedule = []
+  validationErrors.value = {}
 }
 
 const onDialogDone = (skills) => {
@@ -108,6 +114,21 @@ const onDialogDone = (skills) => {
   branch2Store.setSkills(skills)
   router.push('/suggest')
 }
+
+const validationErrors = ref({})
+
+const validateFilters = () => {
+  const errors = {}
+  if (!filters.specialization) errors.specialization = 'Выберите специализацию'
+  if (!filters.industry) errors.industry = 'Выберите отрасль'
+  if (!filters.education) errors.education = 'Укажите образование'
+  if (!filters.salaryFrom && !filters.salaryTo) errors.salary = 'Укажите желаемую зарплату'
+  if (filters.schedule.length === 0) errors.schedule = 'Выберите хотя бы один график работы'
+  
+  validationErrors.value = errors
+  return Object.keys(errors).length === 0
+}
+
 </script>
 
 <style scoped>
@@ -121,7 +142,7 @@ const onDialogDone = (skills) => {
 .filter-select:focus { outline: none; border-color: #7a4e30; }
 .radio-group, .checkbox-group { display: flex; gap: 20px; flex-wrap: wrap; }
 .radio-label, .checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #333; cursor: pointer; }
-.radio-label input, .checkbox-label input { width: 16px; height: 16px; cursor: pointer; accent-color: #7a4e30; }
+.radio-label input, .checkbox-label input { width: 16px; height: 16px; cursor: pointer; accent-color: #3de0cd; }
 .salary-inputs { display: flex; gap: 12px; align-items: center; }
 .salary-input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
 .salary-input:focus { outline: none; border-color: #7a4e30; }
@@ -129,7 +150,27 @@ const onDialogDone = (skills) => {
 .filter-actions { display: flex; gap: 15px; margin-top: 30px; }
 .btn-primary { flex: 2; padding: 14px; background-color: #7a4e30; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; transition: background 0.3s; }
 .btn-primary:hover { background-color: #5a3b25; }
-.btn-secondary { flex: 1; padding: 14px; background-color: #f5f5f5; color: #7a4e30; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 500; }
-.btn-secondary:hover { background-color: #eee; border-color: #7a4e30; }
+.btn-secondary {
+  background: none;
+  color: #d4c53d;
+  padding: 5px 12px;
+  font-size: 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 0;
+  border: none;
+  width: auto;
+  float: right;
+}
+.btn-secondary:hover {
+  background-color: #d4ca3d;
+  color: white;
+}
+.error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
 @media (max-width: 600px) { .filters-card { padding: 20px; } .radio-group, .checkbox-group { flex-direction: column; gap: 10px; } .filter-actions { flex-direction: column; } }
 </style>

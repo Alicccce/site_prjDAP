@@ -1,0 +1,2619 @@
+{
+  "items": [
+    {
+      "id": "129382781",
+      "premium": false,
+      "name": "UX/UI Designer / Дизайнер интерфейсов / Web & Mobile",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Центральный административный округ, Пресненский район, Московский международный деловой центр Москва-Сити",
+        "building": null,
+        "lat": 55.749451,
+        "lng": 37.542824,
+        "description": null,
+        "raw": "Москва, Центральный административный округ, Пресненский район, Московский международный деловой центр Москва-Сити",
+        "metro": null,
+        "metro_stations": [],
+        "id": "11121356"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-04T18:44:56+0300",
+      "created_at": "2026-05-04T18:44:56+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=129382781",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/129382781?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/129382781",
+      "relations": [],
+      "employer": {
+        "id": "8945513",
+        "name": "Пуск",
+        "url": "https://api.hh.ru/employers/8945513",
+        "alternate_url": "https://hh.ru/employer/8945513",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/5664995.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/5664996.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/5664997.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=8945513",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Уровень Middle и выше. Опыт дизайна интерфейсов (не лендингов) от 2 лет. Работа в инструментах Figma, Framer, Protopie. ",
+        "responsibility": "...оформление через <highlighttext>банк</highlighttext>. Прекратить общение. Не передавать данные. Не выполнять действия в банковских приложениях. При необходимости связаться с <highlighttext>банком</highlighttext>. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_9",
+          "name": "9 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "34",
+          "name": "Дизайнер, художник"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132728217",
+      "premium": false,
+      "name": "UX/UI-дизайнер (middle+)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Серпуховско-Тимирязевская линия",
+        "building": "метро Тульская",
+        "lat": 55.708841,
+        "lng": 37.622621,
+        "description": null,
+        "raw": "Москва, Серпуховско-Тимирязевская линия, метро Тульская",
+        "metro": {
+          "station_name": "ЗИЛ",
+          "line_name": "Троицкая",
+          "station_id": "137.964",
+          "line_id": "137",
+          "lat": 55.697915,
+          "lng": 37.647565,
+          "hex_color": "03795F"
+        },
+        "metro_stations": [
+          {
+            "station_name": "ЗИЛ",
+            "line_name": "Троицкая",
+            "station_id": "137.964",
+            "line_id": "137",
+            "lat": 55.697915,
+            "lng": 37.647565,
+            "hex_color": "03795F"
+          },
+          {
+            "station_name": "Серпуховская",
+            "line_name": "Серпуховско-Тимирязевская",
+            "station_id": "9.37",
+            "line_id": "9",
+            "lat": 55.726548,
+            "lng": 37.624792,
+            "hex_color": "ADACAC"
+          },
+          {
+            "station_name": "Тульская",
+            "line_name": "Серпуховско-Тимирязевская",
+            "station_id": "9.142",
+            "line_id": "9",
+            "lat": 55.70961,
+            "lng": 37.622569,
+            "hex_color": "ADACAC"
+          },
+          {
+            "station_name": "Шаболовская",
+            "line_name": "Калужско-Рижская",
+            "station_id": "6.157",
+            "line_id": "6",
+            "lat": 55.718828,
+            "lng": 37.607892,
+            "hex_color": "F07E24"
+          }
+        ],
+        "id": "22050413"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-04T10:48:40+0300",
+      "created_at": "2026-05-04T10:48:40+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132728217",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132728217?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132728217",
+      "relations": [],
+      "employer": {
+        "id": "3280416",
+        "name": "Цифровые привычки",
+        "url": "https://api.hh.ru/employers/3280416",
+        "alternate_url": "https://hh.ru/employer/3280416",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6181228.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6181229.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6181230.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3280416",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы в роли продуктового UX/<highlighttext>UI</highlighttext> <highlighttext>дизайнера</highlighttext> от 3 лет в проектах по проектированию и созданию дизайна интерфейсов мобильного...",
+        "responsibility": "ГК «Цифровые привычки» — российский разработчик и поставщик цифровых решений для <highlighttext>банков</highlighttext> и <highlighttext>финтеха</highlighttext>. С 2016г. работаем в enterprise-сегменте..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "34",
+          "name": "Дизайнер, художник"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132705256",
+      "premium": false,
+      "name": "Бизнес-системнный аналитик в Финтех стартап (Senior+)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": {
+        "from": 250000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 250000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Тишинская площадь",
+        "building": "1с2",
+        "lat": 55.768866,
+        "lng": 37.582727,
+        "description": null,
+        "raw": "Москва, Тишинская площадь, 1с2",
+        "metro": {
+          "station_name": "Белорусская",
+          "line_name": "Кольцевая",
+          "station_id": "5.20",
+          "line_id": "5",
+          "lat": 55.775179,
+          "lng": 37.582303,
+          "hex_color": "915133"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Белорусская",
+            "line_name": "Кольцевая",
+            "station_id": "5.20",
+            "line_id": "5",
+            "lat": 55.775179,
+            "lng": 37.582303,
+            "hex_color": "915133"
+          },
+          {
+            "station_name": "Белорусская",
+            "line_name": "МЦД-1",
+            "station_id": "131.700",
+            "line_id": "131",
+            "lat": 55.775179,
+            "lng": 37.582303,
+            "hex_color": "F5A528"
+          },
+          {
+            "station_name": "Белорусская",
+            "line_name": "МЦД-4",
+            "station_id": "136.894",
+            "line_id": "136",
+            "lat": 55.776389,
+            "lng": 37.580278,
+            "hex_color": "00CC66"
+          },
+          {
+            "station_name": "Маяковская",
+            "line_name": "Замоскворецкая",
+            "station_id": "2.80",
+            "line_id": "2",
+            "lat": 55.769808,
+            "lng": 37.596192,
+            "hex_color": "4FB04F"
+          }
+        ],
+        "id": "18626646"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-03T13:41:45+0300",
+      "created_at": "2026-05-03T13:41:45+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132705256",
+      "show_contacts": true,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132705256?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132705256",
+      "relations": [],
+      "employer": {
+        "id": "11948236",
+        "name": "Холдинг Финанс",
+        "url": "https://api.hh.ru/employers/11948236",
+        "alternate_url": "https://hh.ru/employer/11948236",
+        "logo_urls": null,
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=11948236",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "...х лет, опыт в <highlighttext>финтехе</highlighttext> обязателен. ️ Опыт работы бизнес-аналитиком от 5 лет в <highlighttext>финтехе</highlighttext>, <highlighttext>банках</highlighttext>, инвестиционных компаниях, платежных системах. ️ ",
+        "responsibility": "Маркетплейс-платформы. Кандидату предстоит погружаться в самые сложные бизнес-процессы <highlighttext>финтех</highlighttext>-компаний, web3 протоколов, систематизировать их и превращать в..."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "150",
+          "name": "Бизнес-аналитик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132376956",
+      "premium": false,
+      "name": "UX/UI-дизайнер",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2759",
+        "name": "Ташкент",
+        "url": "https://api.hh.ru/areas/2759"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Ташкент",
+        "street": "улица Батыра Закирова",
+        "building": "1А/1",
+        "lat": 41.3119983,
+        "lng": 69.2510685,
+        "description": null,
+        "raw": "Ташкент, улица Батыра Закирова, 1А/1",
+        "metro": null,
+        "metro_stations": [],
+        "id": "21713529"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-22T11:20:25+0300",
+      "created_at": "2026-04-22T11:20:25+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132376956",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132376956?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132376956",
+      "relations": [],
+      "employer": {
+        "id": "4084893",
+        "name": "АКБ Тенге Банк",
+        "url": "https://api.hh.ru/employers/4084893",
+        "alternate_url": "https://hh.ru/employer/4084893",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1445196.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7400408.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7400409.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4084893",
+        "country_id": 6,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Высшее образование (желательно в области дизайна, ИТ, цифровых медиа). Опыт работы UX/<highlighttext>UI</highlighttext>-<highlighttext>дизайнером</highlighttext> от 1-3 лет. ",
+        "responsibility": "Участие в разработке и развитии цифрового продукта Tenge Business. Создание и поддержка дизайн-системы и UI-библиотек. Проектирование интерфейсов мобильного..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "40",
+          "name": "Другое"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132671856",
+      "premium": false,
+      "name": "Продуктовый дизайнер (Кошелек клиента)",
+      "department": {
+        "id": "3529-3529-0",
+        "name": "cбербанк россии"
+      },
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": {
+        "from": 154700,
+        "to": null,
+        "currency": "RUR",
+        "gross": true
+      },
+      "salary_range": {
+        "from": 154700,
+        "to": null,
+        "currency": "RUR",
+        "gross": true,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-30T15:27:20+0300",
+      "created_at": "2026-04-30T15:27:20+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132671856",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132671856?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132671856",
+      "relations": [],
+      "employer": {
+        "id": "3529",
+        "name": "СБЕР",
+        "url": "https://api.hh.ru/employers/3529",
+        "alternate_url": "https://hh.ru/employer/3529",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6865265.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6865266.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6865267.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3529",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт в UX/UI-дизайне от 1 года. Опыт в исследованиях (важно иметь понимание и практических опыт различных типов исследований). ",
+        "responsibility": "Проектирование пользовательского интерфейса для веба, IOS и Android с учетом всех требований и технических ограничений. Работа с дизайн-системой и..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "68",
+          "name": "Менеджер по маркетингу, интернет-маркетолог"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "131882648",
+      "premium": false,
+      "name": "UI/UX дизайнер (финтех проект)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1002",
+        "name": "Минск",
+        "url": "https://api.hh.ru/areas/1002"
+      },
+      "salary": {
+        "from": 900,
+        "to": 1500,
+        "currency": "USD",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 900,
+        "to": 1500,
+        "currency": "USD",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "TWICE_PER_MONTH",
+          "name": "Два раза в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Минск",
+        "street": "Национальный аэропорт Минск",
+        "building": null,
+        "lat": 53.88926,
+        "lng": 28.03416,
+        "description": null,
+        "raw": "Минск, Национальный аэропорт Минск",
+        "metro": null,
+        "metro_stations": [],
+        "id": "20347316"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-06T16:30:50+0300",
+      "created_at": "2026-04-06T16:30:50+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131882648",
+      "show_contacts": true,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/131882648?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/131882648",
+      "relations": [],
+      "employer": {
+        "id": "9228941",
+        "name": "Up pashkevich",
+        "url": "https://api.hh.ru/employers/9228941",
+        "alternate_url": "https://hh.ru/employer/9228941",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/7007109.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/7007110.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/7007111.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9228941",
+        "country_id": 8,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт от 3 года в UI/UX-дизайне, желательно в <highlighttext>финтехе</highlighttext>, <highlighttext>банках</highlighttext>, платежных системах или смежных областях. Портфолио с кейсами...",
+        "responsibility": "Задачи, где дизайн напрямую влияет на бизнес-метрики. Возможность углубиться в <highlighttext>финтех</highlighttext>: платежные системы, кредитование, AML-проверки и другие niche..."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "34",
+          "name": "Дизайнер, художник"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132140640",
+      "premium": false,
+      "name": "Ведущий UX\\UI дизайнер",
+      "department": {
+        "id": "4394-4394-it",
+        "name": "ОТП Банк. IT"
+      },
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-14T19:54:41+0300",
+      "created_at": "2026-04-14T19:54:41+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132140640",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132140640?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132140640",
+      "relations": [],
+      "employer": {
+        "id": "4394",
+        "name": "АО «ОТП Банк» (JSC «OTP Bank»)",
+        "url": "https://api.hh.ru/employers/4394",
+        "alternate_url": "https://hh.ru/employer/4394",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6395484.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6395485.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6395486.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4394",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Подтвержденный опыт разработки интерфейсов для финансовых технологий (<highlighttext>финтех</highlighttext>), электронной коммерции (e-commerce) или крупных онлайн-сервисов. Способность ясно обосновывать принимаемые...",
+        "responsibility": "Создавать оригинальные и привлекательные дизайны посадочных страниц, отражающие позиционирование бренда <highlighttext>банка</highlighttext> и актуальные дизайнерские тенденции. Работать в тесной связке с..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "34",
+          "name": "Дизайнер, художник"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132215316",
+      "premium": false,
+      "name": "UX/UI Designer (трайб Digital)",
+      "department": {
+        "id": "4394-4394-it",
+        "name": "ОТП Банк. IT"
+      },
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-16T18:00:18+0300",
+      "created_at": "2026-04-16T18:00:18+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132215316",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132215316?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132215316",
+      "relations": [],
+      "employer": {
+        "id": "4394",
+        "name": "АО «ОТП Банк» (JSC «OTP Bank»)",
+        "url": "https://api.hh.ru/employers/4394",
+        "alternate_url": "https://hh.ru/employer/4394",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6395484.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6395485.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6395486.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4394",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Будет плюсом: Навыки в векторной анимации. Опыт работы с банковскими продуктами и в <highlighttext>финтех</highlighttext>-секторе. Опыт работы с Jira и...",
+        "responsibility": "Проведение «коридорных» исследований для проектирования процессов и дизайнов интерфейсов в приложениях/системах <highlighttext>Банка</highlighttext>. Моделирование и прототипирование процессов пользовательских действий с..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "34",
+          "name": "Дизайнер, художник"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132214279",
+      "premium": false,
+      "name": "Продуктовый дизайнер",
+      "department": {
+        "id": "4496-4496-office",
+        "name": "МТС Банк. Головной офис"
+      },
+      "has_test": true,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "проспект Андропова",
+        "building": "18к1",
+        "lat": 55.695022,
+        "lng": 37.66274,
+        "description": null,
+        "raw": "Москва, проспект Андропова, 18к1",
+        "metro": {
+          "station_name": "Технопарк",
+          "line_name": "Замоскворецкая",
+          "station_id": "2.512",
+          "line_id": "2",
+          "lat": 55.695,
+          "lng": 37.664167,
+          "hex_color": "4FB04F"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Технопарк",
+            "line_name": "Замоскворецкая",
+            "station_id": "2.512",
+            "line_id": "2",
+            "lat": 55.695,
+            "lng": 37.664167,
+            "hex_color": "4FB04F"
+          }
+        ],
+        "id": "2687057"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-21T11:07:55+0300",
+      "created_at": "2026-04-21T11:07:55+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132214279",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132214279?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132214279",
+      "relations": [],
+      "employer": {
+        "id": "4496",
+        "name": "МТС Банк",
+        "url": "https://api.hh.ru/employers/4496",
+        "alternate_url": "https://hh.ru/employer/4496",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1503145.png",
+          "90": "https://img.hhcdn.ru/employer-logo/12302931.png",
+          "240": "https://img.hhcdn.ru/employer-logo/12302932.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4496",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы на позиции продуктового дизайнера от 2 лет (опыт в B2C <highlighttext>финтех</highlighttext>-продуктах будет преимуществом). ",
+        "responsibility": "Анализировать пользовательские сценарии и проектировать интерфейсы, которые делают платежи быстрыми, понятными и безопасными. Взаимодействовать с продуктовой командой, аналитиками и разработчиками..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "34",
+          "name": "Дизайнер, художник"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "131906588",
+      "premium": false,
+      "name": "UI/UX Дизайнер (Веб-интерфейсы)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": {
+        "from": 2000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 2000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "HOUR",
+          "name": "За час"
+        },
+        "frequency": {
+          "id": "PER_PROJECT",
+          "name": "За проект"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-07T11:33:36+0300",
+      "created_at": "2026-04-07T11:33:36+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131906588",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/131906588?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/131906588",
+      "relations": [],
+      "employer": {
+        "id": "9666344",
+        "name": "Платфориум",
+        "url": "https://api.hh.ru/employers/9666344",
+        "alternate_url": "https://hh.ru/employer/9666344",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/5910924.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/5910925.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/5910926.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9666344",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы: от 6 лет. Обладает сильным визуальным вкусом, чувством типографики, сеток, контраста и цвета. Не ждет идеального ТЗ. ",
+        "responsibility": "Философия сотрудничества: партнер в обмен на долю. Прямое влияние на продукт. Ваши решения в UX/UI и архитектуре будут напрямую..."
+      },
+      "contacts": null,
+      "accept_temporary": true,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "OTHER",
+          "name": "Другое"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "OTHER",
+          "name": "Другое"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [
+        {
+          "id": "SELF_EMPLOYED",
+          "name": "с самозанятым"
+        },
+        {
+          "id": "INDIVIDUAL_ENTREPRENEUR",
+          "name": "с ИП"
+        }
+      ],
+      "night_shifts": true,
+      "professional_roles": [
+        {
+          "id": "34",
+          "name": "Дизайнер, художник"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "moreThan6",
+        "name": "Более 6 лет"
+      },
+      "employment_form": {
+        "id": "PROJECT",
+        "name": "Проект"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "131927160",
+      "premium": false,
+      "name": "Продуктовый дизайнер дизайн-системы, Ozon Банк",
+      "department": {
+        "id": "ozonru-2180-fintech",
+        "name": "Ozon Банк"
+      },
+      "has_test": true,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Пресненская набережная",
+        "building": "10",
+        "lat": 55.74723295660558,
+        "lng": 37.536558290665916,
+        "description": null,
+        "raw": "Москва, Пресненская набережная, 10",
+        "metro": {
+          "station_name": "Деловой центр",
+          "line_name": "Большая кольцевая линия",
+          "station_id": "97.603",
+          "line_id": "97",
+          "lat": 55.7491,
+          "lng": 37.5395,
+          "hex_color": "88CDCF"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Деловой центр",
+            "line_name": "Большая кольцевая линия",
+            "station_id": "97.603",
+            "line_id": "97",
+            "lat": 55.7491,
+            "lng": 37.5395,
+            "hex_color": "88CDCF"
+          },
+          {
+            "station_name": "Деловой центр",
+            "line_name": "Солнцевская",
+            "station_id": "133.468",
+            "line_id": "133",
+            "lat": 55.7491,
+            "lng": 37.5395,
+            "hex_color": "FFCD1C"
+          },
+          {
+            "station_name": "Москва-Сити",
+            "line_name": "Филевская",
+            "station_id": "4.179",
+            "line_id": "4",
+            "lat": 55.748056,
+            "lng": 37.532778,
+            "hex_color": "1EBCEF"
+          }
+        ],
+        "id": "1522426"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-07T17:20:48+0300",
+      "created_at": "2026-04-07T17:20:48+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131927160",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/131927160?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/131927160",
+      "relations": [],
+      "employer": {
+        "id": "2180",
+        "name": "Ozon",
+        "url": "https://api.hh.ru/employers/2180",
+        "alternate_url": "https://hh.ru/employer/2180",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/5899116.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/5899117.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/5899118.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2180",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы в продуктовом дизайне и практический опыт работы с дизайн-системой, UI kit или компонентной библиотекой. Системное мышление: умение...",
+        "responsibility": "Развивать дизайн-систему: улучшать существующие компоненты, паттерны и токены, а также проектировать новые решения под задачи продуктовых команд. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "34",
+          "name": "Дизайнер, художник"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132730422",
+      "premium": false,
+      "name": "Senior Frontend-разработчик (трайб Customer Tech)",
+      "department": {
+        "id": "4394-4394-it",
+        "name": "ОТП Банк. IT"
+      },
+      "has_test": true,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Замоскворецкая линия",
+        "building": "метро Войковская",
+        "lat": 55.818923,
+        "lng": 37.497791,
+        "description": null,
+        "raw": "Москва, Замоскворецкая линия, метро Войковская",
+        "metro": {
+          "station_name": "Войковская",
+          "line_name": "Замоскворецкая",
+          "station_id": "2.30",
+          "line_id": "2",
+          "lat": 55.818923,
+          "lng": 37.497791,
+          "hex_color": "4FB04F"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Войковская",
+            "line_name": "Замоскворецкая",
+            "station_id": "2.30",
+            "line_id": "2",
+            "lat": 55.818923,
+            "lng": 37.497791,
+            "hex_color": "4FB04F"
+          }
+        ],
+        "id": "867575"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-04T11:14:25+0300",
+      "created_at": "2026-05-04T11:14:25+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132730422",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132730422?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132730422",
+      "relations": [],
+      "employer": {
+        "id": "4394",
+        "name": "АО «ОТП Банк» (JSC «OTP Bank»)",
+        "url": "https://api.hh.ru/employers/4394",
+        "alternate_url": "https://hh.ru/employer/4394",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6395484.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6395485.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6395486.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4394",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы с git Работа с системами логирования и мониторинга приложений. Будет плюсом: Опыт работы в <highlighttext>ФинТех</highlighttext>. Опыт работы с...",
+        "responsibility": "Разработка пользовательских интерфейсов на TypeScript с использованием библиотек React. Реализация взаимодействия с backend частью микросервисных приложений. Разработка Unit тестов и..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "moreThan6",
+        "name": "Более 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132541794",
+      "premium": false,
+      "name": "Web Product Manager",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2759",
+        "name": "Ташкент",
+        "url": "https://api.hh.ru/areas/2759"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Ташкент",
+        "street": "улица Саида Барака",
+        "building": "78",
+        "lat": 41.295015,
+        "lng": 69.277985,
+        "description": null,
+        "raw": "Ташкент, улица Саида Барака, 78",
+        "metro": null,
+        "metro_stations": [],
+        "id": "19965048"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-27T15:17:33+0300",
+      "created_at": "2026-04-27T15:17:33+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132541794",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": true,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132541794?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132541794",
+      "relations": [],
+      "employer": {
+        "id": "6167349",
+        "name": "Garant bank",
+        "url": "https://api.hh.ru/employers/6167349",
+        "alternate_url": "https://hh.ru/employer/6167349",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6642448.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6642449.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6642450.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=6167349",
+        "country_id": 6,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "...GA, AppMetrica, AppsFlyer, Яндекс Метрика). Опыт работы в кросс-функциональных командах. Опыт работы в <highlighttext>банке</highlighttext> или <highlighttext>финтех</highlighttext>-проектах будет плюсом.",
+        "responsibility": "Развитие сайта как продукта: от гипотез до релиза и аналитики результатов. Работа с воронкой: трафик → конверсия → результат. Формирование и приоритизация..."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "73",
+          "name": "Менеджер продукта"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132401640",
+      "premium": false,
+      "name": "Руководитель визуально-текстовой экосистемы бренда",
+      "department": null,
+      "has_test": true,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "anonymous",
+        "name": "Анонимная"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-23T06:38:27+0300",
+      "created_at": "2026-04-23T06:38:27+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132401640",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132401640?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132401640",
+      "relations": [],
+      "employer": {
+        "name": "Крупный российский финтех",
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы в крупных брендах, экосистемах, <highlighttext>финтехе</highlighttext>, <highlighttext>банках</highlighttext>. Понимание сложных продуктов, финансовых/регуляторных тематик, юридической корректности и комплаенса. ",
+        "responsibility": "Формирование и развитие единой экосистемы бренда: Управление кросс-функциональной командой: Стратегическое лидерство в брендинге: Инновации и технологическое развитие: Контроль качества..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "12",
+          "name": "Арт-директор, креативный директор"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "moreThan6",
+        "name": "Более 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132501554",
+      "premium": false,
+      "name": "Руководитель цифрового продукта",
+      "department": {
+        "id": "80-80-expert",
+        "name": "Альфа-Банк. Центральный офис"
+      },
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-26T13:18:24+0300",
+      "created_at": "2026-04-26T13:18:24+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132501554",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": {
+        "id": "32631",
+        "url": "https://hh.ru/interview/32631?employerId=80"
+      },
+      "url": "https://api.hh.ru/vacancies/132501554?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132501554",
+      "relations": [],
+      "employer": {
+        "id": "80",
+        "name": "Альфа-Банк",
+        "url": "https://api.hh.ru/employers/80",
+        "alternate_url": "https://hh.ru/employer/80",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/3096623.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/3096624.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/3096625.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=80",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт проектирования UX/<highlighttext>UI</highlighttext> (совместно с <highlighttext>дизайнером</highlighttext>), опыт проведения качественных и количественных исследований. Опыт проведения A/B-тестов. ",
+        "responsibility": "Отвечать в роли PO за развитие платформенной функциональности мобильного приложения для физических лиц. Работа со стрейкхолдерами, презентация выбранного решения, результатов..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "73",
+          "name": "Менеджер продукта"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132430931",
+      "premium": false,
+      "name": "Владелец продукта в команду сервисов для физических лиц",
+      "department": {
+        "id": "3443-3443-it",
+        "name": "Банк ДОМ.РФ IT"
+      },
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "ЖК Искра Парк",
+        "building": null,
+        "lat": 55.789978,
+        "lng": 37.551088,
+        "description": null,
+        "raw": "Москва, ЖК Искра Парк",
+        "metro": {
+          "station_name": "Гражданская",
+          "line_name": "МЦД-2",
+          "station_id": "132.722",
+          "line_id": "132",
+          "lat": 55.805527,
+          "lng": 37.55315,
+          "hex_color": "E74683"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Гражданская",
+            "line_name": "МЦД-2",
+            "station_id": "132.722",
+            "line_id": "132",
+            "lat": 55.805527,
+            "lng": 37.55315,
+            "hex_color": "E74683"
+          },
+          {
+            "station_name": "Динамо",
+            "line_name": "Замоскворецкая",
+            "station_id": "2.34",
+            "line_id": "2",
+            "lat": 55.789704,
+            "lng": 37.558212,
+            "hex_color": "4FB04F"
+          },
+          {
+            "station_name": "Петровский парк",
+            "line_name": "Большая кольцевая линия",
+            "station_id": "97.599",
+            "line_id": "97",
+            "lat": 55.79233,
+            "lng": 37.55952,
+            "hex_color": "88CDCF"
+          },
+          {
+            "station_name": "ЦСКА",
+            "line_name": "Большая кольцевая линия",
+            "station_id": "97.600",
+            "line_id": "97",
+            "lat": 55.78643,
+            "lng": 37.53502,
+            "hex_color": "88CDCF"
+          }
+        ],
+        "id": "21934770"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-23T12:40:48+0300",
+      "created_at": "2026-04-23T12:40:48+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132430931",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132430931?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132430931",
+      "relations": [],
+      "employer": {
+        "id": "3443",
+        "name": "Банк ДОМ.РФ",
+        "url": "https://api.hh.ru/employers/3443",
+        "alternate_url": "https://hh.ru/employer/3443",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/2871415.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/2871416.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/2871417.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3443",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы в <highlighttext>финтехе</highlighttext>, <highlighttext>банке</highlighttext> или PropTech будет преимуществом. Навыки работы с юридическими и регуляторными требованиями (ипотечные договоры, требования регуляторов...",
+        "responsibility": "Участвовать в проектировании UX/<highlighttext>UI</highlighttext> решений совместно с <highlighttext>дизайнерами</highlighttext>. Описывать и оптимизировать бизнес-процессы (BPMN, draw.io, Archi). Определять продуктовые параметры..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "73",
+          "name": "Менеджер продукта"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132519703",
+      "premium": false,
+      "name": "Системный аналитик (домен Colvir)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "159",
+        "name": "Астана",
+        "url": "https://api.hh.ru/areas/159"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Астана",
+        "street": "улица Достык",
+        "building": "8/1",
+        "lat": 51.126285,
+        "lng": 71.418428,
+        "description": null,
+        "raw": "Астана, улица Достык, 8/1",
+        "metro": null,
+        "metro_stations": [],
+        "id": "781077"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-27T10:08:04+0300",
+      "created_at": "2026-04-27T10:08:04+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132519703",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132519703?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132519703",
+      "relations": [],
+      "employer": {
+        "id": "24761",
+        "name": "ForteBank",
+        "url": "https://api.hh.ru/employers/24761",
+        "alternate_url": "https://hh.ru/employer/24761",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/7142634.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/7142635.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/7142636.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=24761",
+        "country_id": 3,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Коммуникабельность - умение доносить требования до разных подразделений <highlighttext>банка</highlighttext> и <highlighttext>финтех</highlighttext> компании (бизнес, разработка, тестирование, UX/<highlighttext>UI</highlighttext> спецы, <highlighttext>дизайнеры</highlighttext>, data инженеры). ",
+        "responsibility": "Поддержка интеграции домена Colvir и системой Colvir и другими корпоративными системами <highlighttext>банка</highlighttext>. Подготовка тест-кейсов, участие в функциональном и приемочном..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "148",
+          "name": "Системный аналитик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132058240",
+      "premium": false,
+      "name": "Директор по развитию дистанционных каналов (Департамент розничного бизнеса)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": true,
+      "area": {
+        "id": "160",
+        "name": "Алматы",
+        "url": "https://api.hh.ru/areas/160"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Алматы",
+        "street": "улица Климента Тимирязева",
+        "building": "28В",
+        "lat": 43.229629,
+        "lng": 76.933095,
+        "description": null,
+        "raw": "Алматы, улица Климента Тимирязева, 28В",
+        "metro": null,
+        "metro_stations": [],
+        "id": "25093221"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-21T12:16:42+0300",
+      "created_at": "2026-04-21T12:16:42+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132058240",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132058240?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132058240",
+      "relations": [],
+      "employer": {
+        "id": "11620178",
+        "name": "Рекрутинговое агентство Fin Career Lab",
+        "url": "https://api.hh.ru/employers/11620178",
+        "alternate_url": "https://hh.ru/employer/11620178",
+        "logo_urls": null,
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=11620178",
+        "country_id": 3,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "...Manager в банковской или <highlighttext>финтех</highlighttext>-сфере по направлению ДБО (digital <highlighttext>banking</highlighttext>). Опыт управления цифровыми каналами: интернет-<highlighttext>банк</highlighttext>, мобильное приложение, PWA. ",
+        "responsibility": "A/B-тестирование фич, персонализация предложений. Руководство командами, разработка, <highlighttext>UI</highlighttext>/<highlighttext>UX</highlighttext>-<highlighttext>дизайнерами</highlighttext>. Интеграция с экосистемами, API-банкинг для партнеров, Безопасность. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "73",
+          "name": "Менеджер продукта"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "moreThan6",
+        "name": "Более 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132281041",
+      "premium": false,
+      "name": "Product Owner (Mobile App / Mobile First)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2759",
+        "name": "Ташкент",
+        "url": "https://api.hh.ru/areas/2759"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-20T10:23:11+0300",
+      "created_at": "2026-04-20T10:23:11+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132281041",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132281041?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132281041",
+      "relations": [],
+      "employer": {
+        "id": "3303228",
+        "name": "HamkorBank",
+        "url": "https://api.hh.ru/employers/3303228",
+        "alternate_url": "https://hh.ru/employer/3303228",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6939937.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6939938.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6939939.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3303228",
+        "country_id": 6,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Высшее образование. ​​Будет плюсом: Опыт работы в <highlighttext>финтех</highlighttext> продуктах или мобильных <highlighttext>банках</highlighttext>. Понимание CI/CD и процессов публикации в App...",
+        "responsibility": "Участвовать в product discovery: CustDev, UX-интервью, проверка гипотез. Совместно с UX/<highlighttext>UI</highlighttext>-<highlighttext>дизайнером</highlighttext> прорабатывать сценарии и прототипы. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "73",
+          "name": "Менеджер продукта"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132278654",
+      "premium": false,
+      "name": "Стажер/Системный аналитик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-20T09:51:20+0300",
+      "created_at": "2026-04-20T09:51:20+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132278654",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132278654?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132278654",
+      "relations": [],
+      "employer": {
+        "id": "5050306",
+        "name": "IT_One",
+        "url": "https://api.hh.ru/employers/5050306",
+        "alternate_url": "https://hh.ru/employer/5050306",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1409973.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7259552.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7259553.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5050306",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "...включая OpenAPI/Swagger). Опыт участия в проектировании UX/<highlighttext>UI</highlighttext> или взаимодействия с <highlighttext>дизайнерами</highlighttext>. Базовое понимание банковских процессов (особенно ДБО, кредитование);​​​​​​​.",
+        "responsibility": "Материалы для изучения + домашние задания + учебный проект + встречи с ментором. Этапы отбора: отправка резюме -> заполнение анкеты -> собеседование..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_4",
+          "name": "4 часа"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "148",
+          "name": "Системный аналитик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "PART",
+        "name": "Частичная"
+      },
+      "internship": true,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132025766",
+      "premium": false,
+      "name": "Web Product Manager | Продукт менеджер веб сайта",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2759",
+        "name": "Ташкент",
+        "url": "https://api.hh.ru/areas/2759"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Ташкент",
+        "street": null,
+        "building": null,
+        "lat": 41.311144,
+        "lng": 69.279728,
+        "description": null,
+        "raw": "Ташкент",
+        "metro": null,
+        "metro_stations": [],
+        "id": "20382508"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-10T13:52:24+0300",
+      "created_at": "2026-04-10T13:52:24+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132025766",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132025766?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132025766",
+      "relations": [],
+      "employer": {
+        "id": "3303228",
+        "name": "HamkorBank",
+        "url": "https://api.hh.ru/employers/3303228",
+        "alternate_url": "https://hh.ru/employer/3303228",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6939937.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6939938.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6939939.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3303228",
+        "country_id": 6,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "...AppsFlyer, Яндекс Метрика). Прохождение практических курсов по продуктовой аналитике например: GoPractice. Опыт работы в <highlighttext>банке</highlighttext> или <highlighttext>финтех</highlighttext>-проектах будет плюсом.",
+        "responsibility": "Развитие сайта как продукта: от гипотез до релиза и аналитики результатов. Работа с воронкой: трафик → конверсия → результат. Формирование и приоритизация..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "73",
+          "name": "Менеджер продукта"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132124185",
+      "premium": false,
+      "name": "Цифровой маркетолог",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "159",
+        "name": "Астана",
+        "url": "https://api.hh.ru/areas/159"
+      },
+      "salary": {
+        "from": null,
+        "to": 1000000,
+        "currency": "KZT",
+        "gross": false
+      },
+      "salary_range": {
+        "from": null,
+        "to": 1000000,
+        "currency": "KZT",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Астана",
+        "street": "улица Кайыма Мухамедханова",
+        "building": "5",
+        "lat": 51.138058,
+        "lng": 71.405591,
+        "description": null,
+        "raw": "Астана, улица Кайыма Мухамедханова, 5",
+        "metro": null,
+        "metro_stations": [],
+        "id": "12451885"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-14T13:58:46+0300",
+      "created_at": "2026-04-14T13:58:46+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132124185",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": true,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132124185?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132124185",
+      "relations": [],
+      "employer": {
+        "id": "2541711",
+        "name": "Микрофинансовая организация «R-Finance»",
+        "url": "https://api.hh.ru/employers/2541711",
+        "alternate_url": "https://hh.ru/employer/2541711",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/3804446.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/3804447.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/3804448.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2541711",
+        "country_id": 3,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Ответственность, инициативность, аналитическое мышление. Опыт работы в МФО, <highlighttext>банках</highlighttext> или <highlighttext>финтех</highlighttext>-компаниях. Знание требований к рекламе финансовых продуктов. ",
+        "responsibility": "Разработка и реализация digital-стратегии для привлечения клиентов (лидогенерация). Настройка, запуск и оптимизация рекламных кампаний (Google Ads, таргетированная реклама в..."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "68",
+          "name": "Менеджер по маркетингу, интернет-маркетолог"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    }
+  ],
+  "found": 22,
+  "pages": 1,
+  "page": 0,
+  "per_page": 50,
+  "clusters": null,
+  "arguments": null,
+  "fixes": null,
+  "suggests": null,
+  "alternate_url": "https://hh.ru/search/vacancy?enable_snippets=true&items_on_page=50&text=UI+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80+%D0%B1%D0%B0%D0%BD%D0%BA+%D1%84%D0%B8%D0%BD%D1%82%D0%B5%D1%85"
+}

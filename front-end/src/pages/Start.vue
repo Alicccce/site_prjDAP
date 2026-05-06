@@ -91,4 +91,20 @@ const adminText2 = ref([
   white-space: pre-line;
   -webkit-text-stroke: 0,8px #7a4e30;
 }
+
+@media (max-width: 768px) {
+  .starts-container {
+    gap: 20px;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .btn {
+    max-width: 100%;
+    width: 100%;
+  }
+  .admin-message {
+    font-size: 16px;
+    padding: 30px 20px;
+  }
+}
 </style>

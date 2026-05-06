@@ -223,4 +223,15 @@ button:hover {
   font-size: 12px;
   text-align: left;
 }
+
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 20px;
+  }
+  .form-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
 </style>

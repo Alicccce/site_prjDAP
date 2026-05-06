@@ -5,7 +5,7 @@
       <!-- Загрузка -->
       <div v-if="loading" class="loading-block">
         <div class="loader"></div>
-        <p class="loading-text">Наставник составляет ваш план...</p>
+        <p class="loading-text">Составляем ваш план...</p>
         <p class="loading-sub">Это займёт около 20–30 секунд</p>
       </div>
 

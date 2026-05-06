@@ -1,0 +1,487 @@
+{
+  "items": [
+    {
+      "id": "132762670",
+      "premium": false,
+      "name": "Воздушный гимнаст/воздушная гимнастка",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "53",
+        "name": "Краснодар",
+        "url": "https://api.hh.ru/areas/53"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Краснодар",
+        "street": "улица Красных Партизан",
+        "building": "228",
+        "lat": 45.04901,
+        "lng": 38.969034,
+        "description": null,
+        "raw": "Краснодар, улица Красных Партизан, 228",
+        "metro": null,
+        "metro_stations": [],
+        "id": "853135"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-04T19:07:15+0300",
+      "created_at": "2026-05-04T19:07:15+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132762670",
+      "show_contacts": true,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132762670?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132762670",
+      "relations": [],
+      "employer": {
+        "id": "2616034",
+        "name": "Honey Bunny",
+        "url": "https://api.hh.ru/employers/2616034",
+        "alternate_url": "https://hh.ru/employer/2616034",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/1940953.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/1940954.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/1940955.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2616034",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт сценических выступлений на воздушных снарядах. Уверенное владение техникой (кольцо, полотна, ремни, петли и др.). Вовлеченность, дисциплина и желание работать...",
+        "responsibility": "Выступать с номерами на воздушных снарядах (кольцо, полотна, ремни, петли и др.). Участвовать в велком-анимации и создавать атмосферу с..."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_6",
+          "name": "6 часов"
+        },
+        {
+          "id": "HOURS_7",
+          "name": "7 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FOUR_ON_THREE_OFF",
+          "name": "4/3"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": true,
+      "professional_roles": [
+        {
+          "id": "13",
+          "name": "Артист, актер, аниматор"
+        }
+      ],
+      "accept_incomplete_resumes": true,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null,
+      "key_skills": []
+    },
+    {
+      "id": "131756548",
+      "premium": false,
+      "name": "Супервайзер промоутеров / Торговый представитель",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "53",
+        "name": "Краснодар",
+        "url": "https://api.hh.ru/areas/53"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-06T13:03:34+0300",
+      "created_at": "2026-05-06T13:03:34+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131756548",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/131756548?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/131756548",
+      "relations": [],
+      "employer": {
+        "id": "5968526",
+        "name": "Гимнастический клуб Мои Небеса (ИП Федоренко Ангелина Борисовна)",
+        "url": "https://api.hh.ru/employers/5968526",
+        "alternate_url": "https://hh.ru/employer/5968526",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1442213.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7388476.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7388477.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5968526",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Личная работа с владельцем бизнеса, со стратегическим и HR директорами, перенимание их опыта и знаний. Неограниченный доступ ко всем курсам...",
+        "responsibility": "Самостоятельный поиск и сбор команды промоутеров(за счет финансовых ресурсов компании). Составление графика работы промоутеров и локаций. Контроль работы промоутеров..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "129",
+          "name": "Торговый представитель"
+        }
+      ],
+      "accept_incomplete_resumes": true,
+      "experience": {
+        "id": "noExperience",
+        "name": "Нет опыта"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null,
+      "key_skills": []
+    },
+    {
+      "id": "132820586",
+      "premium": false,
+      "name": "Администратор в спортивный комплекс",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "95",
+        "name": "Тюмень",
+        "url": "https://api.hh.ru/areas/95"
+      },
+      "salary": {
+        "from": 35000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 35000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "TWICE_PER_MONTH",
+          "name": "Два раза в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Тюмень",
+        "street": "Стройотрядовская улица",
+        "building": "1",
+        "lat": 57.141319,
+        "lng": 65.660568,
+        "description": null,
+        "raw": "Тюмень, Стройотрядовская улица, 1",
+        "metro": null,
+        "metro_stations": [],
+        "id": "24079360"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-06T07:26:14+0300",
+      "created_at": "2026-05-06T07:26:14+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132820586",
+      "show_contacts": true,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132820586?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132820586",
+      "relations": [],
+      "employer": {
+        "id": "12603627",
+        "name": "Центр Водных Видов Спорта Софи-Лэнд",
+        "url": "https://api.hh.ru/employers/12603627",
+        "alternate_url": "https://hh.ru/employer/12603627",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1498877.png",
+          "90": "https://img.hhcdn.ru/employer-logo/12285859.png",
+          "240": "https://img.hhcdn.ru/employer-logo/12285860.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=12603627",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Навыки ведения кассовой дисциплины и работы с отчётностью. Высокая клиентоориентированность, стрессоустойчивость, ответственность. Аккуратность и порядочность при работе с деньгами и...",
+        "responsibility": "Встреча и регистрация посетителей: оформление оплат и чеков. Оформление и контроль бронирований: спортивные залы, корты, групповые занятия, детские группы. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FOUR_ON_TWO_OFF",
+          "name": "4/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "8",
+          "name": "Администратор"
+        }
+      ],
+      "accept_incomplete_resumes": true,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null,
+      "key_skills": []
+    },
+    {
+      "id": "132448033",
+      "premium": false,
+      "name": "Менеджер реальных продаж",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "102",
+        "name": "Хабаровск",
+        "url": "https://api.hh.ru/areas/102"
+      },
+      "salary": {
+        "from": 70000,
+        "to": 120000,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 70000,
+        "to": 120000,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "TWICE_PER_MONTH",
+          "name": "Два раза в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Хабаровск",
+        "street": "улица Восточный Семафор",
+        "building": "25А",
+        "lat": 48.496412,
+        "lng": 135.085436,
+        "description": null,
+        "raw": "Хабаровск, улица Восточный Семафор, 25А",
+        "metro": null,
+        "metro_stations": [],
+        "id": "19774814"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-23T18:04:06+0300",
+      "created_at": "2026-04-23T18:04:06+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132448033",
+      "show_contacts": true,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132448033?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132448033",
+      "relations": [],
+      "employer": {
+        "id": "6142130",
+        "name": "Радиколбас",
+        "url": "https://api.hh.ru/employers/6142130",
+        "alternate_url": "https://hh.ru/employer/6142130",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1465901.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7483210.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7483211.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=6142130",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Знакомимся: — Иметь гибкое мышление. <highlighttext>Гимнаст</highlighttext>(ка) с опытом игры в ЧГК, жду тебя! — Уметь брать инициативу. Чтоб без тамады сам...",
+        "responsibility": "Найти новые точки сбыта. Наладить работу с ключевыми сетями. Составлять и контролировать графики промо."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "70",
+          "name": "Менеджер по продажам, менеджер по работе с клиентами"
+        }
+      ],
+      "accept_incomplete_resumes": true,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null,
+      "key_skills": [
+        {
+          "name": "Грамотная речь"
+        },
+        {
+          "name": "Поиск и привлечение клиентов"
+        },
+        {
+          "name": "Холодные продажи"
+        },
+        {
+          "name": "Управление продажами"
+        },
+        {
+          "name": "Стратегия продаж"
+        }
+      ]
+    }
+  ],
+  "found": 4,
+  "pages": 1,
+  "page": 0,
+  "per_page": 50,
+  "clusters": null,
+  "arguments": null,
+  "fixes": null,
+  "suggests": null,
+  "alternate_url": "https://hh.ru/search/vacancy?enable_snippets=true&items_on_page=50&text=%D0%B3%D0%B8%D0%BC%D0%BD%D0%B0%D1%81%D1%82"
+}

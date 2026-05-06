@@ -12,4 +12,16 @@
   -webkit-text-stroke: 5px #7a4e30;
   color: #3de0cd;
 }
+
+@media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  nav a {
+    margin-right: 0;
+  }
+}
 </style>

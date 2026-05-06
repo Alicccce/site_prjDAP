@@ -1,0 +1,517 @@
+{
+  "items": [
+    {
+      "id": "132247164",
+      "premium": false,
+      "name": "Golang-разработчик (Ecommerce, Logistic)",
+      "department": null,
+      "has_test": true,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": {
+        "from": null,
+        "to": 350000,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": null,
+        "to": 350000,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "MONTHLY",
+          "name": "Раз в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-05T16:20:19+0300",
+      "created_at": "2026-05-05T16:20:19+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132247164",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132247164?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132247164",
+      "relations": [],
+      "employer": {
+        "id": "598471",
+        "name": "evrone.ru",
+        "url": "https://api.hh.ru/employers/598471",
+        "alternate_url": "https://hh.ru/employer/598471",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1416091.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7284020.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7284021.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=598471",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Понимание или опыт в сфере или <highlighttext>e</highlighttext>-<highlighttext>commerce</highlighttext> / marketplace / <highlighttext>ритейле</highlighttext>. Качественный онбординг и hr-менеджмент (1:1, Grow Review). ",
+        "responsibility": "Основной фокус задач - развитие логистического контура. Ускорение доставки, рост объема перевозок и снижение стоимости логистики. Обычно на наших проектах процессы..."
+      },
+      "contacts": null,
+      "accept_temporary": true,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [
+        {
+          "id": "SELF_EMPLOYED",
+          "name": "с самозанятым"
+        },
+        {
+          "id": "INDIVIDUAL_ENTREPRENEUR",
+          "name": "с ИП"
+        },
+        {
+          "id": "INDIVIDUAL_PERSON",
+          "name": "с физлицом"
+        }
+      ],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "moreThan6",
+        "name": "Более 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "128966075",
+      "premium": false,
+      "name": "Frontend-разработчик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "3-й проезд Перова Поля",
+        "building": "3А",
+        "lat": 55.753772,
+        "lng": 37.77387,
+        "description": null,
+        "raw": "Москва, 3-й проезд Перова Поля, 3А",
+        "metro": null,
+        "metro_stations": [],
+        "id": "18741713"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-17T17:44:01+0300",
+      "created_at": "2026-04-17T17:44:01+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=128966075",
+      "branding": {
+        "type": "CONSTRUCTOR",
+        "tariff": "BASIC"
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/128966075?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/128966075",
+      "relations": [],
+      "employer": {
+        "id": "3344320",
+        "name": "Аптечная сеть Ваша №1 х Таблетка.ру",
+        "url": "https://api.hh.ru/employers/3344320",
+        "alternate_url": "https://hh.ru/employer/3344320",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1500749.png",
+          "90": "https://img.hhcdn.ru/employer-logo/12293347.png",
+          "240": "https://img.hhcdn.ru/employer-logo/12293348.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3344320",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Понимание принципов responsive и adaptive design. ​​​​​​Будет плюсом: Опыт работы в <highlighttext>ритейле</highlighttext>, <highlighttext>e</highlighttext>-<highlighttext>commerce</highlighttext> или аптечном сегменте. Знание TypeScript. ",
+        "responsibility": "Разрабатывать и поддерживать <highlighttext>фронтенд</highlighttext> веб-приложений на платформе 1С-Битрикс для <highlighttext>e</highlighttext>-<highlighttext>commerce</highlighttext> и корпоративных порталов. Создавать интерактивные интерфейсы..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132626957",
+      "premium": false,
+      "name": "Fullstack Developer (внутренние системы и автоматизация)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": {
+        "from": 180000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 180000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "улица Горбунова",
+        "building": "2с3",
+        "lat": 55.72632,
+        "lng": 37.399399,
+        "description": null,
+        "raw": "Москва, улица Горбунова, 2с3",
+        "metro": {
+          "station_name": "Рабочий Посёлок",
+          "line_name": "МЦД-1",
+          "station_id": "131.705",
+          "line_id": "131",
+          "lat": 55.726957,
+          "lng": 37.415577,
+          "hex_color": "F5A528"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Рабочий Посёлок",
+            "line_name": "МЦД-1",
+            "station_id": "131.705",
+            "line_id": "131",
+            "lat": 55.726957,
+            "lng": 37.415577,
+            "hex_color": "F5A528"
+          }
+        ],
+        "id": "20832636"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-29T14:52:20+0300",
+      "created_at": "2026-04-29T14:52:20+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132626957",
+      "show_contacts": false,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132626957?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132626957",
+      "relations": [],
+      "employer": {
+        "id": "10621990",
+        "name": "Милорада",
+        "url": "https://api.hh.ru/employers/10621990",
+        "alternate_url": "https://hh.ru/employer/10621990",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6449783.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6449785.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6449786.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=10621990",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы Fullstack <highlighttext>Developer</highlighttext> от 3 лет. Уверенные знания: Backend (Node.js / Python / PHP — не принципиально). <highlighttext>Frontend</highlighttext> (React / Vue или аналог). ",
+        "responsibility": "Интегрировать системы (1С, CRM, маркетплейсы, внешние сервисы). Писать backend и <highlighttext>frontend</highlighttext>. Работать с данными и логикой их обработки. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132587422",
+      "premium": false,
+      "name": "Technical Project Manager / Системный аналитик по интеграциям",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": true,
+      "area": {
+        "id": "160",
+        "name": "Алматы",
+        "url": "https://api.hh.ru/areas/160"
+      },
+      "salary": {
+        "from": 500000,
+        "to": 700000,
+        "currency": "KZT",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 500000,
+        "to": 700000,
+        "currency": "KZT",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "MONTHLY",
+          "name": "Раз в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Алматы",
+        "street": "улица Митина",
+        "building": "4",
+        "lat": 43.2188737248578,
+        "lng": 76.96514378406098,
+        "description": null,
+        "raw": "Алматы, улица Митина, 4",
+        "metro": null,
+        "metro_stations": [],
+        "id": "16840615"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-28T15:22:11+0300",
+      "created_at": "2026-04-28T15:22:11+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132587422",
+      "show_contacts": true,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132587422?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132587422",
+      "relations": [],
+      "employer": {
+        "id": "5633134",
+        "name": "Denser Technologies",
+        "url": "https://api.hh.ru/employers/5633134",
+        "alternate_url": "https://hh.ru/employer/5633134",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/4115483.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/4115484.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/4115485.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5633134",
+        "country_id": 3,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Ответственность, самостоятельность и внимательность к деталям. Опыт в <highlighttext>e</highlighttext>-<highlighttext>commerce</highlighttext>, marketplace, fintech, <highlighttext>retail</highlighttext> или pharmacy tech. Понимание платежей, бонусов, фискализации...",
+        "responsibility": "Коммуницировать с <highlighttext>разработчиками</highlighttext>, QA, поддержкой, бизнесом и внешними партнерами. Работу в IT-продукте на рынке pharmacy/<highlighttext>e</highlighttext>-<highlighttext>commerce</highlighttext>. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": true,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [
+        {
+          "id": "INDIVIDUAL_ENTREPRENEUR",
+          "name": "с ИП"
+        }
+      ],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "73",
+          "name": "Менеджер продукта"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    }
+  ],
+  "found": 4,
+  "pages": 1,
+  "page": 0,
+  "per_page": 50,
+  "clusters": null,
+  "arguments": null,
+  "fixes": null,
+  "suggests": null,
+  "alternate_url": "https://hh.ru/search/vacancy?enable_snippets=true&items_on_page=50&text=Frontend+%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+%D1%80%D0%B8%D1%82%D0%B5%D0%B9%D0%BB+e-commerce"
+}

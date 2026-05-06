@@ -112,4 +112,19 @@ button:hover {
   width: 740px;
   text-align: left;
 }
+
+input, button, .error {
+  width: 100%;
+  max-width: 740px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .search-page {
+    padding: 20px;
+  }
+  input, button, .error {
+    width: 100%;
+  }
+}
 </style>

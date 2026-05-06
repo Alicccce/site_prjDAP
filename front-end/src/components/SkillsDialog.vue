@@ -59,7 +59,7 @@ const questions = [
   { id: 'frameworks', type: 'chips', bot: 'Хорошо! Какие фреймворки или библиотеки вы использовали?', options: ['React', 'Vue.js', 'Angular', 'Django', 'FastAPI', 'Flask', 'Spring', 'Node.js', 'Next.js', 'Laravel', 'Ни одного'], skillsKey: true },
   { id: 'databases', type: 'chips', bot: 'С какими базами данных вы работали?', options: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'SQLite', 'Elasticsearch', 'ClickHouse', 'MS SQL', 'Ни одного'], skillsKey: true },
   { id: 'devops', type: 'chips', bot: 'Знакомы ли вы с инструментами DevOps или облачными сервисами?', options: ['Docker', 'Kubernetes', 'Git', 'CI/CD', 'AWS', 'Azure', 'GCP', 'Linux', 'Terraform', 'Ни одного'], skillsKey: true },
-  { id: 'extra', type: 'text', bot: 'Есть ли ещё навыки? Например: Machine Learning, SQL, Figma... (или напишите "нет")', placeholder: 'Например: Machine Learning, SQL, Figma', skillsKey: true },
+  { id: 'extra', type: 'text', bot: 'Есть ли ещё навыки?', placeholder: 'Например: Machine Learning, SQL, Figma', skillsKey: true },
   { id: 'experience', type: 'chips', bot: 'Какой у вас опыт работы?', options: ['Нет опыта', 'До 1 года', '1–3 года', '3–5 лет', '5+ лет'], skillsKey: false }
 ]
 
