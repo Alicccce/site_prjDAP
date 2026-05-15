@@ -43,9 +43,38 @@
         <button @click="goToSearch" class="btn-primary full-width">
           ＋ Новый поиск
         </button>
+        <button @click="showEditForm = !showEditForm" class="btn-outline full-width">
+          ✏️ Редактировать профиль
+        </button>
         <button @click="handleLogout" class="btn-ghost full-width">
           Выйти
         </button>
+
+        <!-- Форма редактирования -->
+        <Transition name="slide">
+          <div v-if="showEditForm" class="edit-form">
+            <h3 class="edit-title">Редактировать профиль</h3>
+            <div class="edit-field">
+              <label>Имя</label>
+              <input v-model="editName" type="text" placeholder="Ваше имя" />
+            </div>
+            <div class="edit-field">
+              <label>Текущий пароль</label>
+              <input v-model="editCurrentPassword" type="password" placeholder="Для смены пароля" />
+            </div>
+            <div class="edit-field">
+              <label>Новый пароль <span class="optional">(необязательно)</span></label>
+              <input v-model="editNewPassword" type="password" placeholder="Минимум 6 символов" />
+            </div>
+            <p v-if="editError" class="edit-error">{{ editError }}</p>
+            <div class="edit-actions">
+              <button @click="saveProfile" :disabled="editLoading" class="btn-primary">
+                {{ editLoading ? 'Сохраняем...' : 'Сохранить' }}
+              </button>
+              <button @click="showEditForm = false" class="btn-ghost">Отмена</button>
+            </div>
+          </div>
+        </Transition>
       </aside>
 
       <!-- Правая колонка — история планов -->
@@ -141,10 +170,12 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
+import { useToastStore } from '../stores/toast'
 import api from '../api/axios'
 
 const router = useRouter()
 const userStore = useUserStore()
+const toast = useToastStore()
 
 const profile = ref(null)
 const loading = ref(false)
@@ -217,6 +248,42 @@ const openPlan = async (planId) => {
 
 const goToSearch = () => router.push('/search')
 const handleLogout = () => { userStore.clearUser(); router.push('/login') }
+
+// Редактирование профиля
+const showEditForm = ref(false)
+const editName = ref('')
+const editCurrentPassword = ref('')
+const editNewPassword = ref('')
+const editError = ref('')
+const editLoading = ref(false)
+
+const openEdit = () => {
+  editName.value = profile.value?.name || ''
+  editCurrentPassword.value = ''
+  editNewPassword.value = ''
+  editError.value = ''
+  showEditForm.value = true
+}
+
+const saveProfile = async () => {
+  editError.value = ''
+  if (!editName.value.trim()) { editError.value = 'Введите имя'; return }
+  editLoading.value = true
+  try {
+    const res = await api.put('/user/profile', {
+      name: editName.value.trim(),
+      current_password: editCurrentPassword.value,
+      new_password: editNewPassword.value
+    })
+    profile.value.name = res.data.name
+    showEditForm.value = false
+    toast.success('Профиль обновлён!')
+  } catch (err) {
+    editError.value = err.response?.data?.detail || 'Ошибка сохранения'
+  } finally {
+    editLoading.value = false
+  }
+}
 
 onMounted(loadProfile)
 </script>
@@ -517,6 +584,48 @@ onMounted(loadProfile)
 /* ── Анимация модалки ── */
 .fade-enter-active, .fade-leave-active { transition: opacity 0.2s; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
+
+/* ── Форма редактирования ── */
+.btn-outline {
+  padding: 11px 20px;
+  background: none;
+  color: #3de0cd;
+  border: 1.5px solid #3de0cd;
+  border-radius: 10px;
+  font-size: 14px; font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: #3de0cd; color: white; }
+
+.edit-form {
+  margin-top: 16px;
+  padding: 20px;
+  background: #f9f6f3;
+  border-radius: 12px;
+  border: 1px solid #e0d8d0;
+}
+.edit-title { font-size: 15px; font-weight: 700; color: #7a4e30; margin-bottom: 14px; }
+.edit-field { margin-bottom: 12px; }
+.edit-field label {
+  display: block; font-size: 12px;
+  color: #888; margin-bottom: 4px; font-weight: 500;
+}
+.optional { color: #bbb; font-weight: 400; }
+.edit-field input {
+  width: 100%; padding: 10px 12px;
+  border: 1px solid #ddd; border-radius: 8px;
+  font-size: 14px; box-sizing: border-box;
+  background: white;
+}
+.edit-field input:focus { outline: none; border-color: #7a4e30; }
+.edit-error { font-size: 13px; color: #e74c3c; margin-bottom: 10px; }
+.edit-actions { display: flex; gap: 10px; }
+.edit-actions .btn-primary { flex: 1; }
+.edit-actions .btn-ghost { flex: 1; }
+
+.slide-enter-active, .slide-leave-active { transition: all 0.25s ease; }
+.slide-enter-from, .slide-leave-to { opacity: 0; transform: translateY(-10px); }
 
 /* ── Адаптив ── */
 @media (max-width: 768px) {

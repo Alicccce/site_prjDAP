@@ -121,10 +121,15 @@ input, button, .error {
 
 @media (max-width: 768px) {
   .search-page {
-    padding: 20px;
+    padding: 20px 16px;
+  }
+  .search-page h3 {
+    font-size: 18px;
+    padding: 8px;
   }
   input, button, .error {
     width: 100%;
+    max-width: 100%;
   }
 }
 </style>

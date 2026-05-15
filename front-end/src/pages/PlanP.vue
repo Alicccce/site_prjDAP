@@ -33,33 +33,26 @@
           :key="week.week"
           class="week-block"
         >
-          <div class="week-header">
-            <span class="week-number">Неделя {{ week.week }}</span>
-            <span class="week-theme">{{ week.theme }}</span>
+          <div class="week-header" @click="toggleWeek(week.week)">
+            <div class="week-header-left">
+              <span class="week-number">Неделя {{ week.week }}</span>
+              <span class="week-theme">{{ week.theme }}</span>
+            </div>
+            <span class="week-toggle">{{ expandedWeeks.has(week.week) ? '▲' : '▼' }}</span>
           </div>
 
-          <div class="week-body">
-            <!-- Навыки недели -->
+          <div v-if="expandedWeeks.has(week.week)" class="week-body">
             <div class="week-skills">
-              <span
-                v-for="skill in week.skills"
-                :key="skill"
-                class="skill-tag"
-              >{{ skill }}</span>
+              <span v-for="skill in week.skills" :key="skill" class="skill-tag">{{ skill }}</span>
             </div>
 
-            <!-- Цель -->
-            <p class="week-goal">
-              <span class="label">Цель:</span> {{ week.goal }}
-            </p>
+            <p class="week-goal"><span class="label">Цель:</span> {{ week.goal }}</p>
 
-            <!-- Совет наставника -->
             <div class="mentor-tip">
               <span class="tip-icon">💡</span>
               <p>{{ week.mentor_tip }}</p>
             </div>
 
-            <!-- Ресурсы -->
             <div class="resources">
               <p class="resources-title">Материалы:</p>
               <a
@@ -70,7 +63,7 @@
                 rel="noopener noreferrer"
                 class="resource-link"
               >
-                <span class="resource-type" :class="res.type">{{ typeLabel(res.type) }}</span>
+                <span class="resource-type">{{ typeLabel(res.type) }}</span>
                 <span class="resource-name">{{ res.title }}</span>
                 <span v-if="res.is_free" class="free-badge">бесплатно</span>
               </a>
@@ -78,11 +71,10 @@
           </div>
         </div>
 
-        <!-- Кнопка сначала -->
-        <button @click="goBack" class="back-btn">Начать заново</button>
+        <button @click="goBack" class="back-btn">Новый поиск</button>
       </div>
 
-      <!-- Пустое состояние (нет данных) -->
+      <!-- Пустое состояние -->
       <div v-else class="empty-block">
         <p>Нет данных для генерации плана.</p>
         <button @click="$router.push('/search')" class="retry-btn">На главную</button>
@@ -95,19 +87,31 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useToastStore } from '../stores/toast'
 import api from '../api/axios'
 
 const router = useRouter()
+const toast = useToastStore()
 
 const loading = ref(false)
 const error = ref('')
 const plan = ref(null)
 const jobTitle = ref('')
 const totalWeeks = ref(0)
+const expandedWeeks = ref(new Set())
 
 const typeLabel = (type) => {
   const map = { course: '📚 Курс', video: '▶️ Видео', article: '📄 Статья', practice: '⚙️ Практика' }
   return map[type] || '🔗 Ресурс'
+}
+
+const toggleWeek = (weekNum) => {
+  if (expandedWeeks.value.has(weekNum)) {
+    expandedWeeks.value.delete(weekNum)
+  } else {
+    expandedWeeks.value.add(weekNum)
+  }
+  expandedWeeks.value = new Set(expandedWeeks.value)
 }
 
 const generatePlan = async () => {
@@ -116,7 +120,6 @@ const generatePlan = async () => {
   loading.value = true
 
   try {
-    // Берём навыки из localStorage (Skills.vue сохраняет их)
     const skillsRaw = localStorage.getItem('skills_answers')
     const questionsRaw = localStorage.getItem('user_questions_answers')
 
@@ -128,28 +131,30 @@ const generatePlan = async () => {
 
     const skillsData = JSON.parse(skillsRaw)
     const questionsData = JSON.parse(questionsRaw)
-
     jobTitle.value = skillsData.jobTitle || 'Специалист'
 
-    // Собираем навыки которые пользователь НЕ знает
-    const deficitSkills = []
+    // Проверяем кэш
+    const cacheKey = `plan_cache_${jobTitle.value}_${questionsData.level}_${questionsData.period}`
+    const cached = localStorage.getItem(cacheKey)
+    if (cached) {
+      plan.value = JSON.parse(cached)
+      totalWeeks.value = plan.value.total_weeks || plan.value.weeks?.length || 0
+      if (plan.value.weeks?.length) expandedWeeks.value = new Set([1])
+      loading.value = false
+      toast.info('Загружен сохранённый план')
+      return
+    }
 
+    const deficitSkills = []
     const allSkills = [
       ...(skillsData.mandatory || []).map(s => ({ ...s, importance: 'important' })),
       ...(skillsData.optional || []).map(s => ({ ...s, importance: 'not_important' }))
     ]
-
     for (const item of allSkills) {
       if (item.status === 'не знаю') {
-        // item.skill — название навыка (строка)
-        // item.frequency — частота (число, может отсутствовать в старых данных)
         const skillName = item.skill || item.name
         if (!skillName) continue
-        deficitSkills.push({
-          name: skillName,
-          frequency: item.frequency || 0,
-          importance: item.importance || 'not_important'
-        })
+        deficitSkills.push({ name: skillName, frequency: item.frequency || 0, importance: item.importance || 'not_important' })
       }
     }
 
@@ -171,10 +176,12 @@ const generatePlan = async () => {
     plan.value = response.data.plan
     totalWeeks.value = plan.value.total_weeks || plan.value.weeks?.length || 0
 
-    // Сохраняем plan_id для истории
-    if (response.data.plan_id) {
-      localStorage.setItem('last_plan_id', response.data.plan_id)
-    }
+    // Кэшируем план
+    localStorage.setItem(cacheKey, JSON.stringify(plan.value))
+    if (response.data.plan_id) localStorage.setItem('last_plan_id', response.data.plan_id)
+
+    if (plan.value.weeks?.length) expandedWeeks.value = new Set([1])
+    toast.success('План успешно составлен!')
 
   } catch (err) {
     error.value = err.response?.data?.detail || 'Ошибка генерации плана. Попробуйте ещё раз.'
@@ -183,13 +190,9 @@ const generatePlan = async () => {
   }
 }
 
-const goBack = () => {
-  router.push('/search')
-}
+const goBack = () => router.push('/search')
 
-onMounted(() => {
-  generatePlan()
-})
+onMounted(() => { generatePlan() })
 </script>
 
 <style scoped>
@@ -208,280 +211,119 @@ onMounted(() => {
   background: white;
   border-radius: 12px;
   padding: 40px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Загрузка */
-.loading-block {
-  text-align: center;
-  padding: 60px 0;
-}
-
+.loading-block { text-align: center; padding: 60px 0; }
 .loader {
   margin: 0 auto 20px;
   border: 4px solid #f0f0f0;
   border-top: 4px solid #3de0cd;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 48px; height: 48px;
   animation: spin 1s linear infinite;
 }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.loading-text { font-size: 18px; color: #7a4e30; font-weight: 500; margin-bottom: 8px; }
+.loading-sub { font-size: 14px; color: #999; }
 
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
+.error-block { text-align: center; padding: 40px 0; }
+.error-title { font-size: 18px; color: #e74c3c; font-weight: 600; margin-bottom: 10px; }
+.error-text { font-size: 14px; color: #666; margin-bottom: 20px; }
 
-.loading-text {
-  font-size: 18px;
-  color: #7a4e30;
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-
-.loading-sub {
-  font-size: 14px;
-  color: #999;
-}
-
-/* Ошибка */
-.error-block {
-  text-align: center;
-  padding: 40px 0;
-}
-
-.error-title {
-  font-size: 18px;
-  color: #e74c3c;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.error-text {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-/* Заголовок плана */
-.plan-header {
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-.plan-title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #7a4e30;
-  margin-bottom: 12px;
-  -webkit-text-stroke: 0.5px #7a4e30;
-}
-
-.plan-summary {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.plan-meta {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
+.plan-header { margin-bottom: 28px; }
+.plan-title { font-size: 22px; font-weight: 700; color: #7a4e30; margin-bottom: 10px; }
+.plan-summary { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 14px; }
+.plan-meta { display: flex; gap: 8px; flex-wrap: wrap; }
 .meta-badge {
-  background-color: #c0950813;
-  color: #7a4e30;
-  padding: 4px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 500;
+  background: #c0950813; color: #7a4e30;
+  padding: 4px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 500;
 }
 
-/* Блок недели */
 .week-block {
-  border: 1px solid #eee;
+  border: 1.5px solid #eee;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   overflow: hidden;
 }
 
 .week-header {
-  background-color: #c0950813;
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  background: #c0950813;
+  padding: 12px 16px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
 }
+.week-header:hover { background: #c0950820; }
+.week-header-left { display: flex; align-items: center; gap: 10px; }
+.week-number { font-weight: 700; color: #7a4e30; font-size: 13px; white-space: nowrap; }
+.week-theme { font-size: 14px; color: #333; font-weight: 500; }
+.week-toggle { color: #7a4e30; font-size: 12px; }
 
-.week-number {
-  font-weight: 700;
-  color: #7a4e30;
-  font-size: 14px;
-  white-space: nowrap;
-}
+.week-body { padding: 16px; }
 
-.week-theme {
-  font-size: 15px;
-  color: #333;
-  font-weight: 500;
-}
-
-.week-body {
-  padding: 16px 20px;
-}
-
-/* Теги навыков */
-.week-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
+.week-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .skill-tag {
-  background-color: #3de0cd22;
-  color: #2abbaa;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
+  background: #3de0cd22; color: #2abbaa;
+  padding: 3px 10px; border-radius: 12px;
+  font-size: 12px; font-weight: 500;
 }
 
-/* Цель */
-.week-goal {
-  font-size: 14px;
-  color: #444;
-  margin-bottom: 12px;
-  line-height: 1.5;
-}
+.week-goal { font-size: 14px; color: #444; margin-bottom: 12px; line-height: 1.5; }
+.label { font-weight: 600; color: #7a4e30; }
 
-.label {
-  font-weight: 600;
-  color: #7a4e30;
-}
-
-/* Совет наставника */
 .mentor-tip {
-  display: flex;
-  gap: 10px;
-  background-color: #fffbf0;
-  border-left: 3px solid #d4c53d;
+  display: flex; gap: 10px;
+  background: #fffbf0;
+  border-left: 3px solid #c09508;
   padding: 10px 14px;
   border-radius: 0 8px 8px 0;
   margin-bottom: 14px;
 }
+.tip-icon { font-size: 16px; flex-shrink: 0; }
+.mentor-tip p { font-size: 13px; color: #555; line-height: 1.5; margin: 0; }
 
-.tip-icon {
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.mentor-tip p {
-  font-size: 13px;
-  color: #555;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* Ресурсы */
-.resources-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #7a4e30;
-  margin-bottom: 8px;
-}
-
+.resources-title { font-size: 13px; font-weight: 600; color: #7a4e30; margin-bottom: 8px; }
 .resource-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: flex; align-items: center; gap: 8px;
   padding: 8px 12px;
-  border: 1px solid #eee;
-  border-radius: 6px;
+  border: 1px solid #eee; border-radius: 6px;
   margin-bottom: 6px;
-  text-decoration: none;
-  color: #333;
-  font-size: 13px;
+  text-decoration: none; color: #333; font-size: 13px;
   transition: background 0.2s;
 }
-
-.resource-link:hover {
-  background-color: #f9f9f9;
-  border-color: #3de0cd;
-}
-
-.resource-type {
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.resource-name {
-  flex: 1;
-  color: #2563eb;
-}
-
+.resource-link:hover { background: #f9f9f9; border-color: #3de0cd; }
+.resource-type { font-size: 12px; white-space: nowrap; }
+.resource-name { flex: 1; color: #2563eb; }
 .free-badge {
-  background-color: #3de0cd22;
-  color: #2abbaa;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 11px;
-  white-space: nowrap;
-}
-
-/* Кнопки */
-.retry-btn {
-  padding: 12px 28px;
-  background-color: #3de0cd;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
-  margin-top: 10px;
-}
-
-.retry-btn:hover {
-  background-color: #2abbaa;
+  background: #3de0cd22; color: #2abbaa;
+  padding: 2px 8px; border-radius: 10px; font-size: 11px;
 }
 
 .back-btn {
-  width: 100%;
-  padding: 14px;
-  background-color: #7a4e30;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
+  width: 100%; padding: 13px;
+  background: #7a4e30; color: white;
+  border: none; border-radius: 8px;
+  cursor: pointer; font-size: 15px;
   margin-top: 24px;
 }
+.back-btn:hover { background: #5a3b25; }
 
-.back-btn:hover {
-  background-color: #5a3b25;
+.retry-btn {
+  padding: 12px 28px; background: #3de0cd;
+  color: white; border: none; border-radius: 8px;
+  cursor: pointer; font-size: 15px;
 }
+.retry-btn:hover { background: #2abbaa; }
 
-.empty-block {
-  text-align: center;
-  padding: 40px 0;
-  color: #666;
-}
+.empty-block { text-align: center; padding: 40px 0; color: #666; }
 
 @media (max-width: 600px) {
-  .plan-card {
-    padding: 20px;
-  }
-
-  .plan-title {
-    font-size: 20px;
-  }
-
-  .week-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
+  .plan-card { padding: 20px; }
+  .plan-title { font-size: 18px; }
+  .week-header { flex-wrap: wrap; gap: 4px; }
 }
 </style>

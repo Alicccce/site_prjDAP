@@ -2,6 +2,7 @@
 # main.py
 
 import json as _json
+import logging
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel
@@ -17,6 +18,14 @@ from repositories.user_repo import UserRepository
 from repositories.plan_repo import PlanRepository
 from core.security import decode_token
 from DataBase import Base, engine, SessionLocal, Plan as PlanModel
+
+# Логирование
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
+logger = logging.getLogger("dapdep")
 
 Base.metadata.create_all(bind=engine)
 
@@ -73,6 +82,18 @@ class RegisterRequest(BaseModel):
     email: str
     password: str
     name: str
+
+    @property
+    def validated(self):
+        import re
+        errors = []
+        if not re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', self.email):
+            errors.append("Некорректный email")
+        if len(self.password) < 6:
+            errors.append("Пароль должен быть не менее 6 символов")
+        if not self.name.strip():
+            errors.append("Имя не может быть пустым")
+        return errors
 
 class LoginRequest(BaseModel):
     email: str
@@ -141,6 +162,13 @@ class SuggestPositionsRequest(BaseModel):
 
 @app.post("/api/auth/register")
 def register(data: RegisterRequest):
+    import re
+    if not re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', data.email):
+        raise HTTPException(status_code=422, detail="Некорректный email")
+    if len(data.password) < 6:
+        raise HTTPException(status_code=422, detail="Пароль должен быть не менее 6 символов")
+    if not data.name.strip():
+        raise HTTPException(status_code=422, detail="Имя не может быть пустым")
     return auth_service.register(data.email, data.password, data.name)
 
 @app.post("/api/auth/login")
@@ -167,6 +195,40 @@ def get_profile(user_id: int = Depends(get_current_user)):
             "sessions_count": sessions_count,
             "plans_count": plans_count,
         }
+    finally:
+        db.close()
+
+
+class UpdateProfileRequest(BaseModel):
+    name: str
+    current_password: str = ""
+    new_password: str = ""
+
+
+@app.put("/api/user/profile")
+def update_profile(data: UpdateProfileRequest, user_id: int = Depends(get_current_user)):
+    from DataBase import User as UserModel
+    from core.security import verify_password, hash_password
+    import re
+    db = SessionLocal()
+    try:
+        user = db.query(UserModel).filter(UserModel.id == user_id).first()
+        if not user:
+            raise HTTPException(status_code=404, detail="Пользователь не найден")
+        if not data.name.strip():
+            raise HTTPException(status_code=422, detail="Имя не может быть пустым")
+        user.name = data.name.strip()
+        if data.new_password:
+            if len(data.new_password) < 6:
+                raise HTTPException(status_code=422, detail="Новый пароль должен быть не менее 6 символов")
+            if not data.current_password:
+                raise HTTPException(status_code=422, detail="Введите текущий пароль")
+            if not verify_password(data.current_password, user.password_hash):
+                raise HTTPException(status_code=400, detail="Неверный текущий пароль")
+            user.password_hash = hash_password(data.new_password)
+        db.commit()
+        logger.info(f"Profile updated for user {user_id}")
+        return {"success": True, "message": "Профиль обновлён", "name": user.name}
     finally:
         db.close()
 
@@ -258,6 +320,7 @@ async def generate_plan(request: GeneratePlanRequest, user_id: int = Depends(get
             time_per_day=request.timePerDay,
             payment_type=request.paymentType
         )
+        logger.info(f"Plan generated for user {user_id}: {request.jobTitle}")
 
         # Сохраняем план в БД
         db = SessionLocal()

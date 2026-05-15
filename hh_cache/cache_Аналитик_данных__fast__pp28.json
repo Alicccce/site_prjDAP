@@ -1,0 +1,3610 @@
+{
+  "items": [
+    {
+      "id": "132532493",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1002",
+        "name": "Минск",
+        "url": "https://api.hh.ru/areas/1002"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "деревня Королищевичи",
+        "street": "Свислочская улица",
+        "building": "21",
+        "lat": 53.81171,
+        "lng": 27.707277,
+        "description": null,
+        "raw": "деревня Королищевичи, Свислочская улица, 21",
+        "metro": null,
+        "metro_stations": [],
+        "id": "20956181"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T13:11:58+0300",
+      "created_at": "2026-05-15T13:11:58+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132532493",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132532493?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132532493",
+      "relations": [],
+      "employer": {
+        "id": "4525995",
+        "name": "Алюсофт",
+        "url": "https://api.hh.ru/employers/4525995",
+        "alternate_url": "https://hh.ru/employer/4525995",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/4133447.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/4133448.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/4133449.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4525995",
+        "country_id": 4,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Глубокие знания на уровне работы с большими массивами <highlighttext>данных</highlighttext> и сводными таблицами Microsoft Excel. BI-системы: SAP BusinessObjects BI, Web...",
+        "responsibility": "Аналитическая поддержка отчетности с использование технологии OLAP. Доработка информационных кубов на базе MS SQL Server. Разработка аналитической модели <highlighttext>данных</highlighttext> и..."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132161123",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2759",
+        "name": "Ташкент",
+        "url": "https://api.hh.ru/areas/2759"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Ташкент",
+        "street": "улица Батыра Закирова",
+        "building": "1А/1",
+        "lat": 41.3119983,
+        "lng": 69.2510685,
+        "description": null,
+        "raw": "Ташкент, улица Батыра Закирова, 1А/1",
+        "metro": null,
+        "metro_stations": [],
+        "id": "21713529"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T12:17:00+0300",
+      "created_at": "2026-05-15T12:17:00+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132161123",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132161123?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132161123",
+      "relations": [],
+      "employer": {
+        "id": "4084893",
+        "name": "АКБ Тенге Банк",
+        "url": "https://api.hh.ru/employers/4084893",
+        "alternate_url": "https://hh.ru/employer/4084893",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1445196.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7400408.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7400409.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4084893",
+        "country_id": 6,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Знание Python (Pandas, NumPy и другие библиотеки). Системы для визуализации <highlighttext>данных</highlighttext> (BI-инструменты). Будет плюсом опыт участия в проектах по...",
+        "responsibility": "Сбор, обработка и анализ <highlighttext>данных</highlighttext> из различных источников (базы <highlighttext>данных</highlighttext>, отчёты, внешние источники и др.). Ежедневный мониторинг. Подготовка и предоставление..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133133391",
+      "premium": false,
+      "name": "Дата-аналитик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "улица Большая Ордынка",
+        "building": null,
+        "lat": 55.737846,
+        "lng": 37.6244,
+        "description": null,
+        "raw": "Москва, улица Большая Ордынка",
+        "metro": {
+          "station_name": "Новокузнецкая",
+          "line_name": "Замоскворецкая",
+          "station_id": "2.89",
+          "line_id": "2",
+          "lat": 55.742391,
+          "lng": 37.62928,
+          "hex_color": "4FB04F"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Новокузнецкая",
+            "line_name": "Замоскворецкая",
+            "station_id": "2.89",
+            "line_id": "2",
+            "lat": 55.742391,
+            "lng": 37.62928,
+            "hex_color": "4FB04F"
+          },
+          {
+            "station_name": "Полянка",
+            "line_name": "Серпуховско-Тимирязевская",
+            "station_id": "9.115",
+            "line_id": "9",
+            "lat": 55.736795,
+            "lng": 37.618594,
+            "hex_color": "ADACAC"
+          },
+          {
+            "station_name": "Третьяковская",
+            "line_name": "Калужско-Рижская",
+            "station_id": "6.90",
+            "line_id": "6",
+            "lat": 55.74073,
+            "lng": 37.625624,
+            "hex_color": "F07E24"
+          },
+          {
+            "station_name": "Третьяковская",
+            "line_name": "Калининская",
+            "station_id": "8.91",
+            "line_id": "8",
+            "lat": 55.741125,
+            "lng": 37.626142,
+            "hex_color": "FFCD1C"
+          }
+        ],
+        "id": "20539625"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T12:37:30+0300",
+      "created_at": "2026-05-15T12:37:30+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133133391",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133133391?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133133391",
+      "relations": [],
+      "employer": {
+        "id": "87021",
+        "name": "RWB (Wildberries & Russ)",
+        "url": "https://api.hh.ru/employers/87021",
+        "alternate_url": "https://hh.ru/employer/87021",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1490898.png",
+          "90": "https://img.hhcdn.ru/employer-logo/12253955.png",
+          "240": "https://img.hhcdn.ru/employer-logo/12253956.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=87021",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Базовое понимание теории вероятностей и математической статистики. Опыт работы с большими объемами <highlighttext>данных</highlighttext>. Будет плюсом: Понимание экономики кредитных продуктов. ",
+        "responsibility": "Работать с несколькими источниками <highlighttext>данных</highlighttext>, выверять и сверять показатели между собой. Взаимодействовать с финансовым департаментом по вопросам. Методологии расчетов. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "130540072",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "улица Викторенко",
+        "building": "2/1",
+        "lat": 55.799477,
+        "lng": 37.528567,
+        "description": null,
+        "raw": "Москва, улица Викторенко, 2/1",
+        "metro": {
+          "station_name": "Гражданская",
+          "line_name": "МЦД-2",
+          "station_id": "132.722",
+          "line_id": "132",
+          "lat": 55.805527,
+          "lng": 37.55315,
+          "hex_color": "E74683"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Гражданская",
+            "line_name": "МЦД-2",
+            "station_id": "132.722",
+            "line_id": "132",
+            "lat": 55.805527,
+            "lng": 37.55315,
+            "hex_color": "E74683"
+          },
+          {
+            "station_name": "Сокол",
+            "line_name": "Замоскворецкая",
+            "station_id": "2.133",
+            "line_id": "2",
+            "lat": 55.805564,
+            "lng": 37.515245,
+            "hex_color": "4FB04F"
+          },
+          {
+            "station_name": "ЦСКА",
+            "line_name": "Большая кольцевая линия",
+            "station_id": "97.600",
+            "line_id": "97",
+            "lat": 55.78643,
+            "lng": 37.53502,
+            "hex_color": "88CDCF"
+          }
+        ],
+        "id": "23375101"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T09:08:36+0300",
+      "created_at": "2026-05-15T09:08:36+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=130540072",
+      "branding": {
+        "type": "CONSTRUCTOR",
+        "tariff": "BASIC"
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/130540072?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/130540072",
+      "relations": [],
+      "employer": {
+        "id": "3390296",
+        "name": "ГБУ МФЦ города Москвы Мои документы",
+        "url": "https://api.hh.ru/employers/3390296",
+        "alternate_url": "https://hh.ru/employer/3390296",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/4060870.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/4060871.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/4060872.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3390296",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы в сфере <highlighttext>аналитики</highlighttext> <highlighttext>данных</highlighttext>, бизнес-<highlighttext>аналитики</highlighttext> или data science от 6 месяцев. Уверенные навыки работы с Excel, Yandex...",
+        "responsibility": "Документирование реализованных решений, поддержка базы знаний по аналитическим продуктам. Построение и поддержка витрин <highlighttext>данных</highlighttext> / SQL‑запросов для аналитических задач. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132887378",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": {
+        "from": 150000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true
+      },
+      "salary_range": {
+        "from": 150000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Малая Почтовая улица",
+        "building": "2/2",
+        "lat": 55.77015723804361,
+        "lng": 37.68665386363867,
+        "description": null,
+        "raw": "Москва, Малая Почтовая улица, 2/2",
+        "metro": {
+          "station_name": "Бауманская",
+          "line_name": "Арбатско-Покровская",
+          "station_id": "3.17",
+          "line_id": "3",
+          "lat": 55.772405,
+          "lng": 37.67904,
+          "hex_color": "0072BA"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Бауманская",
+            "line_name": "Арбатско-Покровская",
+            "station_id": "3.17",
+            "line_id": "3",
+            "lat": 55.772405,
+            "lng": 37.67904,
+            "hex_color": "0072BA"
+          }
+        ],
+        "id": "23947273"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T09:09:42+0300",
+      "created_at": "2026-05-15T09:09:42+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132887378",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132887378?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132887378",
+      "relations": [],
+      "employer": {
+        "id": "654795",
+        "name": "ПроКонтекст",
+        "url": "https://api.hh.ru/employers/654795",
+        "alternate_url": "https://hh.ru/employer/654795",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/854056.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/854057.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/854058.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=654795",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Экспертиза в продуктовой <highlighttext>аналитике</highlighttext> (анализ распределений, очистка <highlighttext>данных</highlighttext>, исследования через сегментацию, воронки, когорты с целью выявления узкого места, дизайн и...",
+        "responsibility": "Анализировать аномалии в <highlighttext>данных</highlighttext> и готовить рекомендации. Участвовать в настройке и автоматизации регулярных отчетов, дашбордов, проектов сквозной <highlighttext>аналитики</highlighttext>. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133139640",
+      "premium": false,
+      "name": "Младший аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Садовническая набережная",
+        "building": "9",
+        "lat": 55.746446,
+        "lng": 37.629017,
+        "description": null,
+        "raw": "Москва, Садовническая набережная, 9",
+        "metro": {
+          "station_name": "Новокузнецкая",
+          "line_name": "Замоскворецкая",
+          "station_id": "2.89",
+          "line_id": "2",
+          "lat": 55.742391,
+          "lng": 37.62928,
+          "hex_color": "4FB04F"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Новокузнецкая",
+            "line_name": "Замоскворецкая",
+            "station_id": "2.89",
+            "line_id": "2",
+            "lat": 55.742391,
+            "lng": 37.62928,
+            "hex_color": "4FB04F"
+          }
+        ],
+        "id": "15325316"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T14:16:57+0300",
+      "created_at": "2026-05-15T14:16:57+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133139640",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133139640?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133139640",
+      "relations": [],
+      "employer": {
+        "id": "3633",
+        "name": "ICNX",
+        "url": "https://api.hh.ru/employers/3633",
+        "alternate_url": "https://hh.ru/employer/3633",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/3462123.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/3462125.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/3462126.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3633",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы в роли <highlighttext>аналитика</highlighttext> / оператора баз <highlighttext>данных</highlighttext> от полугода. Опыт написания SQL запросов, знание PostgreSQL на базовом уровне. ",
+        "responsibility": "Коммуникация с заказчиком: выявление потребности, уточнение деталей. Сбор и анализ требований к сегментам, выгрузка сегментов <highlighttext>данных</highlighttext>. Обработка больших массивов <highlighttext>данных</highlighttext>. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "noExperience",
+        "name": "Нет опыта"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133138425",
+      "premium": false,
+      "name": "Аналитик клиентских данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Рочдельская улица",
+        "building": "15с35",
+        "lat": 55.7568960393701,
+        "lng": 37.5616934685778,
+        "description": null,
+        "raw": "Москва, Рочдельская улица, 15с35",
+        "metro": {
+          "station_name": "Улица 1905 года",
+          "line_name": "Таганско-Краснопресненская",
+          "station_id": "7.146",
+          "line_id": "7",
+          "lat": 55.763944,
+          "lng": 37.562271,
+          "hex_color": "943E90"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Улица 1905 года",
+            "line_name": "Таганско-Краснопресненская",
+            "station_id": "7.146",
+            "line_id": "7",
+            "lat": 55.763944,
+            "lng": 37.562271,
+            "hex_color": "943E90"
+          }
+        ],
+        "id": "19278183"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T13:58:43+0300",
+      "created_at": "2026-05-15T13:58:43+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133138425",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": {
+        "id": "34033",
+        "url": "https://hh.ru/interview/34033?employerId=4309"
+      },
+      "url": "https://api.hh.ru/vacancies/133138425?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133138425",
+      "relations": [],
+      "employer": {
+        "id": "4309",
+        "name": "Ингосстрах",
+        "url": "https://api.hh.ru/employers/4309",
+        "alternate_url": "https://hh.ru/employer/4309",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1389393.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7177359.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7177360.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4309",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Не менее 3 лет в области клиентской <highlighttext>аналитики</highlighttext>. Навыки работы с базами <highlighttext>данных</highlighttext> (Oracle/MS SQL/Postgres или др.). ",
+        "responsibility": "Мониторинг состояния клиентской базы, формирование отчетности по состоянию клиентской базы физических лиц. Поведенческий анализ, нахождение и описание устойчивых поведенческих паттернов..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "131069180",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "22",
+        "name": "Владивосток",
+        "url": "https://api.hh.ru/areas/22"
+      },
+      "salary": {
+        "from": 138000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true
+      },
+      "salary_range": {
+        "from": 138000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "TWICE_PER_MONTH",
+          "name": "Два раза в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Владивосток",
+        "street": "проспект 100-летия Владивостока",
+        "building": "155к3",
+        "lat": 43.180305,
+        "lng": 131.916845,
+        "description": null,
+        "raw": "Владивосток, проспект 100-летия Владивостока, 155к3",
+        "metro": null,
+        "metro_stations": [],
+        "id": "7016006"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T04:53:26+0300",
+      "created_at": "2026-05-15T04:53:26+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131069180",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/131069180?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/131069180",
+      "relations": [],
+      "employer": {
+        "id": "5920492",
+        "name": "DNS Головной офис",
+        "url": "https://api.hh.ru/employers/5920492",
+        "alternate_url": "https://hh.ru/employer/5920492",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/4125551.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/4125552.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/4125553.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5920492",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы с SQL от 1,5 лет. Развитые коммуникативные навыки. Способность декомпозировать задачу, предложить план действий. Критическое мышление. ",
+        "responsibility": "Разработка инструментов контроля качества и полноты <highlighttext>данных</highlighttext>. Ведение документации по источникам <highlighttext>данных</highlighttext> (Datahub, Confluence). Обеспечение актуальности <highlighttext>данных</highlighttext> в собираемых источниках."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "131890329",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "22",
+        "name": "Владивосток",
+        "url": "https://api.hh.ru/areas/22"
+      },
+      "salary": {
+        "from": 149000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true
+      },
+      "salary_range": {
+        "from": 149000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "TWICE_PER_MONTH",
+          "name": "Два раза в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Владивосток",
+        "street": "проспект 100-летия Владивостока",
+        "building": "155к3",
+        "lat": 43.180305,
+        "lng": 131.916845,
+        "description": null,
+        "raw": "Владивосток, проспект 100-летия Владивостока, 155к3",
+        "metro": null,
+        "metro_stations": [],
+        "id": "7016006"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T04:53:24+0300",
+      "created_at": "2026-05-15T04:53:24+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131890329",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/131890329?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/131890329",
+      "relations": [],
+      "employer": {
+        "id": "5920492",
+        "name": "DNS Головной офис",
+        "url": "https://api.hh.ru/employers/5920492",
+        "alternate_url": "https://hh.ru/employer/5920492",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/4125551.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/4125552.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/4125553.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5920492",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Уверенное знание SQL на уровне написания сложных запросов. Понимание принципов работы хранилищ <highlighttext>данных</highlighttext>. Развитые коммуникативные навыки. Способность декомпозировать задачу, предложить...",
+        "responsibility": "...<highlighttext>данных</highlighttext>. Управление данными: поддержание их актуальности и целостности. Участие в построении и поддержке системы мониторинга, оценке полноты и качества <highlighttext>данных</highlighttext>. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133127608",
+      "premium": false,
+      "name": "Аналитик данных (риски)",
+      "department": null,
+      "has_test": true,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Ташкент",
+        "street": "улица Нукус",
+        "building": "29А",
+        "lat": 41.294297,
+        "lng": 69.282836,
+        "description": null,
+        "raw": "Ташкент, улица Нукус, 29А",
+        "metro": null,
+        "metro_stations": [],
+        "id": "12479036"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T11:08:10+0300",
+      "created_at": "2026-05-15T11:08:10+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133127608",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133127608?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133127608",
+      "relations": [],
+      "employer": {
+        "id": "9060247",
+        "name": "AVO.UZ",
+        "url": "https://api.hh.ru/employers/9060247",
+        "alternate_url": "https://hh.ru/employer/9060247",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6470640.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6470641.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6470642.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9060247",
+        "country_id": 6,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Высшее образование: техническое/экономическое/математическое. Знание SQL на продвинутом уровне, написание сложных запросов, хранимых процедур, представлений. Желательно иметь опыт работы...",
+        "responsibility": "Разработка и поддержка отчетности управления андеррайтинга (скоринга). Выгрузка <highlighttext>данных</highlighttext>, написание adhoc запросов. Контроль качества процессов в подразделении. Анализ потока кредитных..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133138459",
+      "premium": false,
+      "name": "Аналитик данных Ozon Travel",
+      "department": {
+        "id": "ozonru-2180-commerce",
+        "name": "Ozon Офис и Коммерция"
+      },
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Пресненская набережная",
+        "building": "10блокС",
+        "lat": 55.747079,
+        "lng": 37.536589,
+        "description": null,
+        "raw": "Москва, Пресненская набережная, 10блокС",
+        "metro": {
+          "station_name": "Деловой центр",
+          "line_name": "МЦК",
+          "station_id": "95.537",
+          "line_id": "95",
+          "lat": 55.747222,
+          "lng": 37.532222,
+          "hex_color": "CC4C6E"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Деловой центр",
+            "line_name": "МЦК",
+            "station_id": "95.537",
+            "line_id": "95",
+            "lat": 55.747222,
+            "lng": 37.532222,
+            "hex_color": "CC4C6E"
+          },
+          {
+            "station_name": "Деловой центр",
+            "line_name": "Большая кольцевая линия",
+            "station_id": "97.603",
+            "line_id": "97",
+            "lat": 55.7491,
+            "lng": 37.5395,
+            "hex_color": "88CDCF"
+          },
+          {
+            "station_name": "Деловой центр",
+            "line_name": "Солнцевская",
+            "station_id": "133.468",
+            "line_id": "133",
+            "lat": 55.7491,
+            "lng": 37.5395,
+            "hex_color": "FFCD1C"
+          },
+          {
+            "station_name": "Москва-Сити",
+            "line_name": "Филевская",
+            "station_id": "4.179",
+            "line_id": "4",
+            "lat": 55.748056,
+            "lng": 37.532778,
+            "hex_color": "1EBCEF"
+          }
+        ],
+        "id": "19010928"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T13:59:33+0300",
+      "created_at": "2026-05-15T13:59:33+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133138459",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133138459?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133138459",
+      "relations": [],
+      "employer": {
+        "id": "2180",
+        "name": "Ozon",
+        "url": "https://api.hh.ru/employers/2180",
+        "alternate_url": "https://hh.ru/employer/2180",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/5899116.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/5899117.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/5899118.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2180",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт в <highlighttext>аналитике</highlighttext> <highlighttext>данных</highlighttext> от 2-х лет (предпочтительно в e-commerce, маркетплейсах, travel или финтехе). Технический стек, которым ты...",
+        "responsibility": "Оценка эффективности активностей: анализировать влияние маркетинговых кампаний и продуктовых инициатив на бизнес-результаты Ozon Travel. Оптимизировать маркетинговые траты: Ты будешь..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132887446",
+      "premium": false,
+      "name": "Младший аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": {
+        "from": 90000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true
+      },
+      "salary_range": {
+        "from": 90000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Малая Почтовая улица",
+        "building": "2/2",
+        "lat": 55.77015723804361,
+        "lng": 37.68665386363867,
+        "description": null,
+        "raw": "Москва, Малая Почтовая улица, 2/2",
+        "metro": {
+          "station_name": "Бауманская",
+          "line_name": "Арбатско-Покровская",
+          "station_id": "3.17",
+          "line_id": "3",
+          "lat": 55.772405,
+          "lng": 37.67904,
+          "hex_color": "0072BA"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Бауманская",
+            "line_name": "Арбатско-Покровская",
+            "station_id": "3.17",
+            "line_id": "3",
+            "lat": 55.772405,
+            "lng": 37.67904,
+            "hex_color": "0072BA"
+          }
+        ],
+        "id": "23947273"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T09:09:42+0300",
+      "created_at": "2026-05-15T09:09:42+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132887446",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132887446?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132887446",
+      "relations": [],
+      "employer": {
+        "id": "654795",
+        "name": "ПроКонтекст",
+        "url": "https://api.hh.ru/employers/654795",
+        "alternate_url": "https://hh.ru/employer/654795",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/854056.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/854057.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/854058.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=654795",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Знание Excel (ВПР, Сводные, Power Pivot). Знание инструментов веб-<highlighttext>аналитики</highlighttext> (Яндекс Метрика и Google Analytics 4). Знание Python и SQL...",
+        "responsibility": "Анализировать аномалии в <highlighttext>данных</highlighttext> и готовить рекомендации. Участвовать в настройке и автоматизации регулярных отчетов, дашбордов, проектов сквозной <highlighttext>аналитики</highlighttext>. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "10",
+          "name": "Аналитик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133111794",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "81",
+        "name": "Южно-Сахалинск",
+        "url": "https://api.hh.ru/areas/81"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Южно-Сахалинск",
+        "street": "улица имени Б.Н. Егорова",
+        "building": "39",
+        "lat": 46.911455,
+        "lng": 142.745793,
+        "description": null,
+        "raw": "Южно-Сахалинск, улица имени Б.Н. Егорова, 39",
+        "metro": null,
+        "metro_stations": [],
+        "id": "20499303"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T02:02:18+0300",
+      "created_at": "2026-05-15T02:02:18+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133111794",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133111794?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133111794",
+      "relations": [],
+      "employer": {
+        "id": "1561801",
+        "name": "СМНМ-ВИКО, ИСК",
+        "url": "https://api.hh.ru/employers/1561801",
+        "alternate_url": "https://hh.ru/employer/1561801",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/7063649.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/7063650.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/7063651.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1561801",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Желательно наличие прохождения курсов/тренингов. Стаж работы экономистом, финансовым <highlighttext>аналитиком</highlighttext>, бизнес-<highlighttext>аналитиком</highlighttext>, <highlighttext>аналитиком</highlighttext> <highlighttext>данных</highlighttext> желательно от 1 года. ",
+        "responsibility": "очистка <highlighttext>данных</highlighttext> от ошибок. Построение дашбордов и формулирование рекомендаций на основе найденных закономерностей. Составление аналитических отчетов-презентаций в Power BI. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133111661",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "44",
+        "name": "Петропавловск-Камчатский",
+        "url": "https://api.hh.ru/areas/44"
+      },
+      "salary": {
+        "from": 90000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 90000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "TWICE_PER_MONTH",
+          "name": "Два раза в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Петропавловск-Камчатский",
+        "street": "проспект Победы",
+        "building": "67",
+        "lat": 53.071907,
+        "lng": 158.587341,
+        "description": null,
+        "raw": "Петропавловск-Камчатский, проспект Победы, 67",
+        "metro": null,
+        "metro_stations": [],
+        "id": "20750046"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T01:26:19+0300",
+      "created_at": "2026-05-15T01:26:19+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133111661",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133111661?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133111661",
+      "relations": [],
+      "employer": {
+        "id": "57474",
+        "name": "Шамса-Холдинг",
+        "url": "https://api.hh.ru/employers/57474",
+        "alternate_url": "https://hh.ru/employer/57474",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/1855373.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/1855374.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/1855375.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=57474",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Среднее профессиональное или высшее техническое образование. Опыт работы от 2 лет на аналогичной должности. Необходимые навыки — SQL, Excel, DAX; желательно...",
+        "responsibility": "Проведение ad-hoc-<highlighttext>аналитики</highlighttext> и исследование нестандартных запросов. Сбор, верификация и обработка исходных <highlighttext>данных</highlighttext>. Оценка эффективности ключевых бизнес-показателей. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133141765",
+      "premium": false,
+      "name": "Руководитель направления по аналитике данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T14:55:30+0300",
+      "created_at": "2026-05-15T14:55:30+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133141765",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133141765?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133141765",
+      "relations": [],
+      "employer": {
+        "id": "195398",
+        "name": "Негосударственный Пенсионный Фонд Сбербанка",
+        "url": "https://api.hh.ru/employers/195398",
+        "alternate_url": "https://hh.ru/employer/195398",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6598680.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6598681.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6598682.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=195398",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Глубокое понимание современных методов анализа <highlighttext>данных</highlighttext>, статистики, машинного обучения и AI. Знание технологического стека: Хранилища <highlighttext>данных</highlighttext> (MSSQL, Postgres, GreenPlum), BI...",
+        "responsibility": "...стратегии в области <highlighttext>данных</highlighttext> и <highlighttext>аналитики</highlighttext>, согласованной с бизнес-целями. Управление и развитие высокопроизводительной команды (КХД, <highlighttext>Аналитики</highlighttext> <highlighttext>данных</highlighttext>, BI). "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "157",
+          "name": "Руководитель отдела аналитики"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "moreThan6",
+        "name": "Более 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133131016",
+      "premium": false,
+      "name": "Ведущий аналитик данных качества",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2",
+        "name": "Санкт-Петербург",
+        "url": "https://api.hh.ru/areas/2"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Сестрорецк",
+        "street": "Левашовское шоссе",
+        "building": "20",
+        "lat": 60.05843,
+        "lng": 30.1222,
+        "description": null,
+        "raw": "Сестрорецк, Левашовское шоссе, 20",
+        "metro": null,
+        "metro_stations": [],
+        "id": "18790158"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T12:02:33+0300",
+      "created_at": "2026-05-15T12:02:33+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133131016",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133131016?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133131016",
+      "relations": [],
+      "employer": {
+        "id": "25763",
+        "name": "АГР",
+        "url": "https://api.hh.ru/employers/25763",
+        "alternate_url": "https://hh.ru/employer/25763",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1389764.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7178843.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7178844.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=25763",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Группа компаний «АГР» (AGR Automotive Group)-30 лет опыта в автомобильном бизнесе! Высшее техническое образование. Уровень английского языка Intermediate и...",
+        "responsibility": "Анализ эффективности улучшений по проблемам качества. Разработка и ведение единой базы <highlighttext>данных</highlighttext> проблем качества. Выявление проблем, доводка и адаптация систем..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132999459",
+      "premium": false,
+      "name": "Аналитик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "улица Кедрова",
+        "building": "5к1",
+        "lat": 55.687066,
+        "lng": 37.56697,
+        "description": null,
+        "raw": "Москва, улица Кедрова, 5к1",
+        "metro": {
+          "station_name": "Академическая",
+          "line_name": "Калужско-Рижская",
+          "station_id": "6.3",
+          "line_id": "6",
+          "lat": 55.687147,
+          "lng": 37.5723,
+          "hex_color": "F07E24"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Академическая",
+            "line_name": "Калужско-Рижская",
+            "station_id": "6.3",
+            "line_id": "6",
+            "lat": 55.687147,
+            "lng": 37.5723,
+            "hex_color": "F07E24"
+          }
+        ],
+        "id": "605568"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T14:19:32+0300",
+      "created_at": "2026-05-15T14:19:32+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132999459",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132999459?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132999459",
+      "relations": [],
+      "employer": {
+        "id": "15353",
+        "name": "ДЕТСКИЕ ДЕРЕВНИ-SOS, РОССИЙСКИЙ КОМИТЕТ",
+        "url": "https://api.hh.ru/employers/15353",
+        "alternate_url": "https://hh.ru/employer/15353",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/7139829.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/7139831.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/7139832.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=15353",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Навыки сбора требований и разработки ТЗ. Навыки анализа и описания бизнес-процессов. Опыт работы с базами <highlighttext>данных</highlighttext> и/или CRM. ",
+        "responsibility": "Разработка рекомендаций по развитию базы <highlighttext>данных</highlighttext>. Обеспечение проведения сверок в БД как финансовых, так и сутевых: Чистка. Коррекция форматов <highlighttext>данных</highlighttext>. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133139609",
+      "premium": false,
+      "name": "Аналитик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1365",
+        "name": "Туймазы",
+        "url": "https://api.hh.ru/areas/1365"
+      },
+      "salary": {
+        "from": 60000,
+        "to": 80000,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 60000,
+        "to": 80000,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Туймазы",
+        "street": "улица Гафурова",
+        "building": "58",
+        "lat": 54.594939,
+        "lng": 53.734786,
+        "description": null,
+        "raw": "Туймазы, улица Гафурова, 58",
+        "metro": null,
+        "metro_stations": [],
+        "id": "2447714"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T14:16:31+0300",
+      "created_at": "2026-05-15T14:16:31+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133139609",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133139609?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133139609",
+      "relations": [],
+      "employer": {
+        "id": "1829085",
+        "name": "Корона",
+        "url": "https://api.hh.ru/employers/1829085",
+        "alternate_url": "https://hh.ru/employer/1829085",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1477054.png",
+          "90": "https://img.hhcdn.ru/employer-logo/10015614.png",
+          "240": "https://img.hhcdn.ru/employer-logo/10015615.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1829085",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы <highlighttext>аналитиком</highlighttext> не менее 1 года. Умение быстро обрабатывать большие массивы <highlighttext>данных</highlighttext>. Нестандартное аналитическое мышление. Умение быстро и четко...",
+        "responsibility": "Отслеживание динамики выполнения план продаж по направлениям. По номенклатуре. Расчет юнит экономики для маркетплейсов. Отчет по продаже дилерам, по номенклатуре. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132210088",
+      "premium": false,
+      "name": "Аналитик данных/Data Quality",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Серпуховско-Тимирязевская линия",
+        "building": "метро Тульская",
+        "lat": 55.708841,
+        "lng": 37.622621,
+        "description": null,
+        "raw": "Москва, Серпуховско-Тимирязевская линия, метро Тульская",
+        "metro": {
+          "station_name": "ЗИЛ",
+          "line_name": "Троицкая",
+          "station_id": "137.964",
+          "line_id": "137",
+          "lat": 55.697915,
+          "lng": 37.647565,
+          "hex_color": "03795F"
+        },
+        "metro_stations": [
+          {
+            "station_name": "ЗИЛ",
+            "line_name": "Троицкая",
+            "station_id": "137.964",
+            "line_id": "137",
+            "lat": 55.697915,
+            "lng": 37.647565,
+            "hex_color": "03795F"
+          },
+          {
+            "station_name": "Серпуховская",
+            "line_name": "Серпуховско-Тимирязевская",
+            "station_id": "9.37",
+            "line_id": "9",
+            "lat": 55.726548,
+            "lng": 37.624792,
+            "hex_color": "ADACAC"
+          },
+          {
+            "station_name": "Шаболовская",
+            "line_name": "Калужско-Рижская",
+            "station_id": "6.157",
+            "line_id": "6",
+            "lat": 55.718828,
+            "lng": 37.607892,
+            "hex_color": "F07E24"
+          }
+        ],
+        "id": "25296556"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T10:43:42+0300",
+      "created_at": "2026-05-15T10:43:42+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132210088",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132210088?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132210088",
+      "relations": [],
+      "employer": {
+        "id": "4913210",
+        "name": "Datanomica",
+        "url": "https://api.hh.ru/employers/4913210",
+        "alternate_url": "https://hh.ru/employer/4913210",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/4019526.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/4019527.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/4019528.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4913210",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы с языками статистического анализа и обработки <highlighttext>данных</highlighttext>: Python (Pandas, NumPy, SciPy) или R (tidyverse, data.table). Опыт визуализации <highlighttext>данных</highlighttext>...",
+        "responsibility": "Написание SQL запросов в hive. Ведение технической документации. Проектирование таблиц. Анализ источников <highlighttext>данных</highlighttext> в SAP, скриптов. Составление маппингов в Excel. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "PROJECT",
+        "name": "Проект"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133138687",
+      "premium": false,
+      "name": "Аналитик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "3",
+        "name": "Екатеринбург",
+        "url": "https://api.hh.ru/areas/3"
+      },
+      "salary": {
+        "from": 40000,
+        "to": 60000,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 40000,
+        "to": 60000,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T14:04:02+0300",
+      "created_at": "2026-05-15T14:04:02+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133138687",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133138687?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133138687",
+      "relations": [],
+      "employer": {
+        "id": "6047754",
+        "name": "Голосовые Технологии",
+        "url": "https://api.hh.ru/employers/6047754",
+        "alternate_url": "https://hh.ru/employer/6047754",
+        "logo_urls": null,
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=6047754",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Аналитический склад ума. Логическое мышление. Ориентацию на результат. Ответственность. Усидчивость, аккуратность и внимательность к деталям. Опыт работы в Excel на...",
+        "responsibility": "Работать в Google-документах и CRM. Составлять и заполнять отчетность контактного центра. Оптимизировать текущие бизнес-процессы."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "noExperience",
+        "name": "Нет опыта"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133124638",
+      "premium": false,
+      "name": "Аналитик данных (сопровождение DWH)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T10:22:49+0300",
+      "created_at": "2026-05-15T10:22:49+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133124638",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133124638?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133124638",
+      "relations": [],
+      "employer": {
+        "id": "3144945",
+        "name": "Ростелеком Информационные Технологии",
+        "url": "https://api.hh.ru/employers/3144945",
+        "alternate_url": "https://hh.ru/employer/3144945",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/2870679.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/2870680.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/2870681.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3144945",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "От 2 лет опыта в роли <highlighttext>Аналитика</highlighttext> <highlighttext>данных</highlighttext>. Высшее техническое образование. Отличное знание SQL (сложные запросы, оконные функции, CTE). ",
+        "responsibility": "...<highlighttext>данных</highlighttext>. Кросс-функциональное взаимодействие с сотрудниками смежных подразделений. Формирование выгрузок из витрин хранилища <highlighttext>данных</highlighttext>. Тестирование разработок, сделанных на хранилище <highlighttext>данных</highlighttext>. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "131228507",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2",
+        "name": "Санкт-Петербург",
+        "url": "https://api.hh.ru/areas/2"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Санкт-Петербург",
+        "street": "Малоохтинский проспект",
+        "building": "64",
+        "lat": 59.931679,
+        "lng": 30.402996,
+        "description": null,
+        "raw": "Санкт-Петербург, Малоохтинский проспект, 64",
+        "metro": {
+          "station_name": "Новочеркасская",
+          "line_name": "Лахтинско-Правобережная",
+          "station_id": "17.241",
+          "line_id": "17",
+          "lat": 59.929092,
+          "lng": 30.411915,
+          "hex_color": "EA7125"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Новочеркасская",
+            "line_name": "Лахтинско-Правобережная",
+            "station_id": "17.241",
+            "line_id": "17",
+            "lat": 59.929092,
+            "lng": 30.411915,
+            "hex_color": "EA7125"
+          }
+        ],
+        "id": "18993520"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-14T20:31:34+0300",
+      "created_at": "2026-05-14T20:31:34+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131228507",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/131228507?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/131228507",
+      "relations": [],
+      "employer": {
+        "id": "3783",
+        "name": "Банк Санкт-Петербург",
+        "url": "https://api.hh.ru/employers/3783",
+        "alternate_url": "https://hh.ru/employer/3783",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6783557.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6783558.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6783559.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3783",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Умение делать выводы на основе <highlighttext>данных</highlighttext>. Готовность к динамичному темпу работы. Опыт в EDA и Data Science (Kaggle, Git, реализованные...",
+        "responsibility": "Автоматизация управленческой отчетности: Python, PowerBI. <highlighttext>Аналитика</highlighttext> по клиентским данным и продуктовому портфелю в целях повышения эффективности бизнеса: проверка ad hoc..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133130717",
+      "premium": false,
+      "name": "Стажёр аналитик данных, Маркетплейс, Отдел продуктовой аналитики",
+      "department": {
+        "id": "ozonru-2180-dev",
+        "name": "Ozon Tech"
+      },
+      "has_test": true,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "Московский международный деловой центр Москва-Сити",
+        "building": null,
+        "lat": 55.749451,
+        "lng": 37.542824,
+        "description": null,
+        "raw": "Москва, Московский международный деловой центр Москва-Сити",
+        "metro": {
+          "station_name": "Деловой центр",
+          "line_name": "Большая кольцевая линия",
+          "station_id": "97.603",
+          "line_id": "97",
+          "lat": 55.7491,
+          "lng": 37.5395,
+          "hex_color": "88CDCF"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Деловой центр",
+            "line_name": "Большая кольцевая линия",
+            "station_id": "97.603",
+            "line_id": "97",
+            "lat": 55.7491,
+            "lng": 37.5395,
+            "hex_color": "88CDCF"
+          },
+          {
+            "station_name": "Деловой центр",
+            "line_name": "Солнцевская",
+            "station_id": "133.468",
+            "line_id": "133",
+            "lat": 55.7491,
+            "lng": 37.5395,
+            "hex_color": "FFCD1C"
+          },
+          {
+            "station_name": "Деловой центр (Выставочная)",
+            "line_name": "Филевская",
+            "station_id": "4.172",
+            "line_id": "4",
+            "lat": 55.750243,
+            "lng": 37.542641,
+            "hex_color": "1EBCEF"
+          }
+        ],
+        "id": "22492318"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T11:56:46+0300",
+      "created_at": "2026-05-15T11:56:46+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133130717",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133130717?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133130717",
+      "relations": [],
+      "employer": {
+        "id": "2180",
+        "name": "Ozon",
+        "url": "https://api.hh.ru/employers/2180",
+        "alternate_url": "https://hh.ru/employer/2180",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/5899116.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/5899117.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/5899118.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2180",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Готовность проводить исследования и глубоко погружаться в детали проектов, отсутствие страха перед обработкой больших объемов <highlighttext>данных</highlighttext>. Навыки работы с SQL...",
+        "responsibility": "Формирование дерева метрик для оценки эффективности внутренних сервисов. Проектирование ETL-процессов (скорость, качество, алерты). Разработка регулярной отчётности в BI-инструментах. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "noExperience",
+        "name": "Нет опыта"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": true,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133130117",
+      "premium": false,
+      "name": "Старший аналитик хранилищ данных (DWH)",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "улица Сергея Макеева",
+        "building": "13",
+        "lat": 55.763346,
+        "lng": 37.551241,
+        "description": null,
+        "raw": "Москва, улица Сергея Макеева, 13",
+        "metro": {
+          "station_name": "Улица 1905 года",
+          "line_name": "Таганско-Краснопресненская",
+          "station_id": "7.146",
+          "line_id": "7",
+          "lat": 55.763944,
+          "lng": 37.562271,
+          "hex_color": "943E90"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Улица 1905 года",
+            "line_name": "Таганско-Краснопресненская",
+            "station_id": "7.146",
+            "line_id": "7",
+            "lat": 55.763944,
+            "lng": 37.562271,
+            "hex_color": "943E90"
+          }
+        ],
+        "id": "14575951"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T11:46:57+0300",
+      "created_at": "2026-05-15T11:46:57+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133130117",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133130117?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133130117",
+      "relations": [],
+      "employer": {
+        "id": "5266429",
+        "name": "БЮРО 1440",
+        "url": "https://api.hh.ru/employers/5266429",
+        "alternate_url": "https://hh.ru/employer/5266429",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1388638.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7174339.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7174340.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5266429",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт участия в проектах развития хранилищ <highlighttext>данных</highlighttext>. Опыт построения диаграмм (ER, sequence). Понимание разницы между пакетной и потоковой обработкой <highlighttext>данных</highlighttext>.",
+        "responsibility": "...корректность <highlighttext>данных</highlighttext>. Сбор, анализ и согласование требований к хранилищу в части построения витрин <highlighttext>данных</highlighttext> и отчетов. Тестирование витрин <highlighttext>данных</highlighttext> и..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        },
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        },
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133129120",
+      "premium": false,
+      "name": "Младший аналитик историко-географических данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2",
+        "name": "Санкт-Петербург",
+        "url": "https://api.hh.ru/areas/2"
+      },
+      "salary": {
+        "from": 80000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true
+      },
+      "salary_range": {
+        "from": 80000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Санкт-Петербург",
+        "street": "Пулковское шоссе",
+        "building": "40к4",
+        "lat": 59.818079,
+        "lng": 30.328004,
+        "description": null,
+        "raw": "Санкт-Петербург, Пулковское шоссе, 40к4",
+        "metro": {
+          "station_name": "Московская",
+          "line_name": "Московско-Петроградская",
+          "station_id": "15.224",
+          "line_id": "15",
+          "lat": 59.848873,
+          "lng": 30.321483,
+          "hex_color": "0078C9"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Московская",
+            "line_name": "Московско-Петроградская",
+            "station_id": "15.224",
+            "line_id": "15",
+            "lat": 59.848873,
+            "lng": 30.321483,
+            "hex_color": "0078C9"
+          }
+        ],
+        "id": "160014"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T11:30:18+0300",
+      "created_at": "2026-05-15T11:30:18+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133129120",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133129120?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133129120",
+      "relations": [],
+      "employer": {
+        "id": "938203",
+        "name": "Фертоинг",
+        "url": "https://api.hh.ru/employers/938203",
+        "alternate_url": "https://hh.ru/employer/938203",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6074980.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6074981.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6074982.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=938203",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Высшее образование. Опыт анализа больших массивов <highlighttext>данных</highlighttext>. Желателен опыт работы с геоинформационными системами. Уверенное владение MS Excel. Владение Autocad и...",
+        "responsibility": "Заполнение и анализ больших массивов <highlighttext>данных</highlighttext>, их обработка, систематизация и корректировка. Участие в разработке шаблонов атрибутивных таблиц и внутренней документации. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "10",
+          "name": "Аналитик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133128478",
+      "premium": false,
+      "name": "Аналитик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2640",
+        "name": "Выселки",
+        "url": "https://api.hh.ru/areas/2640"
+      },
+      "salary": {
+        "from": 60000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true
+      },
+      "salary_range": {
+        "from": 60000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": {
+          "id": "TWICE_PER_MONTH",
+          "name": "Два раза в месяц"
+        }
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Ломоносовский район",
+        "street": "территория Северная часть производственной зоны Горелово",
+        "building": null,
+        "lat": 59.786595,
+        "lng": 30.208501,
+        "description": null,
+        "raw": "Ломоносовский район, территория Северная часть производственной зоны Горелово",
+        "metro": null,
+        "metro_stations": [],
+        "id": "25970291"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T11:18:50+0300",
+      "created_at": "2026-05-15T11:18:50+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133128478",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133128478?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133128478",
+      "relations": [],
+      "employer": {
+        "id": "247279",
+        "name": "фирма Агрокомплекс им. Н.И. Ткачева",
+        "url": "https://api.hh.ru/employers/247279",
+        "alternate_url": "https://hh.ru/employer/247279",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/3588862.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/3588863.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/3588864.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=247279",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы приветствуется. Знание ПК, Wоrd, Ехсеl в продвинутом уровне. Умение работать в команде. Работоспособность, исполнительность, дисциплинированность.",
+        "responsibility": "Сбор, обработка и анализ <highlighttext>данных</highlighttext> о логистических операциях. Подготовка аналитических отчетов для руководителя."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": true,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133129292",
+      "premium": false,
+      "name": "Аналитик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2034",
+        "name": "Красногорск (Московская область)",
+        "url": "https://api.hh.ru/areas/2034"
+      },
+      "salary": {
+        "from": 80000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false
+      },
+      "salary_range": {
+        "from": 80000,
+        "to": null,
+        "currency": "RUR",
+        "gross": false,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "деревня Раздоры",
+        "street": "Рублёво-Успенское шоссе, 1-й километр",
+        "building": "1",
+        "lat": 55.765017,
+        "lng": 37.364122,
+        "description": null,
+        "raw": "деревня Раздоры, Рублёво-Успенское шоссе, 1-й километр, 1",
+        "metro": {
+          "station_name": "Крылатское",
+          "line_name": "Арбатско-Покровская",
+          "station_id": "3.65",
+          "line_id": "3",
+          "lat": 55.756842,
+          "lng": 37.408139,
+          "hex_color": "0072BA"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Крылатское",
+            "line_name": "Арбатско-Покровская",
+            "station_id": "3.65",
+            "line_id": "3",
+            "lat": 55.756842,
+            "lng": 37.408139,
+            "hex_color": "0072BA"
+          },
+          {
+            "station_name": "Молодежная",
+            "line_name": "Арбатско-Покровская",
+            "station_id": "3.84",
+            "line_id": "3",
+            "lat": 55.741375,
+            "lng": 37.415627,
+            "hex_color": "0072BA"
+          },
+          {
+            "station_name": "Строгино",
+            "line_name": "Арбатско-Покровская",
+            "station_id": "3.174",
+            "line_id": "3",
+            "lat": 55.803831,
+            "lng": 37.402405,
+            "hex_color": "0072BA"
+          }
+        ],
+        "id": "25969549"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-15T11:32:40+0300",
+      "created_at": "2026-05-15T11:32:40+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133129292",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133129292?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133129292",
+      "relations": [],
+      "employer": {
+        "id": "558433",
+        "name": "Мособлгаз",
+        "url": "https://api.hh.ru/employers/558433",
+        "alternate_url": "https://hh.ru/employer/558433",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/96624.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/364147.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/437004.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=558433",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы бизнес- или системным <highlighttext>аналитиком</highlighttext> от 1 года с фокусом на моделировании процессов и внедрении изменений;. Опыт работы в...",
+        "responsibility": "Разработка схем бизнес-процессов в нотации BPMN для текущего и целевого состояния присоединяемых организаций. Проведение аудита ИТ-инфраструктуры, выявление разрывов..."
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "133106844",
+      "premium": false,
+      "name": "Аналитик данных",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": {
+        "from": 140000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true
+      },
+      "salary_range": {
+        "from": 140000,
+        "to": null,
+        "currency": "RUR",
+        "gross": true,
+        "mode": {
+          "id": "MONTH",
+          "name": "За месяц"
+        },
+        "frequency": null
+      },
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Москва",
+        "street": "1-й Магистральный тупик",
+        "building": "11с1",
+        "lat": 55.76622931835999,
+        "lng": 37.52685099999987,
+        "description": null,
+        "raw": "Москва, 1-й Магистральный тупик, 11с1",
+        "metro": null,
+        "metro_stations": [],
+        "id": "25948148"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-14T18:05:39+0300",
+      "created_at": "2026-05-14T18:05:39+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133106844",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/133106844?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/133106844",
+      "relations": [],
+      "employer": {
+        "id": "3431729",
+        "name": "Элайд Ниппон",
+        "url": "https://api.hh.ru/employers/3431729",
+        "alternate_url": "https://hh.ru/employer/3431729",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/2894279.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/2894280.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/2894281.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3431729",
+        "country_id": 1,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Уверенное владение Excel: Формулы. Сводные таблицы. Обработка и анализ <highlighttext>данных</highlighttext>. Опыт работы с базами <highlighttext>данных</highlighttext>. Знание SQL будет преимуществом. ",
+        "responsibility": "Работа с большими массивами <highlighttext>данных</highlighttext>. Проверка корректности применяемости и каталожной информации. Подготовка аналитических таблиц и отчетности. Работа с базами <highlighttext>данных</highlighttext>. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "156",
+          "name": "BI-аналитик, аналитик данных"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    }
+  ],
+  "found": 12740,
+  "pages": 71,
+  "page": 0,
+  "per_page": 28,
+  "clusters": null,
+  "arguments": null,
+  "fixes": null,
+  "suggests": null,
+  "alternate_url": "https://hh.ru/search/vacancy?enable_snippets=true&items_on_page=28&text=%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA+%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85"
+}

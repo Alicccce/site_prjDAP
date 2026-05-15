@@ -1,6 +1,7 @@
 <script setup>
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
+import ToastNotification from './components/ToastNotification.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import AppFooter from './components/AppFooter.vue'
     <router-view />
   </main>
   <AppFooter />
+  <ToastNotification />
 </template>
 
 <style>

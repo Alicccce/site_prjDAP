@@ -1,0 +1,349 @@
+{
+  "items": [
+    {
+      "id": "132234673",
+      "premium": false,
+      "name": "Frontend-разработчик Vue",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "4",
+        "name": "Новосибирск",
+        "url": "https://api.hh.ru/areas/4"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Новосибирск",
+        "street": "Советский район, микрорайон Академгородок, улица Мусы Джалиля",
+        "building": "11",
+        "lat": 54.862741,
+        "lng": 83.08987,
+        "description": null,
+        "raw": "Новосибирск, Советский район, микрорайон Академгородок, улица Мусы Джалиля, 11",
+        "metro": null,
+        "metro_stations": [],
+        "id": "699106"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-17T12:21:21+0300",
+      "created_at": "2026-04-17T12:21:21+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132234673",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132234673?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132234673",
+      "relations": [],
+      "employer": {
+        "id": "8550",
+        "name": "Центр финансовых технологий",
+        "url": "https://api.hh.ru/employers/8550",
+        "alternate_url": "https://hh.ru/employer/8550",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original/1390863.png",
+          "90": "https://img.hhcdn.ru/employer-logo/7183239.png",
+          "240": "https://img.hhcdn.ru/employer-logo/7183240.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=8550",
+        "country_id": 1,
+        "accredited_it_employer": true,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Уверенные знания JS, CSS, TypeScript, опыт работы с фреймворком <highlighttext>Vue</highlighttext> 3 (или <highlighttext>Vue</highlighttext> 2 с пониманием отличий от <highlighttext>Vue</highlighttext> 3). ",
+        "responsibility": "Выстраивать производственный процесс создания, доработки и донесения функциональности до клиентов (<highlighttext>банки</highlighttext>). Писать и поддерживать e2e и unit-тесты. "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "HYBRID",
+          "name": "Гибрид"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132227606",
+      "premium": false,
+      "name": "Разработчик Front-End в Проектный офис",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "160",
+        "name": "Алматы",
+        "url": "https://api.hh.ru/areas/160"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Алматы",
+        "street": "площадь Республики",
+        "building": "15",
+        "lat": 43.238772,
+        "lng": 76.943561,
+        "description": null,
+        "raw": "Алматы, площадь Республики, 15",
+        "metro": {
+          "station_name": "Абая",
+          "line_name": "Первая",
+          "station_id": "64.433",
+          "line_id": "64",
+          "lat": 43.242548,
+          "lng": 76.949588,
+          "hex_color": "CD0505"
+        },
+        "metro_stations": [
+          {
+            "station_name": "Абая",
+            "line_name": "Первая",
+            "station_id": "64.433",
+            "line_id": "64",
+            "lat": 43.242548,
+            "lng": 76.949588,
+            "hex_color": "CD0505"
+          }
+        ],
+        "id": "2251919"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-04-17T10:05:34+0300",
+      "created_at": "2026-04-17T10:05:34+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132227606",
+      "show_contacts": true,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132227606?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132227606",
+      "relations": [],
+      "employer": {
+        "id": "1121676",
+        "name": "«Компания по страхованию жизни «Nomad Life»",
+        "url": "https://api.hh.ru/employers/1121676",
+        "alternate_url": "https://hh.ru/employer/1121676",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6544792.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6544793.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6544794.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1121676",
+        "country_id": 3,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Высшее образование в области информационных технологий. Опыт в <highlighttext>финтехе</highlighttext> / страховании / <highlighttext>банках</highlighttext>. Коммерческий опыт с <highlighttext>Vue</highlighttext> 3 (Composition API) — от [2...",
+        "responsibility": "Разработка SPA-интерфейсов на <highlighttext>Vue</highlighttext> 3 + Nuxt 4 + TypeScript. Работа с формами, валидацией, локализацией (ru/kz). "
+      },
+      "contacts": {
+        "name": null,
+        "phones": []
+      },
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    },
+    {
+      "id": "132744550",
+      "premium": false,
+      "name": "Senior Frontend Developer",
+      "department": {
+        "id": "9173883-9173883-it",
+        "name": "UZUM TECHNOLOGIES. IT"
+      },
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "1",
+        "name": "Москва",
+        "url": "https://api.hh.ru/areas/1"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": null,
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-04T13:37:26+0300",
+      "created_at": "2026-05-04T13:37:26+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132744550",
+      "branding": {
+        "type": "MAKEUP",
+        "tariff": null
+      },
+      "show_logo_in_search": true,
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132744550?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132744550",
+      "relations": [],
+      "employer": {
+        "id": "9173883",
+        "name": "«UZUM TECHNOLOGIES»",
+        "url": "https://api.hh.ru/employers/9173883",
+        "alternate_url": "https://hh.ru/employer/9173883",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/5682063.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/5682064.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/5682065.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9173883",
+        "country_id": 6,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт работы фронтенд-<highlighttext>разработчиком</highlighttext> от 6 лет. Опыт разработки на <highlighttext>Vue</highlighttext> 2/3 + Nuxt. Уверенные знания JavaScript, HTML, CSS...",
+        "responsibility": "Быть ответственным за архитектурные решения по Frontend. Иногда придётся писать RFC. Интегрироваться с командами других направлений (Доставка, <highlighttext>Финтех</highlighttext>). "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "REMOTE",
+          "name": "Удалённо"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "moreThan6",
+        "name": "Более 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null
+    }
+  ],
+  "found": 3,
+  "pages": 1,
+  "page": 0,
+  "per_page": 28,
+  "clusters": null,
+  "arguments": null,
+  "fixes": null,
+  "suggests": null,
+  "alternate_url": "https://hh.ru/search/vacancy?enable_snippets=true&items_on_page=28&text=Vue+%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA+%D0%B1%D0%B0%D0%BD%D0%BA+%D1%84%D0%B8%D0%BD%D1%82%D0%B5%D1%85"
+}

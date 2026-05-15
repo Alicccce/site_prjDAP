@@ -46,9 +46,11 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
+import { useToastStore } from '../stores/toast'
 import { authApi } from '../api/auth'
 
 const router = useRouter()
+const toast = useToastStore()
 
 const showRegister = ref(false)
 const loginEmail = ref('')
@@ -88,8 +90,9 @@ const handleRegister = async () => {
   loading.value = true
   try {
     await authApi.register(regName.value, regEmail.value, regPassword.value)
-    alert('Регистрация успешна! Войдите')
+    toast.success('Регистрация успешна! Войдите в аккаунт')
     showRegister.value = false
+    regName.value = ''; regEmail.value = ''; regPassword.value = ''
   } catch (err) {
     errorMessage.value = err.response?.data?.detail || 'Ошибка регистрации'
   } finally {
