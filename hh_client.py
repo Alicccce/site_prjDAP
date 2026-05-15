@@ -80,6 +80,10 @@ class HHClient:
         safe_name = query.replace(' ', '_').replace('/', '_')[:50]
         return os.path.join(CACHE_DIR, f"cache_{safe_name}.json")
 
+    def _fast_cache_key(self, query: str, per_page: int) -> str:
+        """Ключ кэша для fast-режима (зависит от per_page)."""
+        return f"{query}__fast__pp{per_page}"
+
     def _enrich_with_key_skills(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
         Fetches detail page for each vacancy to get key_skills.
@@ -232,14 +236,18 @@ class HHClient:
         except Exception:
             return []
     
-    def fetch_vacancies_fast(self, query: str):
+    def fetch_vacancies_fast(self, query: str, per_page: Optional[int] = None):
         """
         Fast fetch without key_skills enrichment.
         Used for branch 2 (suggest positions) where speed matters.
         Falls back to cache on failure.
+
+        per_page: меньше — быстрее ответ HH (для подбора должностей хватает 25–30 вакансий на запрос).
         """
-        url = f"{self.base_url}?text={query}&per_page={self.per_page}"
-        print(f"  [HHClient] fast fetch for '{query}'...")
+        n = per_page if per_page is not None else self.per_page
+        n = max(10, min(n, 100))
+        url = f"{self.base_url}?text={query}&per_page={n}"
+        print(f"  [HHClient] fast fetch for '{query}' (per_page={n})...")
         try:
             response = requests.get(url, headers=self._get_headers(), timeout=10)
             if response.status_code == 200:
@@ -247,7 +255,7 @@ class HHClient:
                 if data.get('found', 0) == 0:
                     raise ValueError(f"No vacancies found for '{query}'")
                 # No key_skills enrichment — use snippet text only
-                self._save_to_cache(query + "_fast", data)
+                self._save_to_cache(self._fast_cache_key(query, n), data)
                 return data
             elif response.status_code == 403:
                 new_token = refresh_token()
@@ -256,28 +264,44 @@ class HHClient:
                     retry = requests.get(url, headers=self._get_headers(), timeout=10)
                     if retry.status_code == 200:
                         data = retry.json()
-                        self._save_to_cache(query + "_fast", data)
+                        self._save_to_cache(self._fast_cache_key(query, n), data)
                         return data
-                cached = self._load_from_cache(query + "_fast") or self._load_from_cache(query)
+                cached = (
+                    self._load_from_cache(self._fast_cache_key(query, n))
+                    or self._load_from_cache(query + "_fast")
+                    or self._load_from_cache(query)
+                )
                 if cached:
                     return cached
                 raise ConnectionError(f"hh.ru blocked and no cache for '{query}'")
             else:
                 raise ConnectionError(f"hh.ru status {response.status_code}")
         except (requests.exceptions.Timeout, TimeoutError):
-            cached = self._load_from_cache(query + "_fast") or self._load_from_cache(query)
+            cached = (
+                self._load_from_cache(self._fast_cache_key(query, n))
+                or self._load_from_cache(query + "_fast")
+                or self._load_from_cache(query)
+            )
             if cached:
                 return cached
             raise TimeoutError("hh.ru timeout and no cache")
         except requests.exceptions.ConnectionError:
-            cached = self._load_from_cache(query + "_fast") or self._load_from_cache(query)
+            cached = (
+                self._load_from_cache(self._fast_cache_key(query, n))
+                or self._load_from_cache(query + "_fast")
+                or self._load_from_cache(query)
+            )
             if cached:
                 return cached
             raise ConnectionError("No connection to hh.ru and no cache")
         except ValueError:
             raise
         except Exception as e:
-            cached = self._load_from_cache(query + "_fast") or self._load_from_cache(query)
+            cached = (
+                self._load_from_cache(self._fast_cache_key(query, n))
+                or self._load_from_cache(query + "_fast")
+                or self._load_from_cache(query)
+            )
             if cached:
                 return cached
             raise

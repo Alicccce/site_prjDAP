@@ -1,27 +1,30 @@
 import axios from 'axios'
 
-// В dev-режиме Vite проксирует /api → http://localhost:8000/api
-// В продакшне используем полный URL из переменной окружения
 const baseURL = import.meta.env.VITE_API_URL || '/api'
 
 const api = axios.create({
   baseURL,
 })
 
-// Перехватчик для добавления токена авторизации
+// Добавляем токен к каждому запросу
 api.interceptors.request.use((config) => {
-  const user = localStorage.getItem('user')
-  if (user) {
-    try {
-      const userData = JSON.parse(user)
-      if (userData.token) {
-        config.headers.Authorization = `Bearer ${userData.token}`
-      }
-    } catch (e) {
-      // ignore malformed user data
-    }
+  const token = localStorage.getItem('token')
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
   }
   return config
 })
+
+// При 401 — чистим токен и редиректим на логин
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token')
+      window.location.href = '/login'
+    }
+    return Promise.reject(error)
+  }
+)
 
 export default api

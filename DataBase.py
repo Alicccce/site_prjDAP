@@ -10,7 +10,7 @@ from sqlalchemy import (
     create_engine, Column, Integer, String, DateTime,
     ForeignKey, Float, Text, Boolean
 )
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -23,6 +23,7 @@ engine = create_engine(
 )
 
 Base = declarative_base()
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 # ── Пользователь ─────────────────────────────────────────────
@@ -124,11 +125,12 @@ class Plan(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    session_id = Column(Integer, ForeignKey("sessions.id"), nullable=False)
+    session_id = Column(Integer, ForeignKey("sessions.id"), nullable=True)
     title = Column(String(500), nullable=True)
     created_date = Column(DateTime, default=datetime.now)
     ending_date = Column(DateTime, nullable=True)
     efficiency = Column(Float, nullable=True)
+    ai_result = Column(Text, nullable=True)   # JSON плана от AI
 
     user = relationship("User", back_populates="plans")
     session = relationship("Session", back_populates="plans")

@@ -4,7 +4,7 @@ import api from '../api/axios'
 
 export const useBranch2Store = defineStore('branch2', () => {
   const filters = ref({
-    specialization: '', industry: '', education: '',
+    specialization: '', industry: '', education: 'any',
     salaryFrom: '', salaryTo: '', schedule: []
   })
   const userSkills = ref([])
@@ -66,7 +66,7 @@ export const useBranch2Store = defineStore('branch2', () => {
   }
 
   const reset = () => {
-    filters.value = { specialization: '', industry: '', education: '', salaryFrom: '', salaryTo: '', schedule: [] }
+    filters.value = { specialization: '', industry: '', education: 'any', salaryFrom: '', salaryTo: '', schedule: [] }
     userSkills.value = []
     suggestedPositions.value = []
     selectedPosition.value = null

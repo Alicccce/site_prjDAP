@@ -6,7 +6,9 @@ Accepts user filters and dialog skill answers,
 then parses HH.ru and returns top-3 matching positions.
 """
 
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 from hh_client import HHClient
 from services.skill_extractor import extract_skills_from_vacancies
 
@@ -53,16 +55,35 @@ class PositionSuggestService:
         max_positions: int = 3
     ) -> List[Dict[str, Any]]:
         queries = self._build_queries(filters)
+        # Три запроса к HH раньше шли по очереди → суммарная задержка ~3× время ответа API.
+        # Параллельно: ожидание близко к одному самому медленному запросу (при умеренной нагрузке на HH).
+        per_page = 28
+
+        def fetch_one(q: str) -> Tuple[str, Optional[Dict[str, Any]]]:
+            try:
+                print(f"[PositionSuggest] Fetching '{q}'...")
+                data = self.hh_client.fetch_vacancies_fast(q, per_page=per_page)
+                return q, data
+            except Exception as e:
+                print(f"[PositionSuggest] Error for '{q}': {e}")
+                return q, None
+
+        raw_by_query: Dict[str, Optional[Dict[str, Any]]] = {}
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            futures = {pool.submit(fetch_one, q): q for q in queries}
+            for fut in as_completed(futures):
+                q, data = fut.result()
+                raw_by_query[q] = data
+
         results = []
         seen_titles = set()
 
         for query in queries:
-            try:
-                print(f"[PositionSuggest] Fetching '{query}'...")
-                vacancies_data = self.hh_client.fetch_vacancies_fast(query)
-                if not vacancies_data:
-                    continue
+            vacancies_data = raw_by_query.get(query)
+            if not vacancies_data:
+                continue
 
+            try:
                 skills = extract_skills_from_vacancies(vacancies_data, top_n=20)
                 if not skills:
                     continue
@@ -89,7 +110,7 @@ class PositionSuggestService:
                 })
 
             except Exception as e:
-                print(f"[PositionSuggest] Error for '{query}': {e}")
+                print(f"[PositionSuggest] Error processing '{query}': {e}")
                 continue
 
         results.sort(key=lambda x: x["match_score"], reverse=True)

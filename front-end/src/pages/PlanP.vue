@@ -6,7 +6,7 @@
       <div v-if="loading" class="loading-block">
         <div class="loader"></div>
         <p class="loading-text">Составляем ваш план...</p>
-        <p class="loading-sub">Это займёт около 20–30 секунд</p>
+        <p class="loading-sub">Обычно занимает 5–10 секунд</p>
       </div>
 
       <!-- Ошибка -->
@@ -170,6 +170,11 @@ const generatePlan = async () => {
 
     plan.value = response.data.plan
     totalWeeks.value = plan.value.total_weeks || plan.value.weeks?.length || 0
+
+    // Сохраняем plan_id для истории
+    if (response.data.plan_id) {
+      localStorage.setItem('last_plan_id', response.data.plan_id)
+    }
 
   } catch (err) {
     error.value = err.response?.data?.detail || 'Ошибка генерации плана. Попробуйте ещё раз.'
