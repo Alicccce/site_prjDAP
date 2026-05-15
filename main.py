@@ -264,7 +264,7 @@ async def generate_plan(request: GeneratePlanRequest, user_id: int = Depends(get
         try:
             db_plan = PlanModel(
                 user_id=user_id,
-                session_id=1,  # временно, пока нет привязки к сессии
+                session_id=0,  # заглушка, пока нет привязки к сессии
                 title=plan_data.get("title", f"План: {request.jobTitle}"),
                 ai_result=_json.dumps(plan_data, ensure_ascii=False),
             )

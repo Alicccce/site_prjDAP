@@ -1,122 +1,138 @@
 <template>
   <div class="profile-page">
-    <div class="profile-card">
 
-      <!-- Загрузка -->
-      <div v-if="loading" class="loading-block">
-        <div class="loader"></div>
-        <p class="loading-text">Загружаем профиль...</p>
-      </div>
+    <!-- Загрузка -->
+    <div v-if="loading" class="center-block">
+      <div class="spinner"></div>
+      <p class="hint">Загружаем профиль...</p>
+    </div>
 
-      <!-- Ошибка -->
-      <div v-else-if="error" class="error-block">
-        <p class="error-title">Не удалось загрузить профиль</p>
-        <p class="error-text">{{ error }}</p>
-        <button @click="loadProfile" class="retry-btn">Попробовать снова</button>
-      </div>
+    <!-- Ошибка -->
+    <div v-else-if="error" class="center-block">
+      <div class="error-icon">⚠️</div>
+      <p class="error-title">Не удалось загрузить профиль</p>
+      <p class="hint">{{ error }}</p>
+      <button @click="loadProfile" class="btn-primary">Попробовать снова</button>
+    </div>
 
-      <!-- Профиль -->
-      <div v-else-if="profile">
+    <!-- Контент -->
+    <div v-else-if="profile" class="profile-layout">
 
-        <!-- Шапка -->
-        <div class="profile-header">
+      <!-- Левая колонка — карточка пользователя -->
+      <aside class="profile-sidebar">
+        <div class="avatar-wrap">
           <div class="avatar">{{ initials }}</div>
-          <div class="profile-info">
-            <h1 class="profile-name">{{ profile.name }}</h1>
-            <p class="profile-email">{{ profile.email }}</p>
-            <p class="profile-date">На сайте с {{ formattedDate }}</p>
+          <div class="avatar-ring"></div>
+        </div>
+        <h1 class="user-name">{{ profile.name }}</h1>
+        <p class="user-email">{{ profile.email }}</p>
+        <p class="user-since">На сайте с {{ formattedDate }}</p>
+
+        <div class="sidebar-stats">
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-num">{{ profile.sessions_count }}</span>
+            <span class="sidebar-stat-label">поисков</span>
+          </div>
+          <div class="sidebar-divider"></div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-num">{{ profile.plans_count }}</span>
+            <span class="sidebar-stat-label">планов</span>
           </div>
         </div>
 
-        <!-- Статистика -->
-        <div class="stats-row">
-          <div class="stat-card">
-            <span class="stat-number">{{ profile.sessions_count }}</span>
-            <span class="stat-label">Поисков</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">{{ profile.plans_count }}</span>
-            <span class="stat-label">Планов</span>
-          </div>
+        <button @click="goToSearch" class="btn-primary full-width">
+          ＋ Новый поиск
+        </button>
+        <button @click="handleLogout" class="btn-ghost full-width">
+          Выйти
+        </button>
+      </aside>
+
+      <!-- Правая колонка — история планов -->
+      <main class="profile-main">
+        <div class="section-header">
+          <h2 class="section-title">Мои планы обучения</h2>
+          <span class="plans-count" v-if="plans.length">{{ plans.length }}</span>
         </div>
 
-        <!-- История планов -->
-        <div class="plans-section">
-          <h2 class="section-title">История планов</h2>
+        <div v-if="plansLoading" class="plans-loading">
+          <div class="spinner small"></div>
+          <span>Загружаем планы...</span>
+        </div>
 
-          <div v-if="plansLoading" class="plans-loading">
-            <div class="loader-small"></div>
-            <span>Загружаем планы...</span>
-          </div>
+        <div v-else-if="plans.length === 0" class="plans-empty">
+          <div class="empty-icon">📋</div>
+          <p class="empty-title">Планов пока нет</p>
+          <p class="empty-hint">Найди вакансию и составь свой первый план обучения</p>
+          <button @click="goToSearch" class="btn-primary">Начать</button>
+        </div>
 
-          <div v-else-if="plans.length === 0" class="plans-empty">
-            <p>Планов пока нет.</p>
-            <button @click="goToSearch" class="action-btn primary">Создать первый план</button>
-          </div>
-
-          <div v-else class="plans-list">
-            <div
-              v-for="plan in plans"
-              :key="plan.id"
-              class="plan-item"
-              @click="openPlan(plan.id)"
-            >
-              <div class="plan-item-icon">📋</div>
-              <div class="plan-item-info">
-                <p class="plan-item-title">{{ plan.title }}</p>
-                <p class="plan-item-date">{{ formatPlanDate(plan.created_date) }}</p>
-              </div>
-              <span class="plan-item-arrow">→</span>
+        <div v-else class="plans-grid">
+          <div
+            v-for="plan in plans"
+            :key="plan.id"
+            class="plan-card"
+            @click="openPlan(plan.id)"
+          >
+            <div class="plan-card-icon">📋</div>
+            <div class="plan-card-body">
+              <p class="plan-card-title">{{ plan.title }}</p>
+              <p class="plan-card-date">{{ formatDate(plan.created_date) }}</p>
             </div>
+            <span class="plan-card-arrow">→</span>
           </div>
         </div>
-
-        <!-- Кнопки -->
-        <div class="actions">
-          <button @click="goToSearch" class="action-btn primary">Новый поиск</button>
-          <button @click="handleLogout" class="action-btn secondary">Выйти</button>
-        </div>
-
-      </div>
+      </main>
     </div>
 
     <!-- Модалка с планом -->
-    <div v-if="selectedPlan" class="modal-overlay" @click.self="selectedPlan = null">
-      <div class="modal-card">
-        <button class="modal-close" @click="selectedPlan = null">✕</button>
+    <Transition name="fade">
+      <div v-if="selectedPlan !== null" class="modal-overlay" @click.self="selectedPlan = null">
+        <div class="modal">
+          <div class="modal-header">
+            <h2 class="modal-title">{{ selectedPlan?.plan?.title || 'План обучения' }}</h2>
+            <button class="modal-close" @click="selectedPlan = null">✕</button>
+          </div>
 
-        <div v-if="planLoading" class="loading-block">
-          <div class="loader"></div>
-          <p class="loading-text">Загружаем план...</p>
-        </div>
+          <div v-if="planLoading" class="center-block small">
+            <div class="spinner"></div>
+          </div>
 
-        <div v-else-if="selectedPlan.plan">
-          <h2 class="modal-title">{{ selectedPlan.plan.title }}</h2>
-          <p class="modal-summary">{{ selectedPlan.plan.summary }}</p>
-          <p class="modal-meta">{{ selectedPlan.plan.total_weeks || selectedPlan.plan.weeks?.length }} недель</p>
-
-          <div v-for="week in selectedPlan.plan.weeks" :key="week.week" class="modal-week">
-            <div class="modal-week-header">
-              <span class="week-num">Неделя {{ week.week }}</span>
-              <span class="week-theme">{{ week.theme }}</span>
+          <div v-else-if="selectedPlan?.plan" class="modal-body">
+            <p class="modal-summary">{{ selectedPlan.plan.summary }}</p>
+            <div class="modal-meta">
+              <span class="meta-chip">{{ selectedPlan.plan.total_weeks || selectedPlan.plan.weeks?.length }} недель</span>
+              <span class="meta-chip">{{ formatDate(selectedPlan.created_date) }}</span>
             </div>
-            <p class="week-goal"><b>Цель:</b> {{ week.goal }}</p>
-            <div class="week-resources">
-              <a
-                v-for="res in week.resources"
-                :key="res.url"
-                :href="res.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="resource-link"
-              >
-                {{ res.title }}
-              </a>
+
+            <div v-for="week in selectedPlan.plan.weeks" :key="week.week" class="modal-week">
+              <div class="modal-week-head">
+                <span class="week-badge">Неделя {{ week.week }}</span>
+                <span class="week-theme">{{ week.theme }}</span>
+              </div>
+              <div class="modal-week-body">
+                <p class="week-goal"><b>Цель:</b> {{ week.goal }}</p>
+                <p class="week-tip">💡 {{ week.mentor_tip }}</p>
+                <div class="week-resources">
+                  <a
+                    v-for="res in week.resources"
+                    :key="res.url"
+                    :href="res.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="res-link"
+                  >
+                    <span class="res-type-icon">{{ typeIcon(res.type) }}</span>
+                    <span class="res-title">{{ res.title }}</span>
+                    <span v-if="res.is_free" class="res-free">бесплатно</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Transition>
 
   </div>
 </template>
@@ -140,12 +156,7 @@ const planLoading = ref(false)
 
 const initials = computed(() => {
   if (!profile.value?.name) return '?'
-  return profile.value.name
-    .split(' ')
-    .map(w => w[0])
-    .slice(0, 2)
-    .join('')
-    .toUpperCase()
+  return profile.value.name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase()
 })
 
 const formattedDate = computed(() => {
@@ -155,19 +166,22 @@ const formattedDate = computed(() => {
   })
 })
 
-const formatPlanDate = (dateStr) => {
-  if (!dateStr) return ''
-  return new Date(dateStr).toLocaleDateString('ru-RU', {
-    day: 'numeric', month: 'long', year: 'numeric'
-  })
+const formatDate = (d) => {
+  if (!d) return ''
+  return new Date(d).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' })
+}
+
+const typeIcon = (type) => {
+  const map = { course: '📚', video: '▶️', article: '📄', practice: '⚙️' }
+  return map[type] || '🔗'
 }
 
 const loadProfile = async () => {
   loading.value = true
   error.value = ''
   try {
-    const response = await api.get('/user/profile')
-    profile.value = response.data
+    const res = await api.get('/user/profile')
+    profile.value = res.data
     loadPlans()
   } catch (err) {
     error.value = err.response?.data?.detail || 'Ошибка загрузки профиля'
@@ -179,8 +193,8 @@ const loadProfile = async () => {
 const loadPlans = async () => {
   plansLoading.value = true
   try {
-    const response = await api.get('/plan/history')
-    plans.value = response.data.plans || []
+    const res = await api.get('/plan/history')
+    plans.value = res.data.plans || []
   } catch {
     plans.value = []
   } finally {
@@ -192,8 +206,8 @@ const openPlan = async (planId) => {
   selectedPlan.value = {}
   planLoading.value = true
   try {
-    const response = await api.get(`/plan/${planId}`)
-    selectedPlan.value = response.data
+    const res = await api.get(`/plan/${planId}`)
+    selectedPlan.value = res.data
   } catch {
     selectedPlan.value = null
   } finally {
@@ -202,201 +216,316 @@ const openPlan = async (planId) => {
 }
 
 const goToSearch = () => router.push('/search')
+const handleLogout = () => { userStore.clearUser(); router.push('/login') }
 
-const handleLogout = () => {
-  userStore.clearUser()
-  router.push('/login')
-}
-
-onMounted(() => {
-  loadProfile()
-})
+onMounted(loadProfile)
 </script>
 
 <style scoped>
+/* ── Страница ── */
 .profile-page {
   min-height: 80vh;
-  background-color: #f5f5f5;
-  padding: 40px 20px;
+  background: #f5f5f5;
+  padding: 40px 24px;
+}
+
+.center-block {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.profile-card {
-  max-width: 560px;
-  width: 100%;
-  background: white;
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.loading-block { text-align: center; padding: 60px 0; }
-.loader {
-  margin: 0 auto 20px;
-  border: 4px solid #f0f0f0;
-  border-top: 4px solid #3de0cd;
-  border-radius: 50%;
-  width: 40px; height: 40px;
-  animation: spin 1s linear infinite;
-}
-@keyframes spin { 100% { transform: rotate(360deg); } }
-.loading-text { font-size: 16px; color: #7a4e30; }
-
-.error-block { text-align: center; padding: 40px 0; }
-.error-title { font-size: 18px; color: #e74c3c; font-weight: 600; margin-bottom: 8px; }
-.error-text { font-size: 14px; color: #666; margin-bottom: 20px; }
-
-/* Шапка профиля */
-.profile-header {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 28px;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 16px;
+  text-align: center;
+}
+.center-block.small { min-height: 200px; }
+
+/* ── Спиннер ── */
+.spinner {
+  width: 44px; height: 44px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #3de0cd;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+.spinner.small { width: 28px; height: 28px; border-width: 3px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Ошибка ── */
+.error-icon { font-size: 40px; }
+.error-title { font-size: 18px; font-weight: 600; color: #e74c3c; }
+.hint { font-size: 14px; color: #888; }
+
+/* ── Layout ── */
+.profile-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ── Sidebar ── */
+.profile-sidebar {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: sticky;
+  top: 24px;
+}
+
+.avatar-wrap {
+  position: relative;
+  width: 88px; height: 88px;
+  margin-bottom: 4px;
 }
 .avatar {
-  width: 72px; height: 72px;
+  width: 88px; height: 88px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7a4e30, #5a3b25);
+  background: linear-gradient(135deg, #7a4e30, #c09508);
   color: white;
-  font-size: 24px; font-weight: 700;
+  font-size: 28px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
+  position: relative; z-index: 1;
 }
-.profile-name { font-size: 22px; font-weight: 600; color: #7a4e30; margin-bottom: 4px; }
-.profile-email { font-size: 14px; color: #666; margin-bottom: 4px; }
-.profile-date { font-size: 13px; color: #aaa; }
-
-/* Статистика */
-.stats-row { display: flex; gap: 16px; margin-bottom: 28px; }
-.stat-card {
-  flex: 1;
-  background-color: #c0950813;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  display: flex; flex-direction: column; gap: 4px;
-}
-.stat-number { font-size: 28px; font-weight: 700; color: #7a4e30; line-height: 1; }
-.stat-label { font-size: 13px; color: #888; }
-
-/* История планов */
-.plans-section { margin-bottom: 28px; }
-.section-title { font-size: 17px; font-weight: 600; color: #333; margin-bottom: 14px; }
-
-.plans-loading {
-  display: flex; align-items: center; gap: 10px;
-  color: #888; font-size: 14px; padding: 12px 0;
-}
-.loader-small {
-  border: 3px solid #f0f0f0;
-  border-top: 3px solid #3de0cd;
+.avatar-ring {
+  position: absolute; inset: -4px;
   border-radius: 50%;
-  width: 20px; height: 20px;
-  animation: spin 1s linear infinite;
-  flex-shrink: 0;
+  border: 3px solid #3de0cd;
+  opacity: 0.6;
 }
 
-.plans-empty { text-align: center; padding: 20px 0; color: #888; font-size: 14px; }
-.plans-empty p { margin-bottom: 14px; }
+.user-name { font-size: 18px; font-weight: 700; color: #2d2d2d; text-align: center; }
+.user-email { font-size: 13px; color: #888; text-align: center; }
+.user-since { font-size: 12px; color: #bbb; text-align: center; margin-bottom: 4px; }
 
-.plans-list { display: flex; flex-direction: column; gap: 8px; }
-.plan-item {
+.sidebar-stats {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  border: 1px solid #eee;
+  gap: 16px;
+  background: #f9f6f3;
+  border-radius: 12px;
+  padding: 14px 20px;
+  width: 100%;
+  margin: 8px 0;
+}
+.sidebar-stat { display: flex; flex-direction: column; align-items: center; flex: 1; }
+.sidebar-stat-num { font-size: 24px; font-weight: 700; color: #7a4e30; line-height: 1; }
+.sidebar-stat-label { font-size: 11px; color: #aaa; margin-top: 2px; }
+.sidebar-divider { width: 1px; height: 32px; background: #e0d8d0; }
+
+.full-width { width: 100%; }
+
+/* ── Кнопки ── */
+.btn-primary {
+  padding: 11px 20px;
+  background: #3de0cd;
+  color: white;
+  border: none;
   border-radius: 10px;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #2abbaa; }
+
+.btn-ghost {
+  padding: 11px 20px;
+  background: none;
+  color: #7a4e30;
+  border: 1.5px solid #e0d8d0;
+  border-radius: 10px;
+  font-size: 14px; font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
 }
-.plan-item:hover { border-color: #7a4e30; background: #c0950808; }
-.plan-item-icon { font-size: 20px; flex-shrink: 0; }
-.plan-item-info { flex: 1; min-width: 0; }
-.plan-item-title {
-  font-size: 14px; font-weight: 500; color: #333;
+.btn-ghost:hover { border-color: #7a4e30; background: #f9f6f3; }
+
+/* ── Main ── */
+.profile-main {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  min-height: 400px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.section-title { font-size: 20px; font-weight: 700; color: #2d2d2d; }
+.plans-count {
+  background: #7a4e30;
+  color: white;
+  font-size: 12px; font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* ── Загрузка планов ── */
+.plans-loading {
+  display: flex; align-items: center; gap: 10px;
+  color: #aaa; font-size: 14px; padding: 40px 0;
+  justify-content: center;
+}
+
+/* ── Пустое состояние ── */
+.plans-empty {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px 0; gap: 10px; text-align: center;
+}
+.empty-icon { font-size: 48px; }
+.empty-title { font-size: 17px; font-weight: 600; color: #333; }
+.empty-hint { font-size: 14px; color: #aaa; margin-bottom: 8px; }
+
+/* ── Карточки планов ── */
+.plans-grid { display: flex; flex-direction: column; gap: 10px; }
+
+.plan-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1.5px solid #f0ebe5;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fdfcfb;
+}
+.plan-card:hover {
+  border-color: #7a4e30;
+  background: white;
+  box-shadow: 0 4px 12px rgba(122,78,48,0.08);
+  transform: translateY(-1px);
+}
+.plan-card-icon { font-size: 22px; flex-shrink: 0; }
+.plan-card-body { flex: 1; min-width: 0; }
+.plan-card-title {
+  font-size: 14px; font-weight: 600; color: #2d2d2d;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.plan-item-date { font-size: 12px; color: #aaa; margin-top: 2px; }
-.plan-item-arrow { color: #7a4e30; font-size: 16px; flex-shrink: 0; }
+.plan-card-date { font-size: 12px; color: #bbb; margin-top: 3px; }
+.plan-card-arrow { color: #c09508; font-size: 18px; flex-shrink: 0; }
 
-/* Кнопки */
-.actions { display: flex; flex-direction: column; gap: 12px; }
-.action-btn {
-  width: 100%; padding: 13px;
-  border: none; border-radius: 8px;
-  font-size: 15px; font-weight: 500;
-  cursor: pointer; transition: all 0.2s;
-}
-.action-btn.primary { background-color: #3de0cd; color: white; }
-.action-btn.primary:hover { background-color: #2abbaa; }
-.action-btn.secondary { background: none; border: 1.5px solid #7a4e30; color: #7a4e30; }
-.action-btn.secondary:hover { background-color: #7a4e30; color: white; }
-.retry-btn {
-  padding: 12px 28px; background-color: #3de0cd;
-  color: white; border: none; border-radius: 8px;
-  cursor: pointer; font-size: 15px;
-}
-.retry-btn:hover { background-color: #2abbaa; }
-
-/* Модалка */
+/* ── Модалка ── */
 .modal-overlay {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.45);
   display: flex; align-items: flex-start; justify-content: center;
-  padding: 40px 20px;
+  padding: 32px 20px;
   z-index: 1000;
   overflow-y: auto;
 }
-.modal-card {
+.modal {
   background: white;
-  border-radius: 12px;
-  padding: 32px;
-  max-width: 700px;
-  width: 100%;
-  position: relative;
-  max-height: 85vh;
+  border-radius: 16px;
+  width: 100%; max-width: 720px;
+  max-height: 88vh;
   overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
+.modal-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px 28px 0;
+  position: sticky; top: 0;
+  background: white;
+  z-index: 1;
+  border-bottom: 1px solid #f0ebe5;
+  padding-bottom: 16px;
+}
+.modal-title { font-size: 18px; font-weight: 700; color: #7a4e30; flex: 1; }
 .modal-close {
-  position: absolute; top: 16px; right: 16px;
   background: none; border: none;
-  font-size: 18px; cursor: pointer; color: #999;
-  width: auto; padding: 4px 8px;
+  font-size: 18px; cursor: pointer; color: #bbb;
+  padding: 0; line-height: 1; flex-shrink: 0;
+  width: auto;
 }
 .modal-close:hover { color: #333; }
-.modal-title { font-size: 20px; font-weight: 600; color: #7a4e30; margin-bottom: 10px; }
-.modal-summary { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 8px; }
-.modal-meta { font-size: 13px; color: #aaa; margin-bottom: 20px; }
+
+.modal-body { padding: 20px 28px 28px; }
+.modal-summary { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 12px; }
+.modal-meta { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.meta-chip {
+  background: #f9f6f3; color: #7a4e30;
+  font-size: 12px; font-weight: 500;
+  padding: 4px 12px; border-radius: 20px;
+}
 
 .modal-week {
-  border: 1px solid #eee;
-  border-radius: 8px;
+  border: 1px solid #f0ebe5;
+  border-radius: 10px;
   margin-bottom: 12px;
   overflow: hidden;
 }
-.modal-week-header {
-  background: #c0950813;
+.modal-week-head {
+  background: #f9f6f3;
   padding: 10px 16px;
-  display: flex; gap: 12px; align-items: center;
+  display: flex; align-items: center; gap: 10px;
 }
-.week-num { font-weight: 700; color: #7a4e30; font-size: 13px; white-space: nowrap; }
-.week-theme { font-size: 14px; color: #333; }
-.week-goal { font-size: 13px; color: #555; padding: 10px 16px 6px; line-height: 1.5; }
-.week-resources { padding: 0 16px 12px; display: flex; flex-direction: column; gap: 4px; }
-.resource-link {
-  font-size: 12px; color: #2563eb;
-  text-decoration: none;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+.week-badge {
+  background: #7a4e30; color: white;
+  font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 20px;
+  white-space: nowrap;
 }
-.resource-link:hover { text-decoration: underline; }
+.week-theme { font-size: 14px; font-weight: 600; color: #333; }
 
-@media (max-width: 600px) {
-  .profile-card { padding: 24px; }
-  .profile-header { flex-direction: column; text-align: center; }
-  .stats-row { flex-direction: column; }
-  .modal-card { padding: 20px; }
+.modal-week-body { padding: 12px 16px; }
+.week-goal { font-size: 13px; color: #444; margin-bottom: 6px; line-height: 1.5; }
+.week-tip {
+  font-size: 12px; color: #888;
+  background: #fffbf0;
+  border-left: 3px solid #c09508;
+  padding: 6px 10px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.week-resources { display: flex; flex-direction: column; gap: 5px; }
+.res-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid #f0ebe5;
+  border-radius: 7px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  transition: background 0.15s;
+}
+.res-link:hover { background: #f9f6f3; border-color: #3de0cd; }
+.res-type-icon { font-size: 14px; flex-shrink: 0; }
+.res-title { flex: 1; color: #2563eb; }
+.res-free {
+  background: #3de0cd22; color: #2abbaa;
+  font-size: 11px; padding: 2px 7px;
+  border-radius: 10px; white-space: nowrap;
+}
+
+/* ── Анимация модалки ── */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.2s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+/* ── Адаптив ── */
+@media (max-width: 768px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+  .profile-sidebar { position: static; }
+  .profile-main { padding: 20px; }
+  .modal { border-radius: 12px; }
+  .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
 }
 </style>

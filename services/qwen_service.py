@@ -13,8 +13,6 @@ from urllib.parse import quote
 from typing import List, Dict, Any
 from dotenv import load_dotenv
 
-from services.stepik_course_search import search_courses_for_week as _stepik_search_week
-
 load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
@@ -26,9 +24,7 @@ GROQ_COURSE_RANKER_MODEL = "llama-3.1-8b-instant"
 # Список моделей для fallback если основная перегружена
 FALLBACK_MODELS = [
     "llama-3.3-70b-versatile",
-    "llama3-70b-8192",
-    "llama3-8b-8192",
-    "gemma2-9b-it",
+    "llama-3.1-8b-instant",
 ]
 
 
@@ -189,8 +185,8 @@ def generate_learning_plan(
             last_error = f"Модель {model} не ответила за 90 секунд"
             continue
         except requests.exceptions.HTTPError as e:
-            if response.status_code == 429:
-                last_error = f"Модель {model} перегружена"
+            if response.status_code in (429, 400):
+                last_error = f"Модель {model} недоступна ({response.status_code})"
                 continue
             raise RuntimeError(f"Ошибка подключения к Groq: {e}")
         except requests.exceptions.RequestException as e:
@@ -499,6 +495,16 @@ SKILL_RESOURCES = {
         {"title": "C для начинающих ⭐4.7 — Stepik", "url": "https://stepik.org/course/57680/promo", "type": "course", "is_free": True},
         {"title": "C — cppreference.com (справочник)", "url": "https://ru.cppreference.com/w/c", "type": "article", "is_free": True},
     ],
+    # 1С
+    "1с": [
+        {"title": "1С:Программирование для начинающих ⭐4.8 — Stepik", "url": "https://stepik.org/course/4235/promo", "type": "course", "is_free": True},
+        {"title": "1С — официальная документация", "url": "https://its.1c.ru/db/v8std", "type": "article", "is_free": False},
+        {"title": "1С программирование — Habr", "url": "https://habr.com/ru/hubs/1c/", "type": "article", "is_free": True},
+    ],
+    "1c": [
+        {"title": "1С:Программирование для начинающих ⭐4.8 — Stepik", "url": "https://stepik.org/course/4235/promo", "type": "course", "is_free": True},
+        {"title": "1С программирование — Habr", "url": "https://habr.com/ru/hubs/1c/", "type": "article", "is_free": True},
+    ],
     # Микросервисы
     "microservices": [
         {"title": "Микросервисы: введение — Habr", "url": "https://habr.com/ru/articles/249183/", "type": "article", "is_free": True},
@@ -562,10 +568,102 @@ SKILL_RESOURCES = {
         {"title": "Паттерны проектирования — Refactoring.Guru (рус.)", "url": "https://refactoring.guru/ru/design-patterns", "type": "article", "is_free": True},
         {"title": "Паттерны на Habr", "url": "https://habr.com/ru/hubs/patterns/", "type": "article", "is_free": True},
     ],
+    # Визуализация данных
+    "визуализац": [
+        {"title": "Matplotlib — официальная документация", "url": "https://matplotlib.org/stable/tutorials/index.html", "type": "article", "is_free": True},
+        {"title": "Seaborn — официальная документация", "url": "https://seaborn.pydata.org/tutorial.html", "type": "article", "is_free": True},
+        {"title": "Data Visualization — Kaggle (практика)", "url": "https://www.kaggle.com/learn/data-visualization", "type": "practice", "is_free": True},
+    ],
+    "matplotlib": [
+        {"title": "Matplotlib — официальная документация", "url": "https://matplotlib.org/stable/tutorials/index.html", "type": "article", "is_free": True},
+        {"title": "Matplotlib на Habr", "url": "https://habr.com/ru/articles/468295/", "type": "article", "is_free": True},
+    ],
+    "seaborn": [
+        {"title": "Seaborn — официальная документация", "url": "https://seaborn.pydata.org/tutorial.html", "type": "article", "is_free": True},
+        {"title": "Data Visualization — Kaggle", "url": "https://www.kaggle.com/learn/data-visualization", "type": "practice", "is_free": True},
+    ],
+    # Большие данные
+    "большим объём": [
+        {"title": "Apache Spark — официальная документация", "url": "https://spark.apache.org/docs/latest/", "type": "article", "is_free": True},
+        {"title": "Большие данные на Habr", "url": "https://habr.com/ru/hubs/bigdata/", "type": "article", "is_free": True},
+    ],
+    "объём информац": [
+        {"title": "Apache Spark — официальная документация", "url": "https://spark.apache.org/docs/latest/", "type": "article", "is_free": True},
+        {"title": "Большие данные на Habr", "url": "https://habr.com/ru/hubs/bigdata/", "type": "article", "is_free": True},
+    ],
+    "объем информац": [
+        {"title": "Apache Spark — официальная документация", "url": "https://spark.apache.org/docs/latest/", "type": "article", "is_free": True},
+        {"title": "Большие данные на Habr", "url": "https://habr.com/ru/hubs/bigdata/", "type": "article", "is_free": True},
+    ],
+    "big data": [
+        {"title": "Apache Spark — официальная документация", "url": "https://spark.apache.org/docs/latest/", "type": "article", "is_free": True},
+        {"title": "Big Data на Habr", "url": "https://habr.com/ru/hubs/bigdata/", "type": "article", "is_free": True},
+    ],
+    "spark": [
+        {"title": "Apache Spark — официальная документация", "url": "https://spark.apache.org/docs/latest/", "type": "article", "is_free": True},
+        {"title": "Spark на Habr", "url": "https://habr.com/ru/articles/350708/", "type": "article", "is_free": True},
+    ],
+    # ООП
+    "ооп": [
+        {"title": "ООП в Python — Stepik ⭐4.8", "url": "https://stepik.org/course/68343/promo", "type": "course", "is_free": True},
+        {"title": "ООП на Habr: введение", "url": "https://habr.com/ru/articles/463125/", "type": "article", "is_free": True},
+    ],
+    "объектно-ориентированн": [
+        {"title": "ООП в Python — Stepik ⭐4.8", "url": "https://stepik.org/course/68343/promo", "type": "course", "is_free": True},
+        {"title": "ООП на Habr: введение", "url": "https://habr.com/ru/articles/463125/", "type": "article", "is_free": True},
+    ],
+    # Статистика
+    "статистик": [
+        {"title": "Статистика для Data Science — Stepik ⭐4.8", "url": "https://stepik.org/course/76/promo", "type": "course", "is_free": True},
+        {"title": "Statistics — Khan Academy (бесплатно)", "url": "https://www.khanacademy.org/math/statistics-probability", "type": "course", "is_free": True},
+    ],
+    # Математика / линейная алгебра
+    "математик": [
+        {"title": "Математика для Data Science — Stepik", "url": "https://stepik.org/course/95/promo", "type": "course", "is_free": True},
+        {"title": "Math for ML — Khan Academy (бесплатно)", "url": "https://www.khanacademy.org/math/linear-algebra", "type": "course", "is_free": True},
+    ],
+    "линейная алгебра": [
+        {"title": "Линейная алгебра — Khan Academy (бесплатно)", "url": "https://www.khanacademy.org/math/linear-algebra", "type": "course", "is_free": True},
+        {"title": "Линейная алгебра на Stepik", "url": "https://stepik.org/course/2461/promo", "type": "course", "is_free": True},
+    ],
+    # Безопасность
+    "безопасност": [
+        {"title": "Веб-безопасность — OWASP (рус.)", "url": "https://owasp.org/www-project-top-ten/", "type": "article", "is_free": True},
+        {"title": "Информационная безопасность на Habr", "url": "https://habr.com/ru/hubs/infosecurity/", "type": "article", "is_free": True},
+    ],
+    # Сети
+    "сет": [
+        {"title": "Компьютерные сети — Stepik ⭐4.7", "url": "https://stepik.org/course/58678/promo", "type": "course", "is_free": True},
+        {"title": "Сети на Habr", "url": "https://habr.com/ru/hubs/network_technologies/", "type": "article", "is_free": True},
+    ],
+    "network": [
+        {"title": "Компьютерные сети — Stepik ⭐4.7", "url": "https://stepik.org/course/58678/promo", "type": "course", "is_free": True},
+        {"title": "Networking — Habr", "url": "https://habr.com/ru/hubs/network_technologies/", "type": "article", "is_free": True},
+    ],
     # Практика / Pet-project
     "практик": [
         {"title": "LeetCode — практика алгоритмов (бесплатно)", "url": "https://leetcode.com/problemset/", "type": "practice", "is_free": True},
         {"title": "Kaggle — практические проекты (бесплатно)", "url": "https://www.kaggle.com/learn", "type": "practice", "is_free": True},
+        {"title": "GitHub — идеи для pet-проектов", "url": "https://github.com/practical-tutorials/project-based-learning", "type": "practice", "is_free": True},
+    ],
+    "закреплени": [
+        {"title": "LeetCode — практика и закрепление (бесплатно)", "url": "https://leetcode.com/problemset/", "type": "practice", "is_free": True},
+        {"title": "Codewars — задачи для закрепления навыков", "url": "https://www.codewars.com/", "type": "practice", "is_free": True},
+        {"title": "GitHub — идеи для pet-проектов", "url": "https://github.com/practical-tutorials/project-based-learning", "type": "practice", "is_free": True},
+    ],
+    "проект": [
+        {"title": "GitHub — идеи для pet-проектов", "url": "https://github.com/practical-tutorials/project-based-learning", "type": "practice", "is_free": True},
+        {"title": "Codewars — практика через задачи", "url": "https://www.codewars.com/", "type": "practice", "is_free": True},
+        {"title": "LeetCode — алгоритмические задачи", "url": "https://leetcode.com/problemset/", "type": "practice", "is_free": True},
+    ],
+    "итог": [
+        {"title": "Codewars — финальная практика", "url": "https://www.codewars.com/", "type": "practice", "is_free": True},
+        {"title": "LeetCode — закрепление алгоритмов", "url": "https://leetcode.com/problemset/", "type": "practice", "is_free": True},
+        {"title": "GitHub — оформи своё портфолио", "url": "https://github.com/practical-tutorials/project-based-learning", "type": "practice", "is_free": True},
+    ],
+    "повторени": [
+        {"title": "Codewars — повторение через задачи", "url": "https://www.codewars.com/", "type": "practice", "is_free": True},
+        {"title": "LeetCode — практика алгоритмов", "url": "https://leetcode.com/problemset/", "type": "practice", "is_free": True},
     ],
     # API / Agile
     "api": [
@@ -845,20 +943,57 @@ def _groq_pick_courses_for_goal(
 def _get_all_resources(skill_name: str) -> List[Dict[str, Any]]:
     """Возвращает ВСЕ ресурсы для навыка. Если не в словаре — поиск по навыку."""
     from urllib.parse import quote
+    import re
     key = str(skill_name).lower().strip()
+
+    # Точное совпадение
     if key in SKILL_RESOURCES:
         return list(SKILL_RESOURCES[key])
-    match = next(
-        (list(v) for k, v in SKILL_RESOURCES.items() if k in key or key in k),
-        None
-    )
+
+    # Частичное совпадение — короткие ключи только по границе слова
+    match = None
+    for k, v in SKILL_RESOURCES.items():
+        if len(k) <= 2:
+            if k == key or re.search(r'\b' + re.escape(k) + r'\b', key):
+                match = list(v)
+                break
+        else:
+            if k in key or key in k:
+                match = list(v)
+                break
+
     if match:
         return match
+
+    # Навык не в словаре — конкретные ссылки на поиск (не каталог)
+    from urllib.parse import quote
     q = quote(skill_name)
+    q_ru = quote(skill_name + " программирование")
     return [
-        {"title": f"{skill_name} — курсы на Stepik", "url": f"https://stepik.org/search?query={q}", "type": "course", "is_free": True},
-        {"title": f"{skill_name} — статьи на Habr", "url": f"https://habr.com/ru/search/?q={q}&target_type=posts", "type": "article", "is_free": True},
+        {
+            "title": f"{skill_name} — статьи на Habr",
+            "url": f"https://habr.com/ru/search/?q={q}&target_type=posts",
+            "type": "article",
+            "is_free": True
+        },
+        {
+            "title": f"{skill_name} — курсы на Coursera",
+            "url": f"https://www.coursera.org/search?query={q}",
+            "type": "course",
+            "is_free": False
+        },
     ]
+
+
+# Ресурсы для недель без конкретных навыков (практика, закрепление, итог)
+_PRACTICE_RESOURCES = [
+    {"title": "LeetCode — практика алгоритмов (бесплатно)", "url": "https://leetcode.com/problemset/", "type": "practice", "is_free": True},
+    {"title": "Codewars — задачи для закрепления навыков", "url": "https://www.codewars.com/", "type": "practice", "is_free": True},
+    {"title": "GitHub — идеи для pet-проектов", "url": "https://github.com/practical-tutorials/project-based-learning", "type": "practice", "is_free": True},
+    {"title": "Kaggle — практические проекты (бесплатно)", "url": "https://www.kaggle.com/learn", "type": "practice", "is_free": True},
+]
+
+_PRACTICE_KEYWORDS = {"практик", "закреплени", "проект", "итог", "повторени", "финал", "резюм", "portfolio", "портфол"}
 
 
 def _inject_resources(plan: dict, payment_type: str) -> dict:
@@ -866,49 +1001,77 @@ def _inject_resources(plan: dict, payment_type: str) -> dict:
     Подставляет ресурсы из словаря.
     - Один URL не повторяется во всём плане
     - Для каждого навыка берём следующий незанятый ресурс по порядку
+    - Если навыков нет — определяем тип недели по теме и даём практические ресурсы
     """
     used_urls: set = set()
     skill_offset: dict = {}
+    practice_offset: int = 0
 
     for week in plan.get("weeks", []):
         skills = week.get("skills", [])
+        theme = str(week.get("theme", "")).lower()
+        goal = str(week.get("goal", "")).lower()
         resources: List[Dict[str, Any]] = []
         week_urls: set = set()
 
-        for skill in skills:
-            key = skill.lower().strip()
-            all_res = _get_all_resources(skill)
+        # Если навыков нет или тема — практика/закрепление
+        is_practice_week = (
+            not skills or
+            any(kw in theme for kw in _PRACTICE_KEYWORDS) or
+            any(kw in goal for kw in _PRACTICE_KEYWORDS)
+        )
 
-            if payment_type == "free":
-                preferred = [r for r in all_res if r.get("is_free", True)] or all_res
-            elif payment_type == "paid":
-                preferred = [r for r in all_res if not r.get("is_free", True)] or all_res
-            else:
-                preferred = all_res
-
-            offset = skill_offset.get(key, 0)
-            added = False
-            for i in range(len(preferred)):
-                idx = (offset + i) % len(preferred)
-                res = preferred[idx]
-                url = res["url"]
-                if url not in used_urls and url not in week_urls:
+        if is_practice_week and not skills:
+            # Берём практические ресурсы по очереди
+            for i in range(min(3, len(_PRACTICE_RESOURCES))):
+                idx = (practice_offset + i) % len(_PRACTICE_RESOURCES)
+                res = _PRACTICE_RESOURCES[idx]
+                if res["url"] not in used_urls and res["url"] not in week_urls:
                     resources.append(res)
-                    used_urls.add(url)
-                    week_urls.add(url)
-                    skill_offset[key] = idx + 1
-                    added = True
-                    break
+                    used_urls.add(res["url"])
+                    week_urls.add(res["url"])
+                    practice_offset = idx + 1
+                    if len(resources) >= 2:
+                        break
+        else:
+            for skill in skills:
+                key = skill.lower().strip()
+                all_res = _get_all_resources(skill)
 
-            if not added:
-                for res in preferred:
-                    if res["url"] not in week_urls:
+                if payment_type == "free":
+                    preferred = [r for r in all_res if r.get("is_free", True)] or all_res
+                elif payment_type == "paid":
+                    preferred = [r for r in all_res if not r.get("is_free", True)] or all_res
+                else:
+                    preferred = all_res
+
+                offset = skill_offset.get(key, 0)
+                added = False
+                for i in range(len(preferred)):
+                    idx = (offset + i) % len(preferred)
+                    res = preferred[idx]
+                    url = res["url"]
+                    if url not in used_urls and url not in week_urls:
                         resources.append(res)
-                        week_urls.add(res["url"])
+                        used_urls.add(url)
+                        week_urls.add(url)
+                        skill_offset[key] = idx + 1
+                        added = True
                         break
 
+                if not added:
+                    for res in preferred:
+                        if res["url"] not in week_urls:
+                            resources.append(res)
+                            week_urls.add(res["url"])
+                            break
+
         if not resources:
-            resources = [{"title": "Каталог курсов — Stepik", "url": "https://stepik.org/catalog", "type": "course", "is_free": True}]
+            # Последний резерв — практика
+            for res in _PRACTICE_RESOURCES:
+                if res["url"] not in week_urls:
+                    resources.append(res)
+                    break
 
         week["resources"] = resources[:3]
 
