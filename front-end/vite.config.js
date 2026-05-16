@@ -20,7 +20,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8000',
+        target: 'https://site-prjdap-1.onrender.com',
         changeOrigin: true
       }
     }
@@ -28,6 +28,6 @@ export default defineConfig({
   preview: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: ['site-prjdap-front.onrender.com']
+    allowedHosts: ['site-prjdap-27x6.onrender.com'] 
   }
 })
