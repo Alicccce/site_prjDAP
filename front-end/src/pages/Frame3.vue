@@ -175,5 +175,16 @@ const validateFilters = () => {
   margin-top: 8px;
 }
 
-@media (max-width: 600px) { .filters-card { padding: 20px; } .radio-group, .checkbox-group { flex-direction: column; gap: 10px; } .filter-actions { flex-direction: column; } }
+@media (max-width: 600px) { 
+.filters-card { padding: 20px; } 
+.radio-group, .checkbox-group { flex-direction: column; gap: 10px; } 
+.filter-actions { flex-direction: column; } 
+.salary-inputs {
+  flex-direction: column;
+  gap: 8px;
+}
+.salary-input {
+  width: 100%;
+}
+}
 </style>

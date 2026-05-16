@@ -365,12 +365,18 @@ onMounted(() => {
   }
   
   .button-group {
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   
   .level-btn, .payment-btn {
-    padding: 8px 16px;
-    font-size: 12px;
+    flex: 1 1 calc(50% - 8px);
+    min-width: calc(50% - 8px);
+    padding: 8px 12px;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
   }
 }
 </style>

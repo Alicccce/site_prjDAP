@@ -27,8 +27,8 @@ const handleSearch = async () => {
     error.value = 'Введите запрос'
     return
   }
-  if (query.value.length < 6) {
-    error.value = 'Минимум 6 символов'
+  if (query.value.length < 3) {
+    error.value = 'Минимум 3 символа'
     return
   }
   if (letterCount < 3) {
@@ -51,9 +51,9 @@ const handleSearch = async () => {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 80vh;
+  min-height: 86vh;
   background-color: #f5f5f5;
-  padding-top: 50px;
+  padding-top: 120px;
 }
 
 .search-page h3 {
