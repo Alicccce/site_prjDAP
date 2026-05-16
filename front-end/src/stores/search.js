@@ -21,11 +21,14 @@ export const useSearchStore = defineStore('search', {
 
         // Нормализуем importance: бэкенд возвращает "important"/"not_important"
         // Skills.vue ожидает "mandatory"/"optional"
-        const normalizedSkills = skills.map(s => ({
+        const normalizedSkills = skills
+        .sort((a, b) => (b.frequency || 0) - (a.frequency || 0)) 
+        .map(s => ({
           name: s.skill_name || s.name,
           frequency: s.frequency,
           importance: s.importance === 'important' ? 'mandatory' : 'optional'
         }))
+        .slice(0, 10)  
 
         this.results = {
           jobTitle: query,

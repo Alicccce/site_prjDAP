@@ -19,6 +19,7 @@
             <option>Аналитик</option>
             <option>Продуктовый менеджер</option>
           </select>
+          <p v-if="validationErrors.specialization" class="error">{{ validationErrors.specialization }}</p>
         </div>
 
         <div class="filter-group">
@@ -33,12 +34,13 @@
             <option>Медицина</option>
             <option>Производство</option>
           </select>
+          <p v-if="validationErrors.industry" class="error">{{ validationErrors.industry }}</p>
         </div>
 
         <div class="filter-group">
           <label class="filter-label">Образование</label>
           <div class="radio-group">
-            <label class="radio-label"><input type="radio" value="any" v-model="filters.education" /> Не важно</label>
+            <label class="radio-label"><input type="radio" value="" v-model="filters.education" /> Не важно</label>
             <label class="radio-label"><input type="radio" value="higher" v-model="filters.education" /> Высшее</label>
             <label class="radio-label"><input type="radio" value="incomplete_higher" v-model="filters.education" /> Неполное высшее</label>
             <label class="radio-label"><input type="radio" value="secondary" v-model="filters.education" /> Среднее специальное</label>
@@ -81,7 +83,7 @@
 </template>
 
 <script setup>
-import { reactive, ref, nextTick } from 'vue'
+import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useBranch2Store } from '../stores/branch2'
 import SkillsDialog from '../components/SkillsDialog.vue'
@@ -91,22 +93,18 @@ const branch2Store = useBranch2Store()
 const showDialog = ref(false)
 
 const filters = reactive({
-  specialization: '', industry: '', education: 'any',
+  specialization: '', industry: '', education: '',
   salaryFrom: '', salaryTo: '', schedule: []
 })
 
-const applyFilters = async () => {
-  if (!validateFilters()) {
-    await nextTick()
-    document.querySelector('.filters-card .error')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    return
-  }
+const applyFilters = () => {
+  if (!validateFilters()) return
   branch2Store.setFilters({ ...filters })
   showDialog.value = true
 }
 
 const resetFilters = () => {
-  filters.specialization = ''; filters.industry = ''; filters.education = 'any'
+  filters.specialization = ''; filters.industry = ''; filters.education = ''
   filters.salaryFrom = ''; filters.salaryTo = ''; filters.schedule = []
   validationErrors.value = {}
 }
@@ -121,13 +119,12 @@ const validationErrors = ref({})
 
 const validateFilters = () => {
   const errors = {}
-  const from = filters.salaryFrom === '' || filters.salaryFrom == null ? null : Number(filters.salaryFrom)
-  const to = filters.salaryTo === '' || filters.salaryTo == null ? null : Number(filters.salaryTo)
-  if (from != null && to != null && !Number.isNaN(from) && !Number.isNaN(to) && from > to) {
-    errors.salary = 'Поле «от» не может быть больше «до»'
-  }
+  if (!filters.specialization) errors.specialization = 'Выберите специализацию'
+  if (!filters.industry) errors.industry = 'Выберите отрасль'
+  if (!filters.education) errors.education = 'Укажите образование'
+  if (!filters.salaryFrom && !filters.salaryTo) errors.salary = 'Укажите желаемую зарплату'
   if (filters.schedule.length === 0) errors.schedule = 'Выберите хотя бы один график работы'
-
+  
   validationErrors.value = errors
   return Object.keys(errors).length === 0
 }

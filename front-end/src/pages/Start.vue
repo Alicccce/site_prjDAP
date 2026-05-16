@@ -24,12 +24,10 @@
       <button class="btn btn-left" @click="$router.push('/search')">
         <span class="btn-icon">🎯</span>
         <span class="btn-text">ЗНАЮ ЧЕГО ХОЧУ</span>
-        <span class="btn-hint">Знаю должность</span>
       </button>
       <button class="btn btn-right" @click="$router.push('/choice')">
         <span class="btn-icon">🔍</span>
         <span class="btn-text">НЕ ЗНАЮ ЧЕГО ХОЧУ</span>
-        <span class="btn-hint">Помогите выбрать</span>
       </button>
     </div>
 
@@ -55,24 +53,25 @@ const adminText2 = ref([
 
 <style scoped>
 .start_page {
-  min-height: 70vh;
+  min-height: 86vh;
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
-  gap: 32px;
+  gap: 30px;
 }
 
 .welcome-title {
+  margin-bottom: 0;
   font-size: 22px;
   font-weight: 700;
   color: #7a4e30;
   text-align: center;
   white-space: pre-line;
-  max-width: 600px;
+  max-width: 700px;
   line-height: 1.5;
+  padding: 30px;
 }
 
 /* Шаги */
@@ -108,7 +107,7 @@ const adminText2 = ref([
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 24px;
+  gap: 170px;
   flex-wrap: wrap;
 }
 

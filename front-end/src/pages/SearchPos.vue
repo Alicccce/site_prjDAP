@@ -53,7 +53,7 @@ const handleSearch = async () => {
   justify-content: flex-start;
   min-height: 86vh;
   background-color: #f5f5f5;
-  padding-top: 120px;
+  padding-top: 100px;
 }
 
 .search-page h3 {
