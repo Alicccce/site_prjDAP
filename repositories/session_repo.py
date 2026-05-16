@@ -2,7 +2,6 @@
 # repositories/session_repo.py
 import colorama
 from colorama import init, Fore, Style
-# Инициализация colorama (автоматически настраивает кодировку)
 init(autoreset=True)
 from datetime import datetime
 from sqlalchemy.exc import IntegrityError
@@ -175,7 +174,7 @@ class SessionRepository(BaseRepository):
         finally:
             session.close()
     
-    # вспомогательные методы
+    # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     
     def _user_exists(self, session, user_id):
         """check if user exists"""

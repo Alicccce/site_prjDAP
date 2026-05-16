@@ -70,7 +70,6 @@ class TestGetHeaders:
     
     def test_headers_without_token(self):
         """test: headers without token"""
-        # отключаем загрузку токена и передаём None в явном виде
         with patch('hh_client.load_token_from_file', return_value=None):
             client = HHClient(token=None)
             headers = client._get_headers()
@@ -172,7 +171,6 @@ class TestGetVacanciesCount:
             client = HHClient(token="test_token")
             count = client.get_vacancies_count("Python Developer")
             
-            # метод должен вернуть 0, а не бросить исключение
             assert count == 0
 
 
@@ -219,7 +217,6 @@ class TestGetVacanciesList:
             client = HHClient(token="test_token")
             vacancies = client.get_vacancies_list("Developer")
             
-            # метод должен вернуть пустой список, а не бросить исключение
             assert vacancies == []
 
 

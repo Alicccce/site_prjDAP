@@ -2,7 +2,6 @@
 # repositories/skill_repo.py
 import colorama
 from colorama import init, Fore, Style
-# Инициализация colorama (автоматически настраивает кодировку)
 init(autoreset=True)
 from sqlalchemy.exc import IntegrityError
 from repositories.base_repo import BaseRepository

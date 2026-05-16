@@ -2,7 +2,6 @@
 # tests/test_vacancy_analysis_service.py
 import colorama
 from colorama import init, Fore, Style
-# Инициализация colorama (автоматически настраивает кодировку)
 init(autoreset=True)
 import sys
 import os

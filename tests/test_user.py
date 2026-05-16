@@ -2,7 +2,6 @@
 # tests/test_user.py
 import colorama
 from colorama import init, Fore, Style
-# »нициализаци€ colorama (автоматически настраивает кодировку)
 init(autoreset=True)
 import sys
 import os
@@ -19,7 +18,6 @@ import tempfile
 
 def test_user_repository():
     """Testing UserRepository with a temporary database"""
-    #ѕроверка работоспособности colorama
     # Saving the original engine
     from DataBase import engine as original_engine
     import DataBase as db_module
