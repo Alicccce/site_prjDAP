@@ -2,7 +2,6 @@
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
 import ToastNotification from './components/ToastNotification.vue'
-import Yandex from './components/Yandex.vue'
 </script>
 
 <template>
@@ -12,7 +11,6 @@ import Yandex from './components/Yandex.vue'
   </main>
   <AppFooter />
   <ToastNotification />
-  <Yandex />
 </template>
 
 <style>
