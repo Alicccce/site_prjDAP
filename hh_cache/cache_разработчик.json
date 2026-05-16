@@ -1,6 +1,131 @@
 {
   "items": [
     {
+      "id": "131292841",
+      "premium": false,
+      "name": "Frontend-разработчик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "160",
+        "name": "Алматы",
+        "url": "https://api.hh.ru/areas/160"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Алматы",
+        "street": "улица Абдуллы Розыбакиева",
+        "building": "263",
+        "lat": 43.200878,
+        "lng": 76.892267,
+        "description": null,
+        "raw": "Алматы, улица Абдуллы Розыбакиева, 263",
+        "metro": null,
+        "metro_stations": [],
+        "id": "17108561"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-16T11:13:49+0300",
+      "created_at": "2026-05-16T11:13:49+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=131292841",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/131292841?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/131292841",
+      "relations": [],
+      "employer": {
+        "id": "11630327",
+        "name": "My Startups",
+        "url": "https://api.hh.ru/employers/11630327",
+        "alternate_url": "https://hh.ru/employer/11630327",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/7060229.png",
+          "90": "https://img.hhcdn.ru/employer-logo-round/7060230.png",
+          "240": "https://img.hhcdn.ru/employer-logo-round/7060231.png"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=11630327",
+        "country_id": 3,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Уверенное владение React, Next.js, TypeScript, Tailwind UI, Zustand. Понимание принципов работы JWT и безопасного хранения токенов. Опыт работы с асинхронными...",
+        "responsibility": "Разработка и поддержка клиентской части веб-приложений. Реализация масштабируемых и производительных интерфейсов. Разработка UI-компонентов и интерфейсов. Управление состоянием приложения..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null,
+      "key_skills": [
+        {
+          "name": "React"
+        },
+        {
+          "name": "TypeScript"
+        },
+        {
+          "name": "JWT"
+        },
+        {
+          "name": "Организаторские навыки"
+        },
+        {
+          "name": "websockets"
+        },
+        {
+          "name": "Docker"
+        }
+      ]
+    },
+    {
       "id": "132726180",
       "premium": false,
       "name": "IOS-разработчик",
@@ -1343,112 +1468,6 @@
       ]
     },
     {
-      "id": "132186615",
-      "premium": false,
-      "name": "Senior Java разработчик",
-      "department": null,
-      "has_test": false,
-      "response_letter_required": false,
-      "area": {
-        "id": "2759",
-        "name": "Ташкент",
-        "url": "https://api.hh.ru/areas/2759"
-      },
-      "salary": null,
-      "salary_range": null,
-      "type": {
-        "id": "open",
-        "name": "Открытая"
-      },
-      "address": {
-        "city": "Ташкент",
-        "street": "1-й проезд Мукими",
-        "building": "59",
-        "lat": 41.279986,
-        "lng": 69.25179,
-        "description": null,
-        "raw": "Ташкент, 1-й проезд Мукими, 59",
-        "metro": null,
-        "metro_stations": [],
-        "id": "13225745"
-      },
-      "response_url": null,
-      "sort_point_distance": null,
-      "published_at": "2026-05-16T08:51:53+0300",
-      "created_at": "2026-05-16T08:51:53+0300",
-      "archived": false,
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132186615",
-      "show_contacts": false,
-      "is_boosted_vacancy": null,
-      "insider_interview": null,
-      "url": "https://api.hh.ru/vacancies/132186615?host=hh.ru",
-      "alternate_url": "https://hh.ru/vacancy/132186615",
-      "relations": [],
-      "employer": {
-        "id": "9691500",
-        "name": "PAYNET",
-        "url": "https://api.hh.ru/employers/9691500",
-        "alternate_url": "https://hh.ru/employer/9691500",
-        "logo_urls": {
-          "original": "https://img.hhcdn.ru/employer-logo-original-round/6693277.jpeg",
-          "90": "https://img.hhcdn.ru/employer-logo-round/6693278.jpeg",
-          "240": "https://img.hhcdn.ru/employer-logo-round/6693279.jpeg"
-        },
-        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9691500",
-        "country_id": 6,
-        "accredited_it_employer": false,
-        "trusted": true
-      },
-      "snippet": {
-        "requirement": "Опыт коммерческой разработки на Java. Опыт написания модульных (Junit, Mockito) и интеграционных тестов. Опыт работы с Spring, Spring boot. ",
-        "responsibility": "Разработка и поддержка текущего приложения. Работа в кросс-функциональной команде по спринтам. Ревью кода. Участие в анализе задач. "
-      },
-      "contacts": null,
-      "accept_temporary": false,
-      "fly_in_fly_out_duration": [],
-      "work_format": [
-        {
-          "id": "ON_SITE",
-          "name": "На месте работодателя"
-        }
-      ],
-      "working_hours": [
-        {
-          "id": "HOURS_8",
-          "name": "8 часов"
-        }
-      ],
-      "work_schedule_by_days": [
-        {
-          "id": "FIVE_ON_TWO_OFF",
-          "name": "5/2"
-        }
-      ],
-      "accept_labor_contract": true,
-      "civil_law_contracts": [],
-      "night_shifts": false,
-      "professional_roles": [
-        {
-          "id": "96",
-          "name": "Программист, разработчик"
-        }
-      ],
-      "accept_incomplete_resumes": false,
-      "experience": {
-        "id": "between3And6",
-        "name": "От 3 до 6 лет"
-      },
-      "employment_form": {
-        "id": "FULL",
-        "name": "Полная"
-      },
-      "internship": false,
-      "adv_response_url": null,
-      "is_adv_vacancy": false,
-      "adv_context": null,
-      "key_skills": []
-    },
-    {
       "id": "133129415",
       "premium": false,
       "name": "Вайб‑кодер",
@@ -1639,6 +1658,112 @@
           "name": "API"
         }
       ]
+    },
+    {
+      "id": "132186615",
+      "premium": false,
+      "name": "Senior Java разработчик",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2759",
+        "name": "Ташкент",
+        "url": "https://api.hh.ru/areas/2759"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Ташкент",
+        "street": "1-й проезд Мукими",
+        "building": "59",
+        "lat": 41.279986,
+        "lng": 69.25179,
+        "description": null,
+        "raw": "Ташкент, 1-й проезд Мукими, 59",
+        "metro": null,
+        "metro_stations": [],
+        "id": "13225745"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-16T08:51:53+0300",
+      "created_at": "2026-05-16T08:51:53+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132186615",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132186615?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132186615",
+      "relations": [],
+      "employer": {
+        "id": "9691500",
+        "name": "PAYNET",
+        "url": "https://api.hh.ru/employers/9691500",
+        "alternate_url": "https://hh.ru/employer/9691500",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6693277.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6693278.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6693279.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9691500",
+        "country_id": 6,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Опыт коммерческой разработки на Java. Опыт написания модульных (Junit, Mockito) и интеграционных тестов. Опыт работы с Spring, Spring boot. ",
+        "responsibility": "Разработка и поддержка текущего приложения. Работа в кросс-функциональной команде по спринтам. Ревью кода. Участие в анализе задач. "
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": true,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between3And6",
+        "name": "От 3 до 6 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null,
+      "key_skills": []
     },
     {
       "id": "132723469",
@@ -2189,6 +2314,112 @@
           "name": "1С"
         }
       ]
+    },
+    {
+      "id": "132195125",
+      "premium": false,
+      "name": "Старший разработчик 1С",
+      "department": null,
+      "has_test": false,
+      "response_letter_required": false,
+      "area": {
+        "id": "2760",
+        "name": "Бишкек",
+        "url": "https://api.hh.ru/areas/2760"
+      },
+      "salary": null,
+      "salary_range": null,
+      "type": {
+        "id": "open",
+        "name": "Открытая"
+      },
+      "address": {
+        "city": "Бишкек",
+        "street": "улица А. Суюмбаева",
+        "building": "123",
+        "lat": 42.878454,
+        "lng": 74.62359,
+        "description": null,
+        "raw": "Бишкек, улица А. Суюмбаева, 123",
+        "metro": null,
+        "metro_stations": [],
+        "id": "636519"
+      },
+      "response_url": null,
+      "sort_point_distance": null,
+      "published_at": "2026-05-16T11:18:42+0300",
+      "created_at": "2026-05-16T11:18:42+0300",
+      "archived": false,
+      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=132195125",
+      "show_contacts": false,
+      "is_boosted_vacancy": null,
+      "insider_interview": null,
+      "url": "https://api.hh.ru/vacancies/132195125?host=hh.ru",
+      "alternate_url": "https://hh.ru/vacancy/132195125",
+      "relations": [],
+      "employer": {
+        "id": "2213364",
+        "name": "Альфа Телеком (MEGA)",
+        "url": "https://api.hh.ru/employers/2213364",
+        "alternate_url": "https://hh.ru/employer/2213364",
+        "logo_urls": {
+          "original": "https://img.hhcdn.ru/employer-logo-original-round/6188124.jpeg",
+          "90": "https://img.hhcdn.ru/employer-logo-round/6188125.jpeg",
+          "240": "https://img.hhcdn.ru/employer-logo-round/6188126.jpeg"
+        },
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2213364",
+        "country_id": 7,
+        "accredited_it_employer": false,
+        "trusted": true
+      },
+      "snippet": {
+        "requirement": "Имеет практический опыт работы с платформой 1С:Предприятие 8.3, включая конфигурации Бухгалтерия, Управление торговлей, Зарплата и управление персоналом. ",
+        "responsibility": "Может оптимизировать запросы и работу с данными, сокращая время обработки. Разработка, поддержка и сопровождение программных продуктов 1С: * написание и..."
+      },
+      "contacts": null,
+      "accept_temporary": false,
+      "fly_in_fly_out_duration": [],
+      "work_format": [
+        {
+          "id": "ON_SITE",
+          "name": "На месте работодателя"
+        }
+      ],
+      "working_hours": [
+        {
+          "id": "HOURS_8",
+          "name": "8 часов"
+        }
+      ],
+      "work_schedule_by_days": [
+        {
+          "id": "FIVE_ON_TWO_OFF",
+          "name": "5/2"
+        }
+      ],
+      "accept_labor_contract": false,
+      "civil_law_contracts": [],
+      "night_shifts": false,
+      "professional_roles": [
+        {
+          "id": "96",
+          "name": "Программист, разработчик"
+        }
+      ],
+      "accept_incomplete_resumes": false,
+      "experience": {
+        "id": "between1And3",
+        "name": "От 1 года до 3 лет"
+      },
+      "employment_form": {
+        "id": "FULL",
+        "name": "Полная"
+      },
+      "internship": false,
+      "adv_response_url": null,
+      "is_adv_vacancy": false,
+      "adv_context": null,
+      "key_skills": []
     },
     {
       "id": "131565816",
@@ -7166,229 +7397,9 @@
           "name": "SQL"
         }
       ]
-    },
-    {
-      "id": "133149568",
-      "premium": false,
-      "name": "Веб-разработчик",
-      "department": null,
-      "has_test": false,
-      "response_letter_required": false,
-      "area": {
-        "id": "26",
-        "name": "Воронеж",
-        "url": "https://api.hh.ru/areas/26"
-      },
-      "salary": null,
-      "salary_range": null,
-      "type": {
-        "id": "open",
-        "name": "Открытая"
-      },
-      "address": null,
-      "response_url": null,
-      "sort_point_distance": null,
-      "published_at": "2026-05-15T17:29:01+0300",
-      "created_at": "2026-05-15T17:29:01+0300",
-      "archived": false,
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133149568",
-      "show_contacts": true,
-      "is_boosted_vacancy": null,
-      "insider_interview": null,
-      "url": "https://api.hh.ru/vacancies/133149568?host=hh.ru",
-      "alternate_url": "https://hh.ru/vacancy/133149568",
-      "relations": [],
-      "employer": {
-        "id": "48090",
-        "name": "Ingate",
-        "url": "https://api.hh.ru/employers/48090",
-        "alternate_url": "https://hh.ru/employer/48090",
-        "logo_urls": {
-          "original": "https://img.hhcdn.ru/employer-logo-original-round/6349197.png",
-          "90": "https://img.hhcdn.ru/employer-logo-round/6349198.png",
-          "240": "https://img.hhcdn.ru/employer-logo-round/6349199.png"
-        },
-        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=48090",
-        "country_id": 1,
-        "accredited_it_employer": true,
-        "trusted": true
-      },
-      "snippet": {
-        "requirement": "Понимание основ веб-разработки: как устроены страницы, как данные передаются между браузером и сервером, понимать PHP, HTML, JavaScript. ",
-        "responsibility": "Создавать сайты с нуля: от прототипа и структуры до готового, работающего проекта. Дорабатывать текущие сайты: добавлять новые функции, исправлять ошибки..."
-      },
-      "contacts": {
-        "name": null,
-        "phones": []
-      },
-      "accept_temporary": false,
-      "fly_in_fly_out_duration": [],
-      "work_format": [
-        {
-          "id": "REMOTE",
-          "name": "Удалённо"
-        }
-      ],
-      "working_hours": [
-        {
-          "id": "HOURS_8",
-          "name": "8 часов"
-        }
-      ],
-      "work_schedule_by_days": [
-        {
-          "id": "FIVE_ON_TWO_OFF",
-          "name": "5/2"
-        }
-      ],
-      "accept_labor_contract": true,
-      "civil_law_contracts": [],
-      "night_shifts": false,
-      "professional_roles": [
-        {
-          "id": "96",
-          "name": "Программист, разработчик"
-        }
-      ],
-      "accept_incomplete_resumes": false,
-      "experience": {
-        "id": "between1And3",
-        "name": "От 1 года до 3 лет"
-      },
-      "employment_form": {
-        "id": "FULL",
-        "name": "Полная"
-      },
-      "internship": false,
-      "adv_response_url": null,
-      "is_adv_vacancy": false,
-      "adv_context": null,
-      "key_skills": [
-        {
-          "name": "PHP"
-        },
-        {
-          "name": "HTML"
-        },
-        {
-          "name": "JavaScript"
-        },
-        {
-          "name": "ChatGPT"
-        }
-      ]
-    },
-    {
-      "id": "133136478",
-      "premium": false,
-      "name": "Программист",
-      "department": null,
-      "has_test": false,
-      "response_letter_required": false,
-      "area": {
-        "id": "1381",
-        "name": "Сургут",
-        "url": "https://api.hh.ru/areas/1381"
-      },
-      "salary": null,
-      "salary_range": null,
-      "type": {
-        "id": "open",
-        "name": "Открытая"
-      },
-      "address": {
-        "city": "Сургут",
-        "street": "проспект Ленина",
-        "building": "69/1",
-        "lat": 61.267921,
-        "lng": 73.36611,
-        "description": null,
-        "raw": "Сургут, проспект Ленина, 69/1",
-        "metro": null,
-        "metro_stations": [],
-        "id": "471058"
-      },
-      "response_url": null,
-      "sort_point_distance": null,
-      "published_at": "2026-05-15T13:28:02+0300",
-      "created_at": "2026-05-15T13:28:02+0300",
-      "archived": false,
-      "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=133136478",
-      "show_contacts": true,
-      "is_boosted_vacancy": null,
-      "insider_interview": null,
-      "url": "https://api.hh.ru/vacancies/133136478?host=hh.ru",
-      "alternate_url": "https://hh.ru/vacancy/133136478",
-      "relations": [],
-      "employer": {
-        "id": "1742382",
-        "name": "Бюджетное учреждение Ханты-Мансийского автономного округа - Югры Окружной кардиологический диспансер Центр диагностики и сердечно-сосудистой хирургии",
-        "url": "https://api.hh.ru/employers/1742382",
-        "alternate_url": "https://hh.ru/employer/1742382",
-        "logo_urls": {
-          "original": "https://img.hhcdn.ru/employer-logo-original-round/6789133.png",
-          "90": "https://img.hhcdn.ru/employer-logo-round/6789134.png",
-          "240": "https://img.hhcdn.ru/employer-logo-round/6789135.png"
-        },
-        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1742382",
-        "country_id": 1,
-        "accredited_it_employer": false,
-        "trusted": true
-      },
-      "snippet": {
-        "requirement": "высшее или среднее профессиональное образование «Информатика и вычислительная техника», «Информационные системы и технологии», «Программная инженерия», «Управление в технических системах».",
-        "responsibility": "Обслуживание, тестирование и внедрение программного обеспечения МИС. - Взаимодействует с <highlighttext>разработчиками</highlighttext> программного обеспечения по вопросам внедрения, эксплуатации, исправления ошибок и расширения..."
-      },
-      "contacts": {
-        "name": null,
-        "phones": []
-      },
-      "accept_temporary": false,
-      "fly_in_fly_out_duration": [],
-      "work_format": [
-        {
-          "id": "ON_SITE",
-          "name": "На месте работодателя"
-        }
-      ],
-      "working_hours": [
-        {
-          "id": "HOURS_8",
-          "name": "8 часов"
-        }
-      ],
-      "work_schedule_by_days": [
-        {
-          "id": "FIVE_ON_TWO_OFF",
-          "name": "5/2"
-        }
-      ],
-      "accept_labor_contract": false,
-      "civil_law_contracts": [],
-      "night_shifts": false,
-      "professional_roles": [
-        {
-          "id": "96",
-          "name": "Программист, разработчик"
-        }
-      ],
-      "accept_incomplete_resumes": false,
-      "experience": {
-        "id": "between3And6",
-        "name": "От 3 до 6 лет"
-      },
-      "employment_form": {
-        "id": "FULL",
-        "name": "Полная"
-      },
-      "internship": false,
-      "adv_response_url": null,
-      "is_adv_vacancy": false,
-      "adv_context": null,
-      "key_skills": []
     }
   ],
-  "found": 24957,
+  "found": 24951,
   "pages": 40,
   "page": 0,
   "per_page": 50,
