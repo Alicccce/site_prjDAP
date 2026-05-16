@@ -2,7 +2,6 @@
 # services/user_skill_service.py
 import colorama
 from colorama import init, Fore, Style
-# Инициализация colorama (автоматически настраивает кодировку)
 init(autoreset=True)
 from datetime import datetime
 from typing import List, Dict, Any
