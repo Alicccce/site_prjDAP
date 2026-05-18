@@ -289,7 +289,6 @@ onMounted(loadProfile)
 </script>
 
 <style scoped>
-/* ── Страница ── */
 .profile-page {
   min-height: 80vh;
   background: #f5f5f5;
@@ -307,7 +306,6 @@ onMounted(loadProfile)
 }
 .center-block.small { min-height: 200px; }
 
-/* ── Спиннер ── */
 .spinner {
   width: 44px; height: 44px;
   border: 4px solid #e0e0e0;
@@ -318,12 +316,10 @@ onMounted(loadProfile)
 .spinner.small { width: 28px; height: 28px; border-width: 3px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Ошибка ── */
 .error-icon { font-size: 40px; }
 .error-title { font-size: 18px; font-weight: 600; color: #e74c3c; }
 .hint { font-size: 14px; color: #888; }
 
-/* ── Layout ── */
 .profile-layout {
   max-width: 1100px;
   margin: 0 auto;
@@ -333,7 +329,6 @@ onMounted(loadProfile)
   align-items: start;
 }
 
-/* ── Sidebar ── */
 .profile-sidebar {
   background: white;
   border-radius: 16px;
@@ -389,7 +384,6 @@ onMounted(loadProfile)
 
 .full-width { width: 100%; }
 
-/* ── Кнопки ── */
 .btn-primary {
   padding: 11px 20px;
   background: #3de0cd;
@@ -414,7 +408,6 @@ onMounted(loadProfile)
 }
 .btn-ghost:hover { border-color: #7a4e30; background: #f9f6f3; }
 
-/* ── Main ── */
 .profile-main {
   background: white;
   border-radius: 16px;
@@ -438,14 +431,12 @@ onMounted(loadProfile)
   border-radius: 20px;
 }
 
-/* ── Загрузка планов ── */
 .plans-loading {
   display: flex; align-items: center; gap: 10px;
   color: #aaa; font-size: 14px; padding: 40px 0;
   justify-content: center;
 }
 
-/* ── Пустое состояние ── */
 .plans-empty {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -455,7 +446,6 @@ onMounted(loadProfile)
 .empty-title { font-size: 17px; font-weight: 600; color: #333; }
 .empty-hint { font-size: 14px; color: #aaa; margin-bottom: 8px; }
 
-/* ── Карточки планов ── */
 .plans-grid { display: flex; flex-direction: column; gap: 10px; }
 
 .plan-card {
@@ -627,14 +617,17 @@ onMounted(loadProfile)
 .slide-enter-active, .slide-leave-active { transition: all 0.25s ease; }
 .slide-enter-from, .slide-leave-to { opacity: 0; transform: translateY(-10px); }
 
-/* ── Адаптив ── */
 @media (max-width: 768px) {
   .profile-layout {
     grid-template-columns: 1fr;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
   }
   .profile-sidebar { position: static; }
   .profile-main { padding: 20px; }
   .modal { border-radius: 12px; }
   .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
+  .profile-page { overflow-x: hidden; }
 }
 </style>
