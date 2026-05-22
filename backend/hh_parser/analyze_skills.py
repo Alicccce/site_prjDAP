@@ -1,52 +1,50 @@
+# -*- coding: utf-8 -*-
+# analyze_skills.py
+
 import json
-import re
 from collections import Counter
 
-# Загружаем вакансии
-with open('vacancies.json', 'r', encoding='utf-8') as f:
-    vacancies = json.load(f)
-
-# Расширенный словарь навыков
+# расширенный словарь навыков
 SKILLS = {
-    # Языки программирования
+    # языки программирования
     "Python", "Java", "JavaScript", "TypeScript", "C++", "C#", "Go", "Rust",
     "PHP", "Ruby", "Swift", "Kotlin", "Scala",
 
-    # Фреймворки
+    # фреймворки
     "Django", "Flask", "FastAPI", "React", "Vue", "Angular", "Spring",
     "TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy",
 
-    # Базы данных
+    # базы данных
     "SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch",
     "ClickHouse", "Oracle", "Cassandra",
 
-    # DevOps и инструменты
+    # devops и инструменты
     "Docker", "Kubernetes", "Git", "Linux", "Bash", "Jenkins", "GitLab CI",
     "GitHub Actions", "Nginx", "Apache", "Terraform", "Ansible",
 
-    # Облачные технологии
+    # облачные технологии
     "AWS", "Azure", "GCP", "Yandex Cloud", "S3", "Lambda",
 
-    # Тестирование
+    # тестирование
     "pytest", "unittest", "Selenium", "Postman", "JMeter",
 
-    # API и протоколы
+    # api и протоколы
     "REST API", "GraphQL", "gRPC", "RabbitMQ", "Kafka", "Celery",
 
-    # Методологии
+    # методологии
     "Agile", "Scrum", "Kanban", "CI/CD", "TDD",
 
-    # Аналитика и ML
+    # аналитика и ml
     "Machine Learning", "Data Science", "NLP", "Computer Vision",
-    "Deep Learning", "Статистика", "Tableau", "Power BI"
+    "Deep Learning", "Statistics", "Tableau", "Power BI"
 }
 
-# Приводим к нижнему регистру для поиска
+# приводим к нижнему регистру для поиска
 skills_lower = {skill.lower(): skill for skill in SKILLS}
 
 
 def extract_skills(text):
-    """Извлекает навыки из текста"""
+    """extracts skills from text"""
     if not text:
         return []
     text = text.lower()
@@ -57,88 +55,82 @@ def extract_skills(text):
     return list(found)
 
 
-print(f" Анализ {len(vacancies)} вакансий...")
-print("-" * 50)
+def analyze_vacancies_dict(vacancies):
+    """
+    analyze vacancies from dict
 
-# Анализируем каждую вакансию
-skill_counter = Counter()
-total_vacancies = len(vacancies)
+    Args:
+        vacancies: list of vacancy dicts
 
-for vacancy in vacancies:
-    # Собираем текст из разных полей
-    text_parts = []
+    Returns:
+        dict with analysis results
+    """
+    skill_counter = Counter()
+    total_vacancies = len(vacancies)
 
-    if vacancy.get('name'):
-        text_parts.append(vacancy['name'])
-    if vacancy.get('description'):
-        text_parts.append(vacancy['description'])
+    for vacancy in vacancies:
+        text_parts = []
 
-    snippet = vacancy.get('snippet', {})
-    if snippet.get('requirement'):
-        text_parts.append(snippet['requirement'])
+        if vacancy.get('name'):
+            text_parts.append(vacancy['name'])
+        if vacancy.get('description'):
+            text_parts.append(vacancy['description'])
 
-    full_text = ' '.join(text_parts)
+        snippet = vacancy.get('snippet', {})
+        if snippet.get('requirement'):
+            text_parts.append(snippet['requirement'])
+        if snippet.get('responsibility'):
+            text_parts.append(snippet['responsibility'])
 
-    # Извлекаем навыки
-    skills = extract_skills(full_text)
-    for skill in set(skills):  # Каждый навык считаем 1 раз на вакансию
-        skill_counter[skill] += 1
+        full_text = ' '.join(text_parts)
+        skills = extract_skills(full_text)
 
-# Выводим результаты
-print("\n ТОП-15 НАВЫКОВ ПО ЧАСТОТНОСТИ:")
-print("-" * 50)
+        for skill in set(skills):
+            skill_counter[skill] += 1
 
-for i, (skill, count) in enumerate(skill_counter.most_common(15), 1):
-    frequency = (count / total_vacancies) * 100
+    result = {
+        "total_vacancies": total_vacancies,
+        "skills": [
+            {
+                "name": skill,
+                "frequency": round((count / total_vacancies) * 100, 1),
+                "count": count
+            }
+            for skill, count in skill_counter.most_common()
+        ]
+    }
 
-    if frequency > 70:
-        importance = " ОБЯЗАТЕЛЬНЫЙ"
-    elif frequency > 40:
-        importance = "РЕКОМЕНДУЕМЫЙ"
+    return result
+
+
+def analyze_vacancies_file(input_file="vacancies.json", output_file="analysis_result.json"):
+    """analyze vacancies from JSON file and save results"""
+    with open(input_file, 'r', encoding='utf-8') as f:
+        vacancies_data = json.load(f)
+
+    if isinstance(vacancies_data, dict) and 'items' in vacancies_data:
+        vacancies = vacancies_data['items']
+    elif isinstance(vacancies_data, list):
+        vacancies = vacancies_data
     else:
-        importance = " ЖЕЛАТЕЛЬНЫЙ"
+        raise ValueError(f"Unexpected JSON format in {input_file}")
 
-    print(f"{i:2}. {skill}: {frequency:5.1f}% {importance}")
+    result = analyze_vacancies_dict(vacancies)
 
-# Дополнительная статистика
-print("\n" + "=" * 50)
-print("ДОПОЛНИТЕЛЬНАЯ СТАТИСТИКА:")
-print("=" * 50)
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
 
-# Навыки, которые встречаются в 100% вакансий
-mandatory_skills = [(s, c) for s, c in skill_counter.most_common()
-                    if (c / total_vacancies) * 100 >= 100]
+    print(f"Analysis saved to {output_file}")
+    return result
 
-if mandatory_skills:
-    print("\nОбязательные навыки (100% вакансий):")
-    for skill, count in mandatory_skills:
-        print(f"   - {skill}")
 
-# Навыки с низкой частотностью (редкие, но могут быть важны)
-rare_skills = [(s, c) for s, c in skill_counter.most_common()
-               if (c / total_vacancies) * 100 < 20 and c > 0]
+# этот код выполняется только при прямом запуске (не при импорте)
+if __name__ == "__main__":
+    import sys
 
-if rare_skills:
-    print("\n🟢 Редкие навыки (менее 20% вакансий):")
-    for skill, count in rare_skills[:5]:
-        freq = (count / total_vacancies) * 100
-        print(f"   - {skill}: {freq:.1f}%")
+    if len(sys.argv) > 1:
+        input_file = sys.argv[1]
+    else:
+        input_file = "vacancies.json"
 
-# Сохраняем результат
-result = {
-    "total_vacancies": total_vacancies,
-    "skills": [
-        {
-            "name": skill,
-            "frequency": round((count / total_vacancies) * 100, 1),
-            "count": count
-        }
-        for skill, count in skill_counter.most_common()
-    ]
-}
-
-with open('analysis_result.json', 'w', encoding='utf-8') as f:
-    json.dump(result, f, ensure_ascii=False, indent=2)
-
-print(f"\nРезультат сохранен в analysis_result.json")
-print(f"\n Анализ завершен!")
+    analyze_vacancies_file(input_file)
