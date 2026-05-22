@@ -47,7 +47,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:3000",
-        "https://site-prjdap-front.onrender.com"
+        "https://site-prjdap-front.onrender.com",
+        "https://site-prjdap-27x6.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
