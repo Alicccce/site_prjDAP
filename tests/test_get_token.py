@@ -5,8 +5,7 @@ import sys
 import os
 import pytest
 import subprocess
-import pytest
-pytest.skip("Skipping — get_token.py moved to backend/hh_parser/", allow_module_level=True)
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
@@ -15,7 +14,7 @@ class TestGetToken:
     
     def test_script_runs_without_error(self, tmp_path):
         """test: script runs without crashing"""
-        script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "get_token.py")
+        script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "backend", "hh_parser", "get_token.py")
         
         result = subprocess.run(
             ["python", script_path],
@@ -32,7 +31,7 @@ class TestGetToken:
     
     def test_token_file_created_if_not_exists(self, tmp_path):
         """test: token file is created when API returns token"""
-        script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "get_token.py")
+        script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "backend", "hh_parser", "get_token.py")
         
         # удаляем существующий токен, если он есть в tmp_path
         token_file = tmp_path / "token.txt"
@@ -55,7 +54,7 @@ class TestGetToken:
     
     def test_script_output_contains_token_info(self, tmp_path):
         """test: script prints token info when successful"""
-        script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "get_token.py")
+        script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "backend", "hh_parser", "get_token.py")
         
         result = subprocess.run(
             ["python", script_path],
@@ -78,7 +77,7 @@ class TestGetTokenManual:
     
     def test_get_token_manually(self):
         """manual test: just run get_token.py"""
-        script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "get_token.py")
+        script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "backend", "hh_parser", "get_token.py")
         subprocess.run(["python", script_path])
 
 
