@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 # tests/test_user.py
-import colorama
-from colorama import init, Fore, Style
-init(autoreset=True)
 import sys
 import os
+import time
 import pytest
-pytest.skip("Skipping — duplicate email issue", allow_module_level=True)
 
 
 # Add the path to the Project root folder
@@ -28,7 +25,7 @@ def test_user_repository():
     
     # Creating tables in the test database
     Base.metadata.create_all(test_engine)
-    
+    email=f"test_{int(time.time()*1000)}@example.com",
     # Temporarily replacing the engine
     db_module.engine = test_engine
     
@@ -37,19 +34,20 @@ def test_user_repository():
         
         # Test 1: Creating a User
         print("Test 1: Creating a User")
+        unique_email = f"test_{int(time.time()*1000)}@example.com"
         new_user = User(
-            email="test@example.com",
+            email=unique_email,
             name="Test User",
             password_hash="hashed_password_123"
         )
         created = repo.create(new_user)
         assert created.id is not None
-        assert created.email == "test@example.com"
+        assert created.email == unique_email
         print(f"The user was created with the id ={created.id}")
         
         # Test 2: Email Search
         print("\nTest 2: Search by email")
-        found = repo.find_by_email("test@example.com")
+        found = repo.find_by_email(unique_email)
         assert found is not None
         assert found.name == "Test User"
         print(f"The user has been found: {found.name}")
@@ -57,7 +55,7 @@ def test_user_repository():
         # Test 3: Attempt to create a duplicate email
         print("\nTest 3: Duplicate Protection")
         duplicate_user = User(
-            email="test@example.com",
+            email=unique_email,
             name="Another User",
             password_hash="another_hash"
         )
