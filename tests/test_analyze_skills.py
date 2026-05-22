@@ -8,9 +8,9 @@ import json
 from collections import Counter
 from unittest.mock import mock_open, patch
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'backend', 'hh_parser'))
 
-# импортируем функции из analyze_skills.py
+# ГЁГ¬ГЇГ®Г°ГІГЁГ°ГіГҐГ¬ ГґГіГ­ГЄГ¶ГЁГЁ ГЁГ§ analyze_skills.py
 from analyze_skills import extract_skills, SKILLS, skills_lower
 
 
