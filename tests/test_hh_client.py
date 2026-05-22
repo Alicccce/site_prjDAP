@@ -52,7 +52,7 @@ class TestHHClientInit:
         client = HHClient(token="explicit_token")
         assert client.token == "explicit_token"
         assert client.base_url == "https://api.hh.ru/vacancies"
-        assert client.per_page == 20
+        assert client.per_page == 50
     
     def test_init_without_token_loads_from_file(self):
         with patch('hh_client.load_token_from_file', return_value="file_token"):
