@@ -5,8 +5,6 @@ from colorama import init, Fore, Style
 init(autoreset=True)
 import sys
 import os
-import pytest
-pytest.skip("Skipping — get_token.py moved to backend/hh_parser/", allow_module_level=True)
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from datetime import datetime
@@ -37,18 +35,20 @@ def cleanup_test_db(original_engine):
 def create_test_data():
     """create test users, skills and sessions"""
     user_repo = UserRepository()
-    
+    import time
+    unique_email = f"test_skills_user_{int(time.time()*1000)}@example.com"
     # create test user
     test_user = User(
-        email="test_skills_user@example.com",
+        email=unique_email,
         name="Skills Test User",
         password_hash="test_hash_123"
     )
     created_user = user_repo.create(test_user)
     
     # create test skill
+    unique_skill_name = f"TestSkill_{int(time.time()*1000)}"
     session = BaseRepository().get_session()
-    test_skill = Skill(name="Python")
+    test_skill = Skill(name=unique_skill_name)
     session.add(test_skill)
     session.commit()
     session.refresh(test_skill)
@@ -66,7 +66,7 @@ def create_test_data():
     session2.refresh(test_session)
     session2.close()
     
-    return created_user, test_skill, test_session
+    return created_user, test_skill, test_session, unique_skill_name
 
 def cleanup_test_data(user_id):
     """clean up test data"""
@@ -83,7 +83,7 @@ def test_skills_user_repository():
     
     try:
         # create test data
-        test_user, test_skill, test_session = create_test_data()
+        test_user, test_skill, test_session, unique_skill_name = create_test_data()
         print(f"\nTest data created: user_id={test_user.id}, skill_id={test_skill.id}, session_id={test_session.id}")
         
         repo = SkillsUserRepository()
@@ -117,7 +117,7 @@ def test_skills_user_repository():
         print("\nTest 4: find by user and session")
         skills_list = repo.find_by_user_and_session(test_user.id, test_session.id)
         assert len(skills_list) >= 1
-        assert skills_list[0]["skill_name"] == "Python"
+        assert skills_list[0]["skill_name"] == unique_skill_name
         print(f"Found skills: {[s['skill_name'] for s in skills_list]}")
         
         # test 5: duplicate protection
@@ -145,7 +145,7 @@ def test_skills_user_repository():
         # test 7: get skill names by user
         print("\nTest 7: get skill names by user")
         skill_names = repo.get_skill_names_by_user(test_user.id)
-        assert "Python" in skill_names
+        assert unique_skill_name in skill_names
         print(f"User skills: {skill_names}")
         
         # test 8: delete record
