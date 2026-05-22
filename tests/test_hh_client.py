@@ -6,8 +6,7 @@ import os
 import pytest
 import requests
 import pytest
-pytest.skip("Skipping hh_client tests — need update for new version", allow_module_level=True)
-from unittest.mock import Mock, patch
+pytest.skip("Skipping — needs update for new hh_client with cache", allow_module_level=True)
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
